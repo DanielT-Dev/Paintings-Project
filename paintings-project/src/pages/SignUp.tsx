@@ -113,7 +113,7 @@ export default function SignUp() {
           </Button>
 
           <Text fontSize="sm" textAlign="center">
-            Already have an account? <Link to="/">Login</Link>
+            Already have an account? <Link to="/login">Login</Link>
           </Text>
         </VStack>
       </Box>

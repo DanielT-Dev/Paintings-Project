@@ -1,13 +1,14 @@
 import './App.css'
 
-import { Button } from "@chakra-ui/react";
+import { Routes, Route } from "react-router-dom";
+import Login from "./pages/Login.tsx";
+import SignUp from "./pages/SignUp.tsx";
 
-function App() {
+export default function App() {
   return (
-    <Button colorScheme="blue">
-      Hello Chakra UI
-    </Button>
+    <Routes>
+      <Route path="/" element={<Login />} />
+      <Route path="/signup" element={<SignUp />} />
+    </Routes>
   );
 }
-
-export default App;

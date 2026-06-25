@@ -21,43 +21,47 @@ export default function Login() {
     setPassword,
     loading,
     setLoading,
+    errors,
+    setErrors,
     reset,
   } = useAuthForm();
 
   const handleLogin = async () => {
-    const errors = validateAuth(email, password);
+    const result = validateAuth(email, password);
+    setErrors(result);
 
-    const hasErrors = Object.keys(errors).length > 0;
-
-    if (hasErrors) {
-      toast({
-        title: "Please fix the following issues",
-        description: Object.values(errors).join(" • "),
-        status: "error",
-        duration: 4000,
-        isClosable: true,
-      });
-      return;
-    }
+    if (Object.keys(result).length > 0) return;
 
     try {
       setLoading(true);
 
-      await new Promise((res) => setTimeout(res, 1000));
+      const res = await fetch("http://localhost:5000/api/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.message || "Login failed");
+      }
 
       toast({
-        title: "Welcome back!",
-        description: "You have successfully logged in.",
+        title: "Login successful",
+        description: data.message,
         status: "success",
         duration: 3000,
         isClosable: true,
       });
 
       reset();
-    } catch {
+    } catch (err: any) {
       toast({
         title: "Login failed",
-        description: "Something went wrong. Please try again.",
+        description: err.message,
         status: "error",
         duration: 3000,
         isClosable: true,
@@ -70,32 +74,45 @@ export default function Login() {
   return (
     <Box minH="100vh" display="flex" alignItems="center" justifyContent="center" bg="gray.50">
       <Box w="sm" p={8} bg="white" borderRadius="lg" boxShadow="md">
-        <VStack spacing={4}>
-          <Heading>Login</Heading>
+        <VStack spacing={3} align="stretch">
+          <Heading textAlign="center">Login</Heading>
 
-          <Input
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
+          <Box>
+            <Input
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            {errors.email && (
+              <Text fontSize="sm" color="red.500">
+                {errors.email}
+              </Text>
+            )}
+          </Box>
 
-          <Input
-            placeholder="Password"
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
+          <Box>
+            <Input
+              placeholder="Password"
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            {errors.password && (
+              <Text fontSize="sm" color="red.500">
+                {errors.password}
+              </Text>
+            )}
+          </Box>
 
           <Button
             colorScheme="blue"
-            w="full"
             onClick={handleLogin}
             isLoading={loading}
           >
             Login
           </Button>
 
-          <Text fontSize="sm">
+          <Text fontSize="sm" textAlign="center">
             No account? <Link to="/signup">Sign up</Link>
           </Text>
         </VStack>

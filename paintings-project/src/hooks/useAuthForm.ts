@@ -6,9 +6,15 @@ export function useAuthForm() {
 
   const [loading, setLoading] = useState(false);
 
+  const [errors, setErrors] = useState<{
+    email?: string;
+    password?: string;
+  }>({});
+
   const reset = () => {
     setEmail("");
     setPassword("");
+    setErrors({});
   };
 
   return {
@@ -18,6 +24,8 @@ export function useAuthForm() {
     setPassword,
     loading,
     setLoading,
+    errors,
+    setErrors,
     reset,
   };
 }

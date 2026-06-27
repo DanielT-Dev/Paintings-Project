@@ -24,41 +24,48 @@ const features = [
 
 export default function FeatureCards() {
     return (
-        <Box px={6} py={24} position="relative" zIndex={2}>
-            <SimpleGrid columns={{ base: 1, md: 3 }} spacing={8} maxW="1100px" mx="auto">
+        <Box px={6} py={28}>
+            <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10} maxW="1100px" mx="auto">
+
                 {features.map((f, i) => (
                     <MotionBox
                         key={i}
                         initial={{ opacity: 0, y: 40 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: i * 0.1 }}
                         viewport={{ once: true }}
-                        p={8}
-                        borderRadius="16px"
-                        bg="rgba(255,255,255,0.6)"
-                        backdropFilter="blur(12px)"
-                        border="1px solid rgba(0,0,0,0.06)"
-                        boxShadow="md"
-                        _hover={{
-                            transform: "translateY(-8px)",
-                            boxShadow: "xl",
-                        }}
+                        transition={{ duration: 0.6, delay: i * 0.1 }}
                     >
-                        <VStack spacing={4} align="start">
-                            <Box fontSize="24px">
-                                <f.icon />
-                            </Box>
+                        <Box
+                            p={8}
+                            borderRadius="20px"
+                            bg="rgba(255,255,255,0.6)"
+                            backdropFilter="blur(16px)"
+                            border="1px solid rgba(0,0,0,0.06)"
+                            boxShadow="md"
+                            transition="all 0.35s ease"
+                            _hover={{
+                                transform: "translateY(-10px) scale(1.02)",
+                                boxShadow: "2xl",
+                                bg: "rgba(255,255,255,0.75)",
+                            }}
+                        >
+                            <VStack spacing={4} align="start">
+                                <Box fontSize="26px">
+                                    <f.icon />
+                                </Box>
 
-                            <Text fontWeight="600" fontSize="18px">
-                                {f.title}
-                            </Text>
+                                <Text fontWeight="600" fontSize="18px">
+                                    {f.title}
+                                </Text>
 
-                            <Text fontSize="14px" opacity={0.6}>
-                                {f.desc}
-                            </Text>
-                        </VStack>
+                                <Text fontSize="14px" opacity={0.6}>
+                                    {f.desc}
+                                </Text>
+                            </VStack>
+                        </Box>
                     </MotionBox>
                 ))}
+
             </SimpleGrid>
         </Box>
     );

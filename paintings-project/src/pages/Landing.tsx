@@ -8,14 +8,26 @@ import NoiseOverlay from "../components/NoiseOverlay";
 
 export default function Landing() {
     return (
-        <Box minH="100vh" position="relative" bg="gray.50" overflow="hidden">
+        <Box minH="100vh" position="relative" overflow="hidden">
 
-            {/* background lighting */}
+            {/* BASE LIGHTING */}
             <Box
                 position="fixed"
                 inset={0}
-                bg="radial-gradient(circle at top, #ffffff 0%, #edf2f7 40%, #f7fafc 100%)"
+                bg="radial-gradient(circle at top, #ffffff 0%, #edf2f7 45%, #f7fafc 100%)"
                 zIndex={0}
+            />
+
+            {/* MOVING AMBIENT GLOW */}
+            <Box
+                position="fixed"
+                inset={0}
+                zIndex={0}
+                opacity={0.7}
+                background="radial-gradient(circle at 20% 30%, rgba(99,179,237,0.25), transparent 40%),
+                            radial-gradient(circle at 80% 70%, rgba(246,173,85,0.18), transparent 45%),
+                            radial-gradient(circle at 50% 90%, rgba(252,129,129,0.15), transparent 50%)"
+                animation="float1 20s ease-in-out infinite"
             />
 
             <NoiseOverlay />
@@ -30,14 +42,10 @@ export default function Landing() {
                 </Box>
 
                 {/* CAROUSEL */}
-                <Box position="relative">
-                    <Carousel />
-                </Box>
+                <Carousel />
 
                 {/* FEATURES */}
-                <Box mt="40px">
-                    <FeatureCards />
-                </Box>
+                <FeatureCards />
             </Box>
         </Box>
     );

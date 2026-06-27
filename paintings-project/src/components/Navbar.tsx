@@ -24,36 +24,38 @@ export default function Navbar() {
                 align="center"
                 justify="space-between"
             >
-                {/* Logo */}
-                <Text
-                    fontWeight="600"
-                    fontSize="18px"
-                    cursor="pointer"
-                    onClick={() => navigate("/")}
-                >
+                <Text fontWeight="600" fontSize="18px">
                     Paintings
                 </Text>
 
-                {/* Links */}
                 <HStack spacing={8} display={{ base: "none", md: "flex" }}>
-                    <Text fontSize="14px" opacity={0.7} cursor="pointer">
-                        Gallery
-                    </Text>
-                    <Text fontSize="14px" opacity={0.7} cursor="pointer">
-                        Stories
-                    </Text>
-                    <Text fontSize="14px" opacity={0.7} cursor="pointer">
-                        Explore
-                    </Text>
+                    {["Gallery", "Stories", "Explore"].map((item) => (
+                        <Text
+                            key={item}
+                            fontSize="14px"
+                            opacity={0.7}
+                            cursor="pointer"
+                            transition="all 0.2s ease"
+                            _hover={{
+                                opacity: 1,
+                                transform: "translateY(-1px)",
+                            }}
+                        >
+                            {item}
+                        </Text>
+                    ))}
                 </HStack>
 
-                {/* Buttons */}
                 <HStack spacing={3}>
                     <Button
                         size="sm"
                         variant="ghost"
                         leftIcon={<FiLogIn />}
                         onClick={() => navigate("/login")}
+                        transition="all 0.25s ease"
+                        _hover={{
+                            transform: "translateY(-2px)",
+                        }}
                     >
                         Login
                     </Button>
@@ -63,8 +65,12 @@ export default function Navbar() {
                         bg="black"
                         color="white"
                         leftIcon={<FiUserPlus />}
-                        _hover={{ bg: "gray.800" }}
                         onClick={() => navigate("/signup")}
+                        _hover={{
+                            bg: "gray.800",
+                            transform: "translateY(-2px)",
+                        }}
+                        transition="all 0.25s ease"
                     >
                         Sign up
                     </Button>

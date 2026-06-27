@@ -1,17 +1,40 @@
 import { Box, Text, Button, VStack, HStack } from "@chakra-ui/react";
 import { FiArrowRight } from "react-icons/fi";
 
+const buttonBase = {
+    transition: "all 0.25s ease",
+    _hover: {
+        transform: "translateY(-2px)",
+        boxShadow: "lg",
+    },
+    _active: {
+        transform: "translateY(0px) scale(0.98)",
+    },
+};
+
 export default function Hero() {
     return (
         <Box
             position="relative"
             zIndex={2}
-            pt="160px"
-            pb="100px"
-            minH="65vh"
+            pt="150px"
+            pb="90px"
+            minH="70vh"
             textAlign="center"
         >
-            <VStack spacing={6}>
+            <Box
+                position="absolute"
+                top="20%"
+                left="50%"
+                transform="translateX(-50%)"
+                w="500px"
+                h="300px"
+                bg="radial-gradient(circle, rgba(99,179,237,0.25), transparent 70%)"
+                filter="blur(40px)"
+                zIndex={0}
+            />
+
+            <VStack spacing={6} position="relative" zIndex={1}>
                 <Text
                     fontSize={{ base: "36px", md: "56px" }}
                     fontWeight="600"
@@ -28,13 +51,20 @@ export default function Hero() {
                     <Button
                         bg="black"
                         color="white"
-                        _hover={{ bg: "gray.800" }}
                         rightIcon={<FiArrowRight />}
+                        {...buttonBase}
+                        _hover={{
+                            ...buttonBase._hover,
+                            bg: "gray.800",
+                        }}
                     >
                         Explore Gallery
                     </Button>
 
-                    <Button variant="ghost">
+                    <Button
+                        variant="ghost"
+                        {...buttonBase}
+                    >
                         Learn more
                     </Button>
                 </HStack>

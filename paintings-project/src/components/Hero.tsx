@@ -6,7 +6,9 @@ export default function Hero() {
         <Box
             position="relative"
             zIndex={2}
-            pt="140px"
+            pt="160px"
+            pb="100px"
+            minH="65vh"
             textAlign="center"
         >
             <VStack spacing={6}>

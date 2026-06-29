@@ -7,6 +7,7 @@ import FeatureCards from "../components/FeatureCards";
 import NoiseOverlay from "../components/NoiseOverlay";
 
 export default function Landing() {
+
     return (
         <Box minH="100vh" position="relative" overflow="hidden">
 

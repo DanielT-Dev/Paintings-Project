@@ -5,6 +5,12 @@ import { useNavigate } from "react-router-dom";
 export default function Navbar() {
     const navigate = useNavigate();
 
+    const navItems = [
+        { label: "Gallery", path: "/gallery" },
+        { label: "Stories", path: "/stories" },
+        { label: "Explore", path: "/explore" },
+    ];
+
     return (
         <Box
             position="fixed"
@@ -24,24 +30,34 @@ export default function Navbar() {
                 align="center"
                 justify="space-between"
             >
-                <Text fontWeight="600" fontSize="18px">
+                <Text
+                    fontWeight="600"
+                    fontSize="18px"
+                    cursor="pointer"
+                    transition="all 0.2s ease"
+                    onClick={() => navigate("/")}
+                    _hover={{
+                        opacity: 0.8,
+                    }}
+                >
                     Paintings
                 </Text>
 
                 <HStack spacing={8} display={{ base: "none", md: "flex" }}>
-                    {["Gallery", "Stories", "Explore"].map((item) => (
+                    {navItems.map((item) => (
                         <Text
-                            key={item}
+                            key={item.label}
                             fontSize="14px"
                             opacity={0.7}
                             cursor="pointer"
                             transition="all 0.2s ease"
+                            onClick={() => navigate(item.path)}
                             _hover={{
                                 opacity: 1,
                                 transform: "translateY(-1px)",
                             }}
                         >
-                            {item}
+                            {item.label}
                         </Text>
                     ))}
                 </HStack>
@@ -66,11 +82,11 @@ export default function Navbar() {
                         color="white"
                         leftIcon={<FiUserPlus />}
                         onClick={() => navigate("/signup")}
+                        transition="all 0.25s ease"
                         _hover={{
                             bg: "gray.800",
                             transform: "translateY(-2px)",
                         }}
-                        transition="all 0.25s ease"
                     >
                         Sign up
                     </Button>

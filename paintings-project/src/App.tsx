@@ -5,6 +5,7 @@ import { AnimatePresence } from "framer-motion";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import Landing from "./pages/Landing";
+import Gallery from "./pages/Gallery";
 import PageTransition from "./components/PageTransition";
 
 export default function App() {
@@ -21,6 +22,16 @@ export default function App() {
                         </PageTransition>
                     }
                 />
+
+                <Route
+                    path="/gallery"
+                    element={
+                        <PageTransition>
+                            <Gallery />
+                        </PageTransition>
+                    }
+                />
+
                 <Route
                     path="/login"
                     element={
@@ -29,6 +40,7 @@ export default function App() {
                         </PageTransition>
                     }
                 />
+
                 <Route
                     path="/signup"
                     element={

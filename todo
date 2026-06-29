@@ -50,12 +50,19 @@ Step 7B completed (page transitions)
 Step 7A completed (micro-interactions)
 background + hero + navbar + carousel + feature cards implemented
 
-Next likely step:
-
-optional: painting modal / detail view (museum story experience)
-
 # Create backend for authentication with:
     # Unit Testing
     # UML diagrams
     # MongoDB database
     # Rate Limiting and security
+
+A few improvements I'd make in the next step
+
+Rather than stopping here, I'd make the gallery feel much more like a premium digital museum by adding:
+
+🎨 A glass filter panel instead of simple tags.
+❤️ A favorite/like button that appears on hover.
+👁️ A "View Painting" overlay that fades in when hovering an image.
+🖼️ Different image heights (Pinterest/masonry style) to avoid the page looking too uniform.
+✨ Scroll reveal animations so each row fades in as it enters the viewport.
+📄 Clicking a painting opens a beautiful full-page painting details view with a hero image, description, artist, year, medium, and related works.

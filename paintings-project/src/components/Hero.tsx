@@ -1,5 +1,6 @@
 import { Box, Text, Button, VStack, HStack } from "@chakra-ui/react";
 import { FiArrowRight } from "react-icons/fi";
+import { useNavigate } from "react-router-dom";
 
 const buttonBase = {
     transition: "all 0.25s ease",
@@ -13,6 +14,8 @@ const buttonBase = {
 };
 
 export default function Hero() {
+    const navigate = useNavigate();
+
     return (
         <Box
             position="relative"
@@ -52,6 +55,7 @@ export default function Hero() {
                         bg="black"
                         color="white"
                         rightIcon={<FiArrowRight />}
+                        onClick={() => navigate("/gallery")}
                         {...buttonBase}
                         _hover={{
                             ...buttonBase._hover,

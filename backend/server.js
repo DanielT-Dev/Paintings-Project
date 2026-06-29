@@ -4,6 +4,8 @@ const cors = require("cors");
 const dotenv = require("dotenv");
 const connectDB = require("./db/connect");
 
+const path = require("path");
+
 dotenv.config();
 
 const paintingRoutes = require("./routes/paintingRoutes");
@@ -12,6 +14,12 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
+app.use(
+  "/paintings",
+  express.static(
+    path.join(__dirname, "../Paintings-Project/paintings-project/public/paintings")
+  )
+);
 
 const users = [];
 

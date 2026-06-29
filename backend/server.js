@@ -1,6 +1,11 @@
 const express = require("express");
 const cors = require("cors");
 
+const dotenv = require("dotenv");
+const connectDB = require("./db/connect");
+
+dotenv.config();
+
 const paintingRoutes = require("./routes/paintingRoutes");
 
 const app = express();
@@ -44,6 +49,8 @@ app.post("/api/login", async (req, res) => {
 app.use("/api/paintings", paintingRoutes);
 
 /* -------------------- */
+
+connectDB();
 
 app.listen(5000, () => {
   console.log("Server running on http://localhost:5000");

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
     Box,
     Container,
@@ -9,8 +10,6 @@ import {
     Grid,
     VStack,
     Image,
-    Tag,
-    Wrap,
 } from "@chakra-ui/react";
 import { SearchIcon } from "@chakra-ui/icons";
 import { motion } from "framer-motion";
@@ -18,54 +17,85 @@ import Navbar from "../components/Navbar";
 
 const MotionBox = motion(Box);
 
-const paintings = [
+type Painting = {
+    title: string;
+    artist: string;
+    image: string;
+    height: string;
+};
+
+const paintings: Painting[] = [
     {
         title: "Starry Night",
         artist: "Vincent van Gogh",
-        image:
-            "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=700",
+        image: "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=800",
+        height: "420px",
     },
     {
-        title: "Golden Forest",
-        artist: "Unknown",
-        image:
-            "https://images.unsplash.com/photo-1578301979108-0a1d1d44f1e2?w=700",
+        title: "Golden Horizon",
+        artist: "Unknown Artist",
+        image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=800",
+        height: "520px",
     },
     {
         title: "Silent Lake",
-        artist: "Unknown",
-        image:
-            "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?w=700",
+        artist: "Claude Monet",
+        image: "https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=800",
+        height: "360px",
     },
     {
-        title: "Autumn Light",
-        artist: "Unknown",
-        image:
-            "https://images.unsplash.com/photo-1578926375605-eaf7559b1458?w=700",
+        title: "Autumn Path",
+        artist: "Unknown Artist",
+        image: "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=800",
+        height: "480px",
     },
     {
-        title: "Dream",
-        artist: "Unknown",
-        image:
-            "https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=700",
+        title: "Blue Mountains",
+        artist: "Hokusai Inspired",
+        image: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800",
+        height: "440px",
     },
     {
-        title: "Morning",
-        artist: "Unknown",
-        image:
-            "https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=700",
+        title: "Dream Forest",
+        artist: "Unknown Artist",
+        image: "https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=800",
+        height: "540px",
     },
     {
-        title: "Nature",
-        artist: "Unknown",
-        image:
-            "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=700",
+        title: "Morning Light",
+        artist: "J. Turner",
+        image: "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?w=800",
+        height: "380px",
     },
     {
-        title: "Reflection",
-        artist: "Unknown",
-        image:
-            "https://images.unsplash.com/photo-1578301979108-0a1d1d44f1e2?w=700",
+        title: "Ancient Ruins",
+        artist: "Unknown Artist",
+        image: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800",
+        height: "500px",
+    },
+    {
+        title: "Ocean Whisper",
+        artist: "Claude Monet",
+        image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800",
+        height: "450px",
+    },
+    {
+        title: "Red Silence",
+        artist: "Abstract Master",
+        image: "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=800",
+        height: "470px",
+    },
+    {
+        title: "Winter Glow",
+        artist: "Unknown Artist",
+        image: "https://images.unsplash.com/photo-1482192596544-9eb780fc7f66?w=800",
+        height: "410px",
+    },
+    {
+        title: "Eternal Fields",
+        artist: "Van Gogh Inspired",
+        image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=800",
+        height: "530px",
     },
 ];
 
@@ -73,13 +103,21 @@ const filters = [
     "All",
     "Renaissance",
     "Modern",
-    "Oil",
-    "Portrait",
-    "Landscape",
+    "Impressionism",
     "Abstract",
+    "Landscape",
 ];
 
 export default function Gallery() {
+    const [activeFilter, setActiveFilter] = useState("All");
+
+    const filteredPaintings =
+        activeFilter === "All"
+            ? paintings
+            : paintings.filter((p) =>
+                  p.title.toLowerCase().includes(activeFilter.toLowerCase())
+              );
+
     return (
         <>
             <Navbar />
@@ -87,30 +125,24 @@ export default function Gallery() {
             <Box bg="#fafafa" minH="100vh" pt="120px" pb={20}>
                 <Container maxW="1400px">
 
-                    <VStack spacing={4} mb={12}>
-                        <Heading
-                            fontSize={{ base: "3xl", md: "5xl" }}
-                            fontWeight="700"
-                        >
+                    {/* TITLE */}
+                    <VStack spacing={4} mb={10}>
+                        <Heading fontSize={{ base: "3xl", md: "5xl" }}>
                             Gallery
                         </Heading>
 
-                        <Text
-                            color="gray.600"
-                            textAlign="center"
-                            maxW="600px"
-                        >
-                            Explore timeless masterpieces from artists around
-                            the world.
+                        <Text color="gray.600" textAlign="center" maxW="600px">
+                            Explore timeless masterpieces from artists around the world.
                         </Text>
 
+                        {/* SEARCH */}
                         <InputGroup maxW="650px" mt={6}>
                             <InputLeftElement
-                                pointerEvents="none"
                                 h="56px"
                                 display="flex"
                                 alignItems="center"
                                 justifyContent="center"
+                                pointerEvents="none"
                             >
                                 <SearchIcon color="gray.500" />
                             </InputLeftElement>
@@ -130,36 +162,57 @@ export default function Gallery() {
                                 }}
                             />
                         </InputGroup>
-
-                        <Wrap
-                            justify="center"
-                            spacing={3}
-                            mt={2}
-                        >
-                            {filters.map((filter) => (
-                                <Tag
-                                    key={filter}
-                                    px={5}
-                                    py={2}
-                                    size="lg"
-                                    cursor="pointer"
-                                    borderRadius="full"
-                                    bg="white"
-                                    transition="all .25s"
-                                    border="1px solid"
-                                    borderColor="blackAlpha.100"
-                                    _hover={{
-                                        bg: "black",
-                                        color: "white",
-                                        transform: "translateY(-2px)",
-                                    }}
-                                >
-                                    {filter}
-                                </Tag>
-                            ))}
-                        </Wrap>
                     </VStack>
 
+                    {/* GLASS FILTER PANEL */}
+                    <Box
+                        mb={12}
+                        display="flex"
+                        justifyContent="center"
+                    >
+                        <Box
+                            px={6}
+                            py={4}
+                            borderRadius="full"
+                            bg="rgba(255,255,255,0.6)"
+                            backdropFilter="blur(18px)"
+                            border="1px solid rgba(0,0,0,0.06)"
+                            boxShadow="0 10px 30px rgba(0,0,0,0.05)"
+                            display="flex"
+                            gap={3}
+                            flexWrap="wrap"
+                            justifyContent="center"
+                        >
+                            {filters.map((filter) => {
+                                const isActive = activeFilter === filter;
+
+                                return (
+                                    <Box
+                                        key={filter}
+                                        px={5}
+                                        py={2}
+                                        borderRadius="full"
+                                        fontSize="14px"
+                                        cursor="pointer"
+                                        transition="all 0.25s ease"
+                                        bg={isActive ? "black" : "transparent"}
+                                        color={isActive ? "white" : "black"}
+                                        border="1px solid"
+                                        borderColor={isActive ? "black" : "transparent"}
+                                        _hover={{
+                                            transform: "translateY(-2px)",
+                                            boxShadow: "0 8px 20px rgba(0,0,0,0.08)",
+                                        }}
+                                        onClick={() => setActiveFilter(filter)}
+                                    >
+                                        {filter}
+                                    </Box>
+                                );
+                            })}
+                        </Box>
+                    </Box>
+
+                    {/* GRID */}
                     <Grid
                         templateColumns={{
                             base: "1fr",
@@ -167,46 +220,88 @@ export default function Gallery() {
                             lg: "repeat(3,1fr)",
                             xl: "repeat(4,1fr)",
                         }}
-                        gap={10}
+                        gap={8}
                     >
-                        {paintings.map((painting, index) => (
+                        {filteredPaintings.map((painting, index) => (
                             <MotionBox
                                 key={index}
-                                whileHover={{
-                                    y: -8,
-                                    scale: 1.03,
-                                }}
-                                transition={{
-                                    duration: .25,
-                                }}
+                                whileHover={{ y: -10 }}
+                                transition={{ duration: 0.25 }}
                             >
-                                <VStack
-                                    spacing={4}
-                                    align="start"
+                                <Box
+                                    role="group"
+                                    borderRadius="2xl"
+                                    overflow="hidden"
+                                    bg="white"
+                                    boxShadow="lg"
+                                    position="relative"
                                 >
-                                    <Image
-                                        src={painting.image}
-                                        h="420px"
-                                        w="100%"
-                                        objectFit="cover"
-                                        borderRadius="2xl"
-                                        shadow="xl"
-                                        transition="all .3s"
-                                    />
+                                    {/* IMAGE */}
+                                    <Box position="relative" overflow="hidden">
+                                        <Image
+                                            src={painting.image}
+                                            h={painting.height}
+                                            w="100%"
+                                            objectFit="cover"
+                                            transition="all 0.5s ease"
+                                            _groupHover={{
+                                                transform: "scale(1.06)",
+                                                filter: "brightness(0.85)",
+                                            }}
+                                        />
 
-                                    <Box>
-                                        <Heading
-                                            fontSize="xl"
-                                            mb={1}
+                                        {/* VIEW OVERLAY */}
+                                        <Box
+                                            position="absolute"
+                                            bottom={0}
+                                            left={0}
+                                            right={0}
+                                            opacity={0}
+                                            transition="all 0.3s ease"
+                                            _groupHover={{ opacity: 1 }}
+                                            bg="linear-gradient(to top, rgba(0,0,0,0.75), transparent)"
+                                            height="40%"
+                                            display="flex"
+                                            alignItems="flex-end"
+                                            justifyContent="center"
+                                            pb={6}
                                         >
-                                            {painting.title}
-                                        </Heading>
+                                            <Text
+                                                color="white"
+                                                fontWeight="500"
+                                            >
+                                                View Painting →
+                                            </Text>
+                                        </Box>
 
-                                        <Text color="gray.500">
+                                        {/* HEART */}
+                                        <Box
+                                            position="absolute"
+                                            top="12px"
+                                            right="12px"
+                                            opacity={0}
+                                            transition="all 0.25s ease"
+                                            _groupHover={{ opacity: 1 }}
+                                            bg="rgba(255,255,255,0.9)"
+                                            px={3}
+                                            py={2}
+                                            borderRadius="full"
+                                            fontSize="14px"
+                                        >
+                                            ❤️
+                                        </Box>
+                                    </Box>
+
+                                    {/* INFO */}
+                                    <Box p={4}>
+                                        <Text fontWeight="600">
+                                            {painting.title}
+                                        </Text>
+                                        <Text fontSize="13px" color="gray.500">
                                             {painting.artist}
                                         </Text>
                                     </Box>
-                                </VStack>
+                                </Box>
                             </MotionBox>
                         ))}
                     </Grid>

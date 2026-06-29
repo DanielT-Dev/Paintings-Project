@@ -1,12 +1,13 @@
 const express = require("express");
 const cors = require("cors");
 
+const paintingRoutes = require("./routes/paintingRoutes");
+
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 
-// fake DB
 const users = [];
 
 app.post("/api/signup", async (req, res) => {
@@ -25,7 +26,9 @@ app.post("/api/signup", async (req, res) => {
 app.post("/api/login", async (req, res) => {
   const { email, password } = req.body;
 
-  const user = users.find(u => u.email === email && u.password === password);
+  const user = users.find(
+    u => u.email === email && u.password === password
+  );
 
   if (!user) {
     return res.status(401).json({ message: "Invalid credentials" });
@@ -33,6 +36,14 @@ app.post("/api/login", async (req, res) => {
 
   res.json({ message: "Login successful" });
 });
+
+/* --------------------
+   PAINTINGS API
+---------------------*/
+
+app.use("/api/paintings", paintingRoutes);
+
+/* -------------------- */
 
 app.listen(5000, () => {
   console.log("Server running on http://localhost:5000");

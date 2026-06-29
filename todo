@@ -1,79 +1,58 @@
-I am building a full-stack digital paintings / museum-style web app.
+# Remember Context Prompt
+I am building a full-stack digital museum / paintings gallery web app.
 
-Frontend:
-
+Frontend
 React + TypeScript (Vite)
 Chakra UI
-Framer Motion (animations + page transitions)
+Framer Motion
 React Router
-
-Current frontend features:
-
-Landing page with hero, animated geometric background, carousel, feature cards
+Current frontend features
+Landing page with animations and carousel
 Gallery page with:
-4-column responsive grid (masonry-like via varying heights)
-hover interactions (zoom, overlay, favorite button)
-glassmorphism filter panel with active states
-search bar (currently frontend-only filtering)
-scroll reveal animations (Framer Motion)
-Painting details page (dynamic route /painting/:id)
-hero image
-artist, year, medium
-description/story
-related paintings section
-Navbar with navigation to Landing, Gallery, Login, Signup
-
-Design style:
-
-modern digital museum aesthetic
-Apple-like UI polish
-glassmorphism + soft lighting + subtle motion
-minimal but premium feel
-
-Current limitation:
-
-All paintings are hardcoded in frontend arrays
-No backend or database exists yet
-
-Next step:
-I want to build a real backend using:
-
-Node.js
-Express.js
-MongoDB (Mongoose likely)
-
-Backend goal:
-
-Replace mock data with real API
-Store paintings as structured objects:
-id
+responsive masonry-style grid
+hover interactions
+filter UI (tags-based)
+search bar (frontend only for now)
+Painting Details page (dynamic route /painting/:id)
+Navbar + navigation
+Backend
+Node.js + Express
+MongoDB Atlas (Mongoose)
+REST API:
+GET /api/paintings → all paintings
+GET /api/paintings/:id → single painting
+Seed script already created and working
+Images are served statically from backend using:
+/paintings route
+images stored in sibling frontend folder:
+paintings-project/public/paintings
+Data model (Painting)
 title
 artist
 year
 medium
-story/description
-image URLs
-tags (for filtering)
-related paintings (relationships between artworks)
-Support fetching all paintings
-Support fetching single painting by ID
-Later expand to search/filter endpoints and possibly image upload system
+description (museum-style text)
+imageUrls (array of local server URLs)
+tags
+relatedPaintings (currently empty, future feature)
+Current status
+Backend + MongoDB Atlas fully working
+Seed data inserted successfully
+Images now correctly loading from Express static server
+Frontend Gallery already fetching from API instead of mock data
+Painting details page is partially implemented but still needs full backend integration improvements
+Next goals
+Improve Painting Details page (fully dynamic, clean UI)
+Implement related paintings properly (based on tags or IDs)
+Improve search/filter to use backend later
+Prepare architecture for scaling (real museum-like system)
+Important context
 
-Goal of architecture:
-Make the app fully data-driven and scalable, turning it into a real museum-style platform instead of static frontend mocks.
+We are NOT using mock data anymore. Everything is now API-driven.
 
 # Create backend for authentication with:
+    # Server logging
     # Unit Testing
     # UML diagrams
-    # MongoDB database
+    [DONE] # MongoDB database 
     # Rate Limiting and security
-
-A few improvements I'd make in the next step
-
-If you paste that next time, I’ll immediately:
-
-design your database schema
-set up Express server structure
-create Mongoose models
-build your first API endpoints
-connect it cleanly to your React app

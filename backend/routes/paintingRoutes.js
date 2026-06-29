@@ -1,7 +1,7 @@
 const express = require("express");
 const {
   getPaintings,
-  getPaintingById
+  getPaintingById,
 } = require("../controllers/paintingController");
 
 const router = express.Router();

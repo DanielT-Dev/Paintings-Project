@@ -10,56 +10,53 @@ import {
 } from "@chakra-ui/react";
 import { useParams, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import { getPaintingById } from "../api/paintings";
 
-const MotionBox = motion(Box);
-
-// TEMP SAME DATA (later you can move to shared file or API)
-const paintings = [
-    {
-        title: "Starry Night",
-        artist: "Vincent van Gogh",
-        year: "1889",
-        medium: "Oil on canvas",
-        description:
-            "A swirling night sky over a quiet town, expressing emotional turbulence and cosmic beauty.",
-        image:
-            "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=1200",
-    },
-    {
-        title: "Golden Horizon",
-        artist: "Unknown Artist",
-        year: "1900",
-        medium: "Oil on canvas",
-        description:
-            "A warm landscape capturing the fading light of day over endless fields.",
-        image:
-            "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=1200",
-    },
-    {
-        title: "Silent Lake",
-        artist: "Claude Monet",
-        year: "1895",
-        medium: "Oil on canvas",
-        description:
-            "A calm reflection of nature where water and sky become one.",
-        image:
-            "https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=1200",
-    },
-];
+const MotionBox = motion.create(Box);
 
 export default function PaintingDetails() {
     const { id } = useParams();
     const navigate = useNavigate();
 
-    const painting = paintings[Number(id) % paintings.length];
+    const [painting, setPainting] = useState<any>(null);
+    const [loading, setLoading] = useState(true);
 
-    if (!painting) return null;
+    useEffect(() => {
+        async function load() {
+            if (!id) return;
+
+            const data = await getPaintingById(id);
+            console.log("PAINTING DETAILS:", data);
+
+            setPainting(data);
+            setLoading(false);
+        }
+
+        load();
+    }, [id]);
+
+    if (loading) {
+        return (
+            <Box pt="120px" textAlign="center">
+                Loading...
+            </Box>
+        );
+    }
+
+    if (!painting) {
+        return (
+            <Box pt="120px" textAlign="center">
+                Painting not found
+            </Box>
+        );
+    }
 
     return (
         <Box bg="#fafafa" minH="100vh" pt="100px" pb={20}>
             <Container maxW="1100px">
 
-                {/* BACK BUTTON */}
+                {/* BACK */}
                 <Text
                     mb={6}
                     cursor="pointer"
@@ -70,14 +67,14 @@ export default function PaintingDetails() {
                     ← Back to Gallery
                 </Text>
 
-                {/* HERO IMAGE */}
+                {/* IMAGE */}
                 <MotionBox
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
                 >
                     <Image
-                        src={painting.image}
+                        src={painting.imageUrls?.[0]}
                         w="100%"
                         h={{ base: "300px", md: "500px" }}
                         objectFit="cover"
@@ -105,35 +102,40 @@ export default function PaintingDetails() {
                     </Text>
                 </VStack>
 
-                {/* RELATED WORKS */}
+                {/* RELATED (simple version for now) */}
                 <Box mt={16}>
                     <Heading fontSize="xl" mb={6}>
                         Related Works
                     </Heading>
 
                     <Grid templateColumns="repeat(3, 1fr)" gap={6}>
-                        {paintings.map((p, i) => (
-                            <Box
-                                key={i}
-                                cursor="pointer"
-                                onClick={() => navigate(`/painting/${i}`)}
-                                _hover={{ transform: "translateY(-5px)" }}
-                                transition="0.3s"
-                            >
-                                <Image
-                                    src={p.image}
-                                    h="180px"
-                                    w="100%"
-                                    objectFit="cover"
-                                    borderRadius="xl"
-                                />
-                                <Text mt={2} fontWeight="500">
-                                    {p.title}
-                                </Text>
-                            </Box>
-                        ))}
+                        {painting.relatedPaintings?.length ? (
+                            painting.relatedPaintings.map((p: any, i: number) => (
+                                <Box
+                                    key={p._id || i}
+                                    cursor="pointer"
+                                    onClick={() => navigate(`/painting/${p._id}`)}
+                                >
+                                    <Image
+                                        src={p.imageUrls?.[0]}
+                                        h="180px"
+                                        w="100%"
+                                        objectFit="cover"
+                                        borderRadius="xl"
+                                    />
+                                    <Text mt={2} fontWeight="500">
+                                        {p.title}
+                                    </Text>
+                                </Box>
+                            ))
+                        ) : (
+                            <Text color="gray.500">
+                                No related paintings yet
+                            </Text>
+                        )}
                     </Grid>
                 </Box>
+
             </Container>
         </Box>
     );

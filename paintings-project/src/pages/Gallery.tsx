@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
     Box,
     Container,
@@ -15,111 +15,83 @@ import { SearchIcon } from "@chakra-ui/icons";
 import { motion } from "framer-motion";
 import Navbar from "../components/Navbar";
 import { useNavigate } from "react-router-dom";
+import { getPaintings } from "../api/paintings";
 
-const MotionBox = motion(Box);
+const MotionBox = motion.create(Box);
 
 type Painting = {
+    _id?: string;
     title: string;
     artist: string;
-    image: string;
-    height: string;
+    imageUrls?: string[];
+    tags?: string[];
 };
-
-const paintings: Painting[] = [
-    {
-        title: "Starry Night",
-        artist: "Vincent van Gogh",
-        image: "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=800",
-        height: "420px",
-    },
-    {
-        title: "Golden Horizon",
-        artist: "Unknown Artist",
-        image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=800",
-        height: "520px",
-    },
-    {
-        title: "Silent Lake",
-        artist: "Claude Monet",
-        image: "https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=800",
-        height: "360px",
-    },
-    {
-        title: "Autumn Path",
-        artist: "Unknown Artist",
-        image: "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=800",
-        height: "480px",
-    },
-    {
-        title: "Blue Mountains",
-        artist: "Hokusai Inspired",
-        image: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800",
-        height: "440px",
-    },
-    {
-        title: "Dream Forest",
-        artist: "Unknown Artist",
-        image: "https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=800",
-        height: "540px",
-    },
-    {
-        title: "Morning Light",
-        artist: "J. Turner",
-        image: "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?w=800",
-        height: "380px",
-    },
-    {
-        title: "Ancient Ruins",
-        artist: "Unknown Artist",
-        image: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800",
-        height: "500px",
-    },
-    {
-        title: "Ocean Whisper",
-        artist: "Claude Monet",
-        image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800",
-        height: "450px",
-    },
-    {
-        title: "Red Silence",
-        artist: "Abstract Master",
-        image: "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=800",
-        height: "470px",
-    },
-    {
-        title: "Winter Glow",
-        artist: "Unknown Artist",
-        image: "https://images.unsplash.com/photo-1482192596544-9eb780fc7f66?w=800",
-        height: "410px",
-    },
-    {
-        title: "Eternal Fields",
-        artist: "Van Gogh Inspired",
-        image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=800",
-        height: "530px",
-    },
-];
-
-const filters = [
-    "All",
-    "Renaissance",
-    "Modern",
-    "Impressionism",
-    "Abstract",
-    "Landscape",
-];
 
 export default function Gallery() {
     const navigate = useNavigate();
 
+    const [paintings, setPaintings] = useState<Painting[]>([]);
     const [activeFilter, setActiveFilter] = useState("All");
+
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState("");
+
+    useEffect(() => {
+        const loadPaintings = async () => {
+            try {
+                const data = await getPaintings();
+                console.log("PAINTINGS FROM API:", data);
+                setPaintings(data);
+            } catch (err) {
+                setError("Failed to load paintings");
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        loadPaintings();
+    }, []);
+
+    const filters = [
+        "All",
+        "Renaissance",
+        "Modern",
+        "Impressionism",
+        "Abstract",
+        "Landscape",
+    ];
 
     const filteredPaintings =
         activeFilter === "All"
             ? paintings
             : paintings.filter((p) =>
-                p.title.toLowerCase().includes(activeFilter.toLowerCase())
+                (p.tags || [])
+                    .join(" ")
+                    .toLowerCase()
+                    .includes(activeFilter.toLowerCase())
             );
+
+    if (loading) {
+        return (
+            <>
+                <Navbar />
+                <Box pt="120px" textAlign="center">
+                    Loading gallery...
+                </Box>
+            </>
+        );
+    }
+
+    if (error) {
+        return (
+            <>
+                <Navbar />
+                <Box pt="120px" textAlign="center" color="red.500">
+                    {error}
+                </Box>
+            </>
+        );
+    }
 
     return (
         <>
@@ -138,31 +110,18 @@ export default function Gallery() {
                             Explore timeless masterpieces from artists around the world.
                         </Text>
 
-                        {/* SEARCH */}
                         <InputGroup maxW="650px" mt={6}>
-                            <InputLeftElement
-                                h="56px"
-                                display="flex"
-                                alignItems="center"
-                                justifyContent="center"
-                                pointerEvents="none"
-                            >
+                            <InputLeftElement pointerEvents="none">
                                 <SearchIcon color="gray.500" />
                             </InputLeftElement>
 
                             <Input
-                                h="56px"
-                                pl="48px"
                                 placeholder="Search paintings..."
                                 bg="whiteAlpha.800"
                                 backdropFilter="blur(18px)"
                                 border="1px solid"
                                 borderColor="blackAlpha.100"
                                 borderRadius="full"
-                                _focus={{
-                                    borderColor: "black",
-                                    boxShadow: "0 0 0 1px black",
-                                }}
                             />
                         </InputGroup>
                     </VStack>
@@ -191,17 +150,9 @@ export default function Gallery() {
                                         px={5}
                                         py={2}
                                         borderRadius="full"
-                                        fontSize="14px"
                                         cursor="pointer"
-                                        transition="all 0.25s ease"
                                         bg={isActive ? "black" : "transparent"}
                                         color={isActive ? "white" : "black"}
-                                        border="1px solid"
-                                        borderColor={isActive ? "black" : "transparent"}
-                                        _hover={{
-                                            transform: "translateY(-2px)",
-                                            boxShadow: "0 8px 20px rgba(0,0,0,0.08)",
-                                        }}
                                         onClick={() => setActiveFilter(filter)}
                                     >
                                         {filter}
@@ -223,7 +174,7 @@ export default function Gallery() {
                     >
                         {filteredPaintings.map((painting, index) => (
                             <MotionBox
-                                key={index}
+                                key={painting._id ?? `${painting.title}-${index}`}
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true, amount: 0.2 }}
@@ -236,7 +187,9 @@ export default function Gallery() {
                                 <Box
                                     role="group"
                                     cursor="pointer"
-                                    onClick={() => navigate(`/painting/${index}`)}
+                                    onClick={() =>
+                                        navigate(`/painting/${painting._id ?? index}`)
+                                    }
                                     borderRadius="2xl"
                                     overflow="hidden"
                                     bg="white"
@@ -246,8 +199,9 @@ export default function Gallery() {
                                     {/* IMAGE */}
                                     <Box position="relative" overflow="hidden">
                                         <Image
-                                            src={painting.image}
-                                            h={painting.height}
+                                            src={painting.imageUrls?.[0]}
+                                            fallbackSrc="https://via.placeholder.com/400"
+                                            h={`${300 + (index % 5) * 40}px`}
                                             w="100%"
                                             objectFit="cover"
                                             transition="all 0.5s ease"
@@ -257,14 +211,12 @@ export default function Gallery() {
                                             }}
                                         />
 
-                                        {/* VIEW OVERLAY */}
                                         <Box
                                             position="absolute"
                                             bottom={0}
                                             left={0}
                                             right={0}
                                             opacity={0}
-                                            transition="all 0.3s ease"
                                             _groupHover={{ opacity: 1 }}
                                             bg="linear-gradient(to top, rgba(0,0,0,0.75), transparent)"
                                             height="40%"
@@ -273,26 +225,9 @@ export default function Gallery() {
                                             justifyContent="center"
                                             pb={6}
                                         >
-                                            <Text color="white" fontWeight="500">
+                                            <Text color="white">
                                                 View Painting →
                                             </Text>
-                                        </Box>
-
-                                        {/* FAVORITE */}
-                                        <Box
-                                            position="absolute"
-                                            top="12px"
-                                            right="12px"
-                                            opacity={0}
-                                            transition="all 0.25s ease"
-                                            _groupHover={{ opacity: 1 }}
-                                            bg="rgba(255,255,255,0.9)"
-                                            px={3}
-                                            py={2}
-                                            borderRadius="full"
-                                            fontSize="14px"
-                                        >
-                                            ❤️
                                         </Box>
                                     </Box>
 

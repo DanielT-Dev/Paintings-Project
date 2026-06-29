@@ -6,6 +6,7 @@ import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import Landing from "./pages/Landing";
 import Gallery from "./pages/Gallery";
+import PaintingDetails from "./pages/PaintingDetails";
 import PageTransition from "./components/PageTransition";
 
 export default function App() {
@@ -28,6 +29,15 @@ export default function App() {
                     element={
                         <PageTransition>
                             <Gallery />
+                        </PageTransition>
+                    }
+                />
+
+                <Route
+                    path="/painting/:id"
+                    element={
+                        <PageTransition>
+                            <PaintingDetails />
                         </PageTransition>
                     }
                 />

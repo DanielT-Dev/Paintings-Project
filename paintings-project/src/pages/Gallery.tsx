@@ -14,6 +14,7 @@ import {
 import { SearchIcon } from "@chakra-ui/icons";
 import { motion } from "framer-motion";
 import Navbar from "../components/Navbar";
+import { useNavigate } from "react-router-dom";
 
 const MotionBox = motion(Box);
 
@@ -109,14 +110,16 @@ const filters = [
 ];
 
 export default function Gallery() {
+    const navigate = useNavigate();
+
     const [activeFilter, setActiveFilter] = useState("All");
 
     const filteredPaintings =
         activeFilter === "All"
             ? paintings
             : paintings.filter((p) =>
-                  p.title.toLowerCase().includes(activeFilter.toLowerCase())
-              );
+                p.title.toLowerCase().includes(activeFilter.toLowerCase())
+            );
 
     return (
         <>
@@ -125,7 +128,7 @@ export default function Gallery() {
             <Box bg="#fafafa" minH="100vh" pt="120px" pb={20}>
                 <Container maxW="1400px">
 
-                    {/* TITLE */}
+                    {/* HEADER */}
                     <VStack spacing={4} mb={10}>
                         <Heading fontSize={{ base: "3xl", md: "5xl" }}>
                             Gallery
@@ -164,12 +167,8 @@ export default function Gallery() {
                         </InputGroup>
                     </VStack>
 
-                    {/* GLASS FILTER PANEL */}
-                    <Box
-                        mb={12}
-                        display="flex"
-                        justifyContent="center"
-                    >
+                    {/* FILTERS */}
+                    <Box mb={12} display="flex" justifyContent="center">
                         <Box
                             px={6}
                             py={4}
@@ -225,11 +224,19 @@ export default function Gallery() {
                         {filteredPaintings.map((painting, index) => (
                             <MotionBox
                                 key={index}
-                                whileHover={{ y: -10 }}
-                                transition={{ duration: 0.25 }}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true, amount: 0.2 }}
+                                transition={{
+                                    duration: 0.5,
+                                    delay: index * 0.03,
+                                    ease: "easeOut",
+                                }}
                             >
                                 <Box
                                     role="group"
+                                    cursor="pointer"
+                                    onClick={() => navigate(`/painting/${index}`)}
                                     borderRadius="2xl"
                                     overflow="hidden"
                                     bg="white"
@@ -266,15 +273,12 @@ export default function Gallery() {
                                             justifyContent="center"
                                             pb={6}
                                         >
-                                            <Text
-                                                color="white"
-                                                fontWeight="500"
-                                            >
+                                            <Text color="white" fontWeight="500">
                                                 View Painting →
                                             </Text>
                                         </Box>
 
-                                        {/* HEART */}
+                                        {/* FAVORITE */}
                                         <Box
                                             position="absolute"
                                             top="12px"

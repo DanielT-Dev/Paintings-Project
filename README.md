@@ -1,5 +1,9 @@
 # Paintings Project
 
+This app is a digital gallery for browsing a collection of paintings online. It works on phones, tablets, and computers, with a clean layout that makes viewing artwork simple and pleasant.
+
+The collection is stored securely in the cloud, so you can access it anytime. The app is built with modern web technologies to ensure a fast, reliable, and smooth experience.
+
 ## Technology Stack
 
 <p align="center">

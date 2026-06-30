@@ -51,7 +51,6 @@ Important context
 We are NOT using mock data anymore. Everything is now API-driven.
 
 # Create backend for authentication with:
-    # Server logging
     # Unit Testing
     # UML diagrams
     [DONE] # MongoDB database 

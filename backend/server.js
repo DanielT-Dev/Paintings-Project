@@ -3,6 +3,8 @@ const cors = require("cors");
 const dotenv = require("dotenv");
 const path = require("path");
 
+const logger = require("./utils/logger");
+const requestLogger = require("./middleware/requestLogger");
 const connectDB = require("./db/connect");
 const paintingRoutes = require("./routes/paintingRoutes");
 
@@ -10,10 +12,12 @@ dotenv.config();
 
 const app = express();
 
+// Middleware
 app.use(cors());
 app.use(express.json());
+app.use(requestLogger);
 
-// static images (FIXED PATH)
+// Static images
 app.use(
   "/paintings",
   express.static(
@@ -21,37 +25,88 @@ app.use(
   )
 );
 
-// routes
+// Routes
 app.use("/api/paintings", paintingRoutes);
 
-// fake auth (unchanged)
+// -----------------------------------------------------------------------------
+// Fake authentication (temporary)
+// -----------------------------------------------------------------------------
+
 const users = [];
 
 app.post("/api/signup", (req, res) => {
   const { email, password } = req.body;
 
+  logger.info(`Signup attempt: ${email}`);
+
   const exists = users.find((u) => u.email === email);
-  if (exists) return res.status(400).json({ message: "User already exists" });
+
+  if (exists) {
+    logger.warn(`Signup failed - user already exists: ${email}`);
+
+    return res.status(400).json({
+      message: "User already exists",
+    });
+  }
 
   users.push({ email, password });
-  res.json({ message: "User created" });
+
+  logger.info(`User created: ${email}`);
+
+  res.json({
+    message: "User created",
+  });
 });
 
 app.post("/api/login", (req, res) => {
   const { email, password } = req.body;
 
+  logger.info(`Login attempt: ${email}`);
+
   const user = users.find(
     (u) => u.email === email && u.password === password
   );
 
-  if (!user) return res.status(401).json({ message: "Invalid credentials" });
+  if (!user) {
+    logger.warn(`Login failed: ${email}`);
 
-  res.json({ message: "Login successful" });
-});
+    return res.status(401).json({
+      message: "Invalid credentials",
+    });
+  }
 
-// start AFTER DB connect
-connectDB().then(() => {
-  app.listen(5000, () => {
-    console.log("Server running on http://localhost:5000");
+  logger.info(`Login successful: ${email}`);
+
+  res.json({
+    message: "Login successful",
   });
 });
+
+// -----------------------------------------------------------------------------
+// Global error handler
+// -----------------------------------------------------------------------------
+
+app.use((err, req, res, next) => {
+  logger.error(err);
+
+  res.status(500).json({
+    message: "Internal Server Error",
+  });
+});
+
+// -----------------------------------------------------------------------------
+// Start server
+// -----------------------------------------------------------------------------
+
+connectDB()
+  .then(() => {
+    logger.info("Connected to MongoDB");
+
+    app.listen(5000, () => {
+      logger.info("Server running on http://localhost:5000");
+    });
+  })
+  .catch((err) => {
+    logger.error("Failed to connect to MongoDB");
+    logger.error(err);
+  });

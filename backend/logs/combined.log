@@ -371,3 +371,5 @@ CastError: Cast to [ObjectId] failed for value "[\n' +
 [2026-06-30 15:30:26] INFO: ✅ Done building relationships
 [2026-06-30 15:30:29] INFO: 📊 Exporting graph...
 [2026-06-30 15:30:30] INFO: ✅ graph.json exported
+[2026-06-30 15:30:33] INFO: GET /graph.json [32m200[39m 7ms {"meta":{}}
+[2026-06-30 15:30:33] INFO: GET /graph.json [36m304[39m 1ms {"meta":{}}

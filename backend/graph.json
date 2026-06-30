@@ -1,0 +1,510 @@
+{
+  "nodes": [
+    {
+      "id": "6a43a94440ce6ee20682b394",
+      "title": "The Death of Socrates",
+      "artist": "Jacques-Louis David"
+    },
+    {
+      "id": "6a43a94440ce6ee20682b395",
+      "title": "Reply of the Zaporozhian Cossacks",
+      "artist": "Ilya Repin"
+    },
+    {
+      "id": "6a43a94440ce6ee20682b396",
+      "title": "Water from the Rock",
+      "artist": "Tom Lovell"
+    },
+    {
+      "id": "6a43a94440ce6ee20682b397",
+      "title": "The Bard",
+      "artist": "Benjamin West"
+    },
+    {
+      "id": "6a43a94440ce6ee20682b398",
+      "title": "The Chess Players",
+      "artist": "Unknown"
+    },
+    {
+      "id": "6a43a94440ce6ee20682b399",
+      "title": "Daniel in the Lion's Den",
+      "artist": "Briton Rivière"
+    },
+    {
+      "id": "6a43a94440ce6ee20682b39a",
+      "title": "The Knight in the Enchanted Garden",
+      "artist": "Armand Point"
+    },
+    {
+      "id": "6a43a94440ce6ee20682b39b",
+      "title": "The Knight of the White Cross",
+      "artist": "Georges-Antoine Rochegrosse"
+    },
+    {
+      "id": "6a43a94440ce6ee20682b39c",
+      "title": "The Oath of the Horatii",
+      "artist": "Jacques-Louis David"
+    },
+    {
+      "id": "6a43a94440ce6ee20682b39d",
+      "title": "The Coronation of Napoleon",
+      "artist": "Jacques-Louis David"
+    },
+    {
+      "id": "6a43a94440ce6ee20682b39e",
+      "title": "The Death of Marat",
+      "artist": "Jacques-Louis David"
+    },
+    {
+      "id": "6a43a94440ce6ee20682b39f",
+      "title": "The Apotheosis of Homer",
+      "artist": "Jean-Auguste-Dominique Ingres"
+    },
+    {
+      "id": "6a43a94440ce6ee20682b3a0",
+      "title": "Liberty Leading the People",
+      "artist": "Eugène Delacroix"
+    },
+    {
+      "id": "6a43a94440ce6ee20682b3a1",
+      "title": "The Raft of the Medusa",
+      "artist": "Théodore Géricault"
+    },
+    {
+      "id": "6a43a94440ce6ee20682b3a2",
+      "title": "Wanderer above the Sea of Fog",
+      "artist": "Caspar David Friedrich"
+    },
+    {
+      "id": "6a43a94440ce6ee20682b3a3",
+      "title": "The Nightmare",
+      "artist": "Henry Fuseli"
+    },
+    {
+      "id": "6a43a94440ce6ee20682b3a4",
+      "title": "Ophelia",
+      "artist": "John Everett Millais"
+    },
+    {
+      "id": "6a43a94440ce6ee20682b3a5",
+      "title": "The Isle of the Dead",
+      "artist": "Arnold Böcklin"
+    },
+    {
+      "id": "6a43a94440ce6ee20682b3a6",
+      "title": "The Sleep of Reason Produces Monsters",
+      "artist": "Francisco Goya"
+    },
+    {
+      "id": "6a43a94440ce6ee20682b3a7",
+      "title": "The Kiss",
+      "artist": "Gustav Klimt"
+    },
+    {
+      "id": "6a43a94440ce6ee20682b3a8",
+      "title": "The Return of the Prodigal Son",
+      "artist": "Rembrandt"
+    },
+    {
+      "id": "6a43a94440ce6ee20682b3a9",
+      "title": "The Last Supper",
+      "artist": "Leonardo da Vinci"
+    },
+    {
+      "id": "6a43a94440ce6ee20682b3aa",
+      "title": "The Creation of Adam",
+      "artist": "Michelangelo"
+    },
+    {
+      "id": "6a43a94440ce6ee20682b3ab",
+      "title": "Ivan the Terrible and His Son Ivan",
+      "artist": "Ilya Repin"
+    }
+  ],
+  "links": [
+    {
+      "source": "6a43a94440ce6ee20682b394",
+      "target": "6a43a94440ce6ee20682b39c"
+    },
+    {
+      "source": "6a43a94440ce6ee20682b394",
+      "target": "6a43a94440ce6ee20682b39d"
+    },
+    {
+      "source": "6a43a94440ce6ee20682b394",
+      "target": "6a43a94440ce6ee20682b39e"
+    },
+    {
+      "source": "6a43a94440ce6ee20682b394",
+      "target": "6a43a94440ce6ee20682b39f"
+    },
+    {
+      "source": "6a43a94440ce6ee20682b395",
+      "target": "6a43a94440ce6ee20682b3ab"
+    },
+    {
+      "source": "6a43a94440ce6ee20682b395",
+      "target": "6a43a94440ce6ee20682b399"
+    },
+    {
+      "source": "6a43a94440ce6ee20682b395",
+      "target": "6a43a94440ce6ee20682b394"
+    },
+    {
+      "source": "6a43a94440ce6ee20682b395",
+      "target": "6a43a94440ce6ee20682b396"
+    },
+    {
+      "source": "6a43a94440ce6ee20682b396",
+      "target": "6a43a94440ce6ee20682b399"
+    },
+    {
+      "source": "6a43a94440ce6ee20682b396",
+      "target": "6a43a94440ce6ee20682b3a8"
+    },
+    {
+      "source": "6a43a94440ce6ee20682b396",
+      "target": "6a43a94440ce6ee20682b3a9"
+    },
+    {
+      "source": "6a43a94440ce6ee20682b396",
+      "target": "6a43a94440ce6ee20682b394"
+    },
+    {
+      "source": "6a43a94440ce6ee20682b397",
+      "target": "6a43a94440ce6ee20682b3a0"
+    },
+    {
+      "source": "6a43a94440ce6ee20682b397",
+      "target": "6a43a94440ce6ee20682b3a1"
+    },
+    {
+      "source": "6a43a94440ce6ee20682b397",
+      "target": "6a43a94440ce6ee20682b3a2"
+    },
+    {
+      "source": "6a43a94440ce6ee20682b397",
+      "target": "6a43a94440ce6ee20682b3a3"
+    },
+    {
+      "source": "6a43a94440ce6ee20682b398",
+      "target": "6a43a94440ce6ee20682b3a7"
+    },
+    {
+      "source": "6a43a94440ce6ee20682b398",
+      "target": "6a43a94440ce6ee20682b39a"
+    },
+    {
+      "source": "6a43a94440ce6ee20682b398",
+      "target": "6a43a94440ce6ee20682b3a5"
+    },
+    {
+      "source": "6a43a94440ce6ee20682b398",
+      "target": "6a43a94440ce6ee20682b39f"
+    },
+    {
+      "source": "6a43a94440ce6ee20682b399",
+      "target": "6a43a94440ce6ee20682b395"
+    },
+    {
+      "source": "6a43a94440ce6ee20682b399",
+      "target": "6a43a94440ce6ee20682b3ab"
+    },
+    {
+      "source": "6a43a94440ce6ee20682b399",
+      "target": "6a43a94440ce6ee20682b396"
+    },
+    {
+      "source": "6a43a94440ce6ee20682b399",
+      "target": "6a43a94440ce6ee20682b3a8"
+    },
+    {
+      "source": "6a43a94440ce6ee20682b39a",
+      "target": "6a43a94440ce6ee20682b398"
+    },
+    {
+      "source": "6a43a94440ce6ee20682b39a",
+      "target": "6a43a94440ce6ee20682b3a5"
+    },
+    {
+      "source": "6a43a94440ce6ee20682b39a",
+      "target": "6a43a94440ce6ee20682b3a7"
+    },
+    {
+      "source": "6a43a94440ce6ee20682b39a",
+      "target": "6a43a94440ce6ee20682b394"
+    },
+    {
+      "source": "6a43a94440ce6ee20682b39b",
+      "target": "6a43a94440ce6ee20682b394"
+    },
+    {
+      "source": "6a43a94440ce6ee20682b39b",
+      "target": "6a43a94440ce6ee20682b3a4"
+    },
+    {
+      "source": "6a43a94440ce6ee20682b39b",
+      "target": "6a43a94440ce6ee20682b3a6"
+    },
+    {
+      "source": "6a43a94440ce6ee20682b39b",
+      "target": "6a43a94440ce6ee20682b395"
+    },
+    {
+      "source": "6a43a94440ce6ee20682b39c",
+      "target": "6a43a94440ce6ee20682b394"
+    },
+    {
+      "source": "6a43a94440ce6ee20682b39c",
+      "target": "6a43a94440ce6ee20682b39d"
+    },
+    {
+      "source": "6a43a94440ce6ee20682b39c",
+      "target": "6a43a94440ce6ee20682b39e"
+    },
+    {
+      "source": "6a43a94440ce6ee20682b39c",
+      "target": "6a43a94440ce6ee20682b39f"
+    },
+    {
+      "source": "6a43a94440ce6ee20682b39d",
+      "target": "6a43a94440ce6ee20682b394"
+    },
+    {
+      "source": "6a43a94440ce6ee20682b39d",
+      "target": "6a43a94440ce6ee20682b39c"
+    },
+    {
+      "source": "6a43a94440ce6ee20682b39d",
+      "target": "6a43a94440ce6ee20682b39e"
+    },
+    {
+      "source": "6a43a94440ce6ee20682b39d",
+      "target": "6a43a94440ce6ee20682b39f"
+    },
+    {
+      "source": "6a43a94440ce6ee20682b39e",
+      "target": "6a43a94440ce6ee20682b394"
+    },
+    {
+      "source": "6a43a94440ce6ee20682b39e",
+      "target": "6a43a94440ce6ee20682b39c"
+    },
+    {
+      "source": "6a43a94440ce6ee20682b39e",
+      "target": "6a43a94440ce6ee20682b39d"
+    },
+    {
+      "source": "6a43a94440ce6ee20682b39e",
+      "target": "6a43a94440ce6ee20682b39f"
+    },
+    {
+      "source": "6a43a94440ce6ee20682b39f",
+      "target": "6a43a94440ce6ee20682b394"
+    },
+    {
+      "source": "6a43a94440ce6ee20682b39f",
+      "target": "6a43a94440ce6ee20682b39c"
+    },
+    {
+      "source": "6a43a94440ce6ee20682b39f",
+      "target": "6a43a94440ce6ee20682b39d"
+    },
+    {
+      "source": "6a43a94440ce6ee20682b39f",
+      "target": "6a43a94440ce6ee20682b39e"
+    },
+    {
+      "source": "6a43a94440ce6ee20682b3a0",
+      "target": "6a43a94440ce6ee20682b397"
+    },
+    {
+      "source": "6a43a94440ce6ee20682b3a0",
+      "target": "6a43a94440ce6ee20682b3a1"
+    },
+    {
+      "source": "6a43a94440ce6ee20682b3a0",
+      "target": "6a43a94440ce6ee20682b3a2"
+    },
+    {
+      "source": "6a43a94440ce6ee20682b3a0",
+      "target": "6a43a94440ce6ee20682b3a3"
+    },
+    {
+      "source": "6a43a94440ce6ee20682b3a1",
+      "target": "6a43a94440ce6ee20682b397"
+    },
+    {
+      "source": "6a43a94440ce6ee20682b3a1",
+      "target": "6a43a94440ce6ee20682b3a0"
+    },
+    {
+      "source": "6a43a94440ce6ee20682b3a1",
+      "target": "6a43a94440ce6ee20682b3a2"
+    },
+    {
+      "source": "6a43a94440ce6ee20682b3a1",
+      "target": "6a43a94440ce6ee20682b3a3"
+    },
+    {
+      "source": "6a43a94440ce6ee20682b3a2",
+      "target": "6a43a94440ce6ee20682b3a6"
+    },
+    {
+      "source": "6a43a94440ce6ee20682b3a2",
+      "target": "6a43a94440ce6ee20682b397"
+    },
+    {
+      "source": "6a43a94440ce6ee20682b3a2",
+      "target": "6a43a94440ce6ee20682b3a0"
+    },
+    {
+      "source": "6a43a94440ce6ee20682b3a2",
+      "target": "6a43a94440ce6ee20682b3a1"
+    },
+    {
+      "source": "6a43a94440ce6ee20682b3a3",
+      "target": "6a43a94440ce6ee20682b3a6"
+    },
+    {
+      "source": "6a43a94440ce6ee20682b3a3",
+      "target": "6a43a94440ce6ee20682b397"
+    },
+    {
+      "source": "6a43a94440ce6ee20682b3a3",
+      "target": "6a43a94440ce6ee20682b3a0"
+    },
+    {
+      "source": "6a43a94440ce6ee20682b3a3",
+      "target": "6a43a94440ce6ee20682b3a1"
+    },
+    {
+      "source": "6a43a94440ce6ee20682b3a4",
+      "target": "6a43a94440ce6ee20682b3a1"
+    },
+    {
+      "source": "6a43a94440ce6ee20682b3a4",
+      "target": "6a43a94440ce6ee20682b3ab"
+    },
+    {
+      "source": "6a43a94440ce6ee20682b3a4",
+      "target": "6a43a94440ce6ee20682b394"
+    },
+    {
+      "source": "6a43a94440ce6ee20682b3a4",
+      "target": "6a43a94440ce6ee20682b398"
+    },
+    {
+      "source": "6a43a94440ce6ee20682b3a5",
+      "target": "6a43a94440ce6ee20682b398"
+    },
+    {
+      "source": "6a43a94440ce6ee20682b3a5",
+      "target": "6a43a94440ce6ee20682b39a"
+    },
+    {
+      "source": "6a43a94440ce6ee20682b3a5",
+      "target": "6a43a94440ce6ee20682b3a7"
+    },
+    {
+      "source": "6a43a94440ce6ee20682b3a5",
+      "target": "6a43a94440ce6ee20682b394"
+    },
+    {
+      "source": "6a43a94440ce6ee20682b3a6",
+      "target": "6a43a94440ce6ee20682b3a2"
+    },
+    {
+      "source": "6a43a94440ce6ee20682b3a6",
+      "target": "6a43a94440ce6ee20682b3a3"
+    },
+    {
+      "source": "6a43a94440ce6ee20682b3a6",
+      "target": "6a43a94440ce6ee20682b397"
+    },
+    {
+      "source": "6a43a94440ce6ee20682b3a6",
+      "target": "6a43a94440ce6ee20682b3a0"
+    },
+    {
+      "source": "6a43a94440ce6ee20682b3a7",
+      "target": "6a43a94440ce6ee20682b398"
+    },
+    {
+      "source": "6a43a94440ce6ee20682b3a7",
+      "target": "6a43a94440ce6ee20682b39a"
+    },
+    {
+      "source": "6a43a94440ce6ee20682b3a7",
+      "target": "6a43a94440ce6ee20682b3a5"
+    },
+    {
+      "source": "6a43a94440ce6ee20682b3a7",
+      "target": "6a43a94440ce6ee20682b3a4"
+    },
+    {
+      "source": "6a43a94440ce6ee20682b3a8",
+      "target": "6a43a94440ce6ee20682b396"
+    },
+    {
+      "source": "6a43a94440ce6ee20682b3a8",
+      "target": "6a43a94440ce6ee20682b399"
+    },
+    {
+      "source": "6a43a94440ce6ee20682b3a8",
+      "target": "6a43a94440ce6ee20682b3a9"
+    },
+    {
+      "source": "6a43a94440ce6ee20682b3a8",
+      "target": "6a43a94440ce6ee20682b394"
+    },
+    {
+      "source": "6a43a94440ce6ee20682b3a9",
+      "target": "6a43a94440ce6ee20682b3aa"
+    },
+    {
+      "source": "6a43a94440ce6ee20682b3a9",
+      "target": "6a43a94440ce6ee20682b396"
+    },
+    {
+      "source": "6a43a94440ce6ee20682b3a9",
+      "target": "6a43a94440ce6ee20682b399"
+    },
+    {
+      "source": "6a43a94440ce6ee20682b3a9",
+      "target": "6a43a94440ce6ee20682b3a8"
+    },
+    {
+      "source": "6a43a94440ce6ee20682b3aa",
+      "target": "6a43a94440ce6ee20682b3a9"
+    },
+    {
+      "source": "6a43a94440ce6ee20682b3aa",
+      "target": "6a43a94440ce6ee20682b394"
+    },
+    {
+      "source": "6a43a94440ce6ee20682b3aa",
+      "target": "6a43a94440ce6ee20682b395"
+    },
+    {
+      "source": "6a43a94440ce6ee20682b3aa",
+      "target": "6a43a94440ce6ee20682b396"
+    },
+    {
+      "source": "6a43a94440ce6ee20682b3ab",
+      "target": "6a43a94440ce6ee20682b395"
+    },
+    {
+      "source": "6a43a94440ce6ee20682b3ab",
+      "target": "6a43a94440ce6ee20682b399"
+    },
+    {
+      "source": "6a43a94440ce6ee20682b3ab",
+      "target": "6a43a94440ce6ee20682b3a1"
+    },
+    {
+      "source": "6a43a94440ce6ee20682b3ab",
+      "target": "6a43a94440ce6ee20682b3a4"
+    }
+  ]
+}

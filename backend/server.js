@@ -28,6 +28,8 @@ app.use(
 // Routes
 app.use("/api/paintings", paintingRoutes);
 
+app.use(express.static(path.join(__dirname)));
+
 // -----------------------------------------------------------------------------
 // Fake authentication (temporary)
 // -----------------------------------------------------------------------------

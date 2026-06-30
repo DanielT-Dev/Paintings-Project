@@ -110,3 +110,65 @@
 [2026-06-30 14:33:21] INFO: Fetching all paintings
 [2026-06-30 14:33:21] INFO: Paintings fetched successfully {"count":24}
 [2026-06-30 14:33:21] INFO: GET /api/paintings [36m304[39m 41ms {"meta":{}}
+[2026-06-30 14:42:07] INFO: Connected to MongoDB
+[2026-06-30 14:42:07] INFO: Server running on http://localhost:5000
+[2026-06-30 14:47:22] INFO: 🔗 Building painting relationships...
+[2026-06-30 14:47:22] INFO: Updated: The Death of Socrates
+[2026-06-30 14:47:22] INFO: Updated: Reply of the Zaporozhian Cossacks
+[2026-06-30 14:47:22] INFO: Updated: Water from the Rock
+[2026-06-30 14:47:23] INFO: Updated: The Bard
+[2026-06-30 14:47:23] INFO: Updated: The Chess Players
+[2026-06-30 14:47:23] INFO: Updated: Daniel in the Lion's Den
+[2026-06-30 14:47:23] INFO: Updated: The Knight in the Enchanted Garden
+[2026-06-30 14:47:23] INFO: Updated: The Knight of the White Cross
+[2026-06-30 14:47:23] INFO: Updated: The Oath of the Horatii
+[2026-06-30 14:47:23] INFO: Updated: The Coronation of Napoleon
+[2026-06-30 14:47:23] INFO: Updated: The Death of Marat
+[2026-06-30 14:47:23] INFO: Updated: The Apotheosis of Homer
+[2026-06-30 14:47:23] INFO: Updated: Liberty Leading the People
+[2026-06-30 14:47:23] INFO: Updated: The Raft of the Medusa
+[2026-06-30 14:47:23] INFO: Updated: Wanderer above the Sea of Fog
+[2026-06-30 14:47:23] INFO: Updated: The Nightmare
+[2026-06-30 14:47:23] INFO: Updated: Ophelia
+[2026-06-30 14:47:23] INFO: Updated: The Isle of the Dead
+[2026-06-30 14:47:23] INFO: Updated: The Sleep of Reason Produces Monsters
+[2026-06-30 14:47:23] INFO: Updated: The Kiss
+[2026-06-30 14:47:23] INFO: Updated: The Return of the Prodigal Son
+[2026-06-30 14:47:23] INFO: Updated: The Last Supper
+[2026-06-30 14:47:23] INFO: Updated: The Creation of Adam
+[2026-06-30 14:47:23] INFO: Updated: Ivan the Terrible and His Son Ivan
+[2026-06-30 14:47:23] INFO: ✅ Relationship graph built successfully
+[2026-06-30 14:48:03] INFO: Connected to MongoDB
+[2026-06-30 14:48:03] INFO: Server running on http://localhost:5000
+[2026-06-30 14:49:03] INFO: 🔗 Building painting relationships...
+[2026-06-30 14:49:03] INFO: Updated: The Death of Socrates
+[2026-06-30 14:49:03] INFO: Updated: Reply of the Zaporozhian Cossacks
+[2026-06-30 14:49:03] INFO: Updated: Water from the Rock
+[2026-06-30 14:49:04] INFO: Updated: The Bard
+[2026-06-30 14:49:04] INFO: Updated: The Chess Players
+[2026-06-30 14:49:04] INFO: Updated: Daniel in the Lion's Den
+[2026-06-30 14:49:04] INFO: Updated: The Knight in the Enchanted Garden
+[2026-06-30 14:49:04] INFO: Updated: The Knight of the White Cross
+[2026-06-30 14:49:04] INFO: Updated: The Oath of the Horatii
+[2026-06-30 14:49:04] INFO: Updated: The Coronation of Napoleon
+[2026-06-30 14:49:04] INFO: Updated: The Death of Marat
+[2026-06-30 14:49:04] INFO: Updated: The Apotheosis of Homer
+[2026-06-30 14:49:04] INFO: Updated: Liberty Leading the People
+[2026-06-30 14:49:04] INFO: Updated: The Raft of the Medusa
+[2026-06-30 14:49:04] INFO: Updated: Wanderer above the Sea of Fog
+[2026-06-30 14:49:04] INFO: Updated: The Nightmare
+[2026-06-30 14:49:04] INFO: Updated: Ophelia
+[2026-06-30 14:49:04] INFO: Updated: The Isle of the Dead
+[2026-06-30 14:49:04] INFO: Updated: The Sleep of Reason Produces Monsters
+[2026-06-30 14:49:04] INFO: Updated: The Kiss
+[2026-06-30 14:49:04] INFO: Updated: The Return of the Prodigal Son
+[2026-06-30 14:49:04] INFO: Updated: The Last Supper
+[2026-06-30 14:49:04] INFO: Updated: The Creation of Adam
+[2026-06-30 14:49:04] INFO: Updated: Ivan the Terrible and His Son Ivan
+[2026-06-30 14:49:04] INFO: ✅ Relationship graph built successfully
+[2026-06-30 14:49:52] INFO: 📊 Exporting graph data...
+[2026-06-30 14:49:52] INFO: 📁 graph.json generated successfully
+[2026-06-30 14:56:34] INFO: Connected to MongoDB
+[2026-06-30 14:56:34] INFO: Server running on http://localhost:5000
+[2026-06-30 14:56:39] INFO: 📊 Exporting graph data...
+[2026-06-30 14:56:40] INFO: 📁 graph.json generated successfully

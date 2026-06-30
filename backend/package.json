@@ -18,10 +18,12 @@
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
     "express-winston": "^4.2.0",
+    "force-graph": "^1.51.4",
     "jsonwebtoken": "^9.0.3",
     "mongodb": "^7.4.0",
     "mongoose": "^9.7.3",
     "morgan": "^1.11.0",
+    "react-force-graph": "^1.48.2",
     "winston": "^3.19.0"
   },
   "devDependencies": {

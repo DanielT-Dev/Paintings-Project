@@ -172,3 +172,11 @@
 [2026-06-30 14:56:34] INFO: Server running on http://localhost:5000
 [2026-06-30 14:56:39] INFO: 📊 Exporting graph data...
 [2026-06-30 14:56:40] INFO: 📁 graph.json generated successfully
+[2026-06-30 14:57:39] INFO: Fetching all paintings
+[2026-06-30 14:57:39] INFO: Paintings fetched successfully {"count":24}
+[2026-06-30 14:57:39] INFO: GET /api/paintings [32m200[39m 53ms {"meta":{}}
+[2026-06-30 14:57:39] INFO: Fetching all paintings
+[2026-06-30 14:57:39] INFO: Paintings fetched successfully {"count":24}
+[2026-06-30 14:57:39] INFO: GET /api/paintings [36m304[39m 48ms {"meta":{}}
+[2026-06-30 14:57:54] INFO: GET /graph.json [32m200[39m 5ms {"meta":{}}
+[2026-06-30 14:57:54] INFO: GET /graph.json [36m304[39m 0ms {"meta":{}}

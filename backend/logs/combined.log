@@ -1,0 +1,112 @@
+[2026-06-30 13:47:59] INFO: Connected to MongoDB
+[2026-06-30 13:47:59] INFO: Server running on http://localhost:5000
+[2026-06-30 13:48:05] INFO: Fetching all paintings
+[2026-06-30 13:48:05] INFO: Paintings fetched successfully {"count":8}
+[2026-06-30 13:48:05] INFO: GET /api/paintings [36m304[39m 81ms {"meta":{}}
+[2026-06-30 13:48:05] INFO: Fetching all paintings
+[2026-06-30 13:48:05] INFO: Paintings fetched successfully {"count":8}
+[2026-06-30 13:48:05] INFO: GET /api/paintings [36m304[39m 51ms {"meta":{}}
+[2026-06-30 13:48:09] INFO: Fetching painting {"paintingId":"6a42612d514eea57f10791c8"}
+[2026-06-30 13:48:09] INFO: Painting fetched successfully {"paintingId":"6a42612d514eea57f10791c8","title":"The Death of Socrates","relatedCount":0}
+[2026-06-30 13:48:09] INFO: GET /api/paintings/6a42612d514eea57f10791c8 [36m304[39m 101ms {"meta":{}}
+[2026-06-30 13:48:09] INFO: Fetching painting {"paintingId":"6a42612d514eea57f10791c8"}
+[2026-06-30 13:48:09] INFO: Painting fetched successfully {"paintingId":"6a42612d514eea57f10791c8","title":"The Death of Socrates","relatedCount":0}
+[2026-06-30 13:48:09] INFO: GET /api/paintings/6a42612d514eea57f10791c8 [36m304[39m 66ms {"meta":{}}
+[2026-06-30 14:15:51] INFO: Connected to MongoDB
+[2026-06-30 14:15:51] INFO: Server running on http://localhost:5000
+[2026-06-30 14:16:10] INFO: Fetching all paintings
+[2026-06-30 14:16:10] INFO: Paintings fetched successfully {"count":8}
+[2026-06-30 14:16:10] INFO: GET /api/paintings [32m200[39m 79ms {"meta":{}}
+[2026-06-30 14:16:10] INFO: Fetching all paintings
+[2026-06-30 14:16:10] INFO: Paintings fetched successfully {"count":8}
+[2026-06-30 14:16:10] INFO: GET /api/paintings [36m304[39m 40ms {"meta":{}}
+[2026-06-30 14:16:11] INFO: Fetching all paintings
+[2026-06-30 14:16:11] INFO: Paintings fetched successfully {"count":8}
+[2026-06-30 14:16:11] INFO: GET /api/paintings [36m304[39m 45ms {"meta":{}}
+[2026-06-30 14:16:11] INFO: Fetching all paintings
+[2026-06-30 14:16:11] INFO: Paintings fetched successfully {"count":8}
+[2026-06-30 14:16:11] INFO: GET /api/paintings [36m304[39m 40ms {"meta":{}}
+[2026-06-30 14:16:12] INFO: Fetching all paintings
+[2026-06-30 14:16:12] INFO: Paintings fetched successfully {"count":8}
+[2026-06-30 14:16:12] INFO: GET /api/paintings [36m304[39m 43ms {"meta":{}}
+[2026-06-30 14:16:12] INFO: Fetching all paintings
+[2026-06-30 14:16:12] INFO: Paintings fetched successfully {"count":8}
+[2026-06-30 14:16:12] INFO: GET /api/paintings [36m304[39m 40ms {"meta":{}}
+[2026-06-30 14:16:15] INFO: Fetching painting {"paintingId":"6a43a57377b2182721d40db1"}
+[2026-06-30 14:16:15] INFO: Painting fetched successfully {"paintingId":"6a43a57377b2182721d40db1","title":"The Chess Players","relatedCount":0}
+[2026-06-30 14:16:15] INFO: GET /api/paintings/6a43a57377b2182721d40db1 [32m200[39m 41ms {"meta":{}}
+[2026-06-30 14:16:15] INFO: Fetching painting {"paintingId":"6a43a57377b2182721d40db1"}
+[2026-06-30 14:16:15] INFO: Painting fetched successfully {"paintingId":"6a43a57377b2182721d40db1","title":"The Chess Players","relatedCount":0}
+[2026-06-30 14:16:15] INFO: GET /api/paintings/6a43a57377b2182721d40db1 [36m304[39m 42ms {"meta":{}}
+[2026-06-30 14:16:19] INFO: Fetching all paintings
+[2026-06-30 14:16:19] INFO: Paintings fetched successfully {"count":8}
+[2026-06-30 14:16:19] INFO: GET /api/paintings [36m304[39m 48ms {"meta":{}}
+[2026-06-30 14:16:19] INFO: Fetching all paintings
+[2026-06-30 14:16:19] INFO: Paintings fetched successfully {"count":8}
+[2026-06-30 14:16:19] INFO: GET /api/paintings [36m304[39m 40ms {"meta":{}}
+[2026-06-30 14:16:22] INFO: Fetching painting {"paintingId":"6a43a57377b2182721d40db1"}
+[2026-06-30 14:16:22] INFO: Painting fetched successfully {"paintingId":"6a43a57377b2182721d40db1","title":"The Chess Players","relatedCount":0}
+[2026-06-30 14:16:22] INFO: GET /api/paintings/6a43a57377b2182721d40db1 [36m304[39m 45ms {"meta":{}}
+[2026-06-30 14:16:22] INFO: Fetching painting {"paintingId":"6a43a57377b2182721d40db1"}
+[2026-06-30 14:16:22] INFO: Painting fetched successfully {"paintingId":"6a43a57377b2182721d40db1","title":"The Chess Players","relatedCount":0}
+[2026-06-30 14:16:22] INFO: GET /api/paintings/6a43a57377b2182721d40db1 [36m304[39m 43ms {"meta":{}}
+[2026-06-30 14:16:24] INFO: Fetching all paintings
+[2026-06-30 14:16:24] INFO: Paintings fetched successfully {"count":8}
+[2026-06-30 14:16:24] INFO: GET /api/paintings [36m304[39m 38ms {"meta":{}}
+[2026-06-30 14:16:24] INFO: Fetching all paintings
+[2026-06-30 14:16:24] INFO: Paintings fetched successfully {"count":8}
+[2026-06-30 14:16:24] INFO: GET /api/paintings [36m304[39m 39ms {"meta":{}}
+[2026-06-30 14:32:27] INFO: Fetching all paintings
+[2026-06-30 14:32:27] INFO: Paintings fetched successfully {"count":24}
+[2026-06-30 14:32:27] INFO: GET /api/paintings [32m200[39m 53ms {"meta":{}}
+[2026-06-30 14:32:27] INFO: Fetching all paintings
+[2026-06-30 14:32:27] INFO: Paintings fetched successfully {"count":24}
+[2026-06-30 14:32:27] INFO: GET /api/paintings [36m304[39m 48ms {"meta":{}}
+[2026-06-30 14:33:07] INFO: Fetching painting {"paintingId":"6a43a94440ce6ee20682b3a8"}
+[2026-06-30 14:33:07] INFO: Painting fetched successfully {"paintingId":"6a43a94440ce6ee20682b3a8","title":"The Return of the Prodigal Son","relatedCount":0}
+[2026-06-30 14:33:07] INFO: GET /api/paintings/6a43a94440ce6ee20682b3a8 [32m200[39m 46ms {"meta":{}}
+[2026-06-30 14:33:07] INFO: Fetching painting {"paintingId":"6a43a94440ce6ee20682b3a8"}
+[2026-06-30 14:33:07] INFO: Painting fetched successfully {"paintingId":"6a43a94440ce6ee20682b3a8","title":"The Return of the Prodigal Son","relatedCount":0}
+[2026-06-30 14:33:07] INFO: GET /api/paintings/6a43a94440ce6ee20682b3a8 [36m304[39m 55ms {"meta":{}}
+[2026-06-30 14:33:10] INFO: Fetching all paintings
+[2026-06-30 14:33:11] INFO: Paintings fetched successfully {"count":24}
+[2026-06-30 14:33:11] INFO: GET /api/paintings [36m304[39m 40ms {"meta":{}}
+[2026-06-30 14:33:11] INFO: Fetching all paintings
+[2026-06-30 14:33:11] INFO: Paintings fetched successfully {"count":24}
+[2026-06-30 14:33:11] INFO: GET /api/paintings [36m304[39m 44ms {"meta":{}}
+[2026-06-30 14:33:12] INFO: Fetching painting {"paintingId":"6a43a94440ce6ee20682b3a5"}
+[2026-06-30 14:33:12] INFO: Painting fetched successfully {"paintingId":"6a43a94440ce6ee20682b3a5","title":"The Isle of the Dead","relatedCount":0}
+[2026-06-30 14:33:12] INFO: GET /api/paintings/6a43a94440ce6ee20682b3a5 [32m200[39m 37ms {"meta":{}}
+[2026-06-30 14:33:12] INFO: Fetching painting {"paintingId":"6a43a94440ce6ee20682b3a5"}
+[2026-06-30 14:33:13] INFO: Painting fetched successfully {"paintingId":"6a43a94440ce6ee20682b3a5","title":"The Isle of the Dead","relatedCount":0}
+[2026-06-30 14:33:13] INFO: GET /api/paintings/6a43a94440ce6ee20682b3a5 [36m304[39m 40ms {"meta":{}}
+[2026-06-30 14:33:14] INFO: Fetching all paintings
+[2026-06-30 14:33:14] INFO: Paintings fetched successfully {"count":24}
+[2026-06-30 14:33:14] INFO: GET /api/paintings [36m304[39m 41ms {"meta":{}}
+[2026-06-30 14:33:14] INFO: Fetching all paintings
+[2026-06-30 14:33:14] INFO: Paintings fetched successfully {"count":24}
+[2026-06-30 14:33:14] INFO: GET /api/paintings [36m304[39m 46ms {"meta":{}}
+[2026-06-30 14:33:15] INFO: Fetching painting {"paintingId":"6a43a94440ce6ee20682b3a6"}
+[2026-06-30 14:33:15] INFO: Painting fetched successfully {"paintingId":"6a43a94440ce6ee20682b3a6","title":"The Sleep of Reason Produces Monsters","relatedCount":0}
+[2026-06-30 14:33:15] INFO: GET /api/paintings/6a43a94440ce6ee20682b3a6 [32m200[39m 39ms {"meta":{}}
+[2026-06-30 14:33:15] INFO: Fetching painting {"paintingId":"6a43a94440ce6ee20682b3a6"}
+[2026-06-30 14:33:15] INFO: Painting fetched successfully {"paintingId":"6a43a94440ce6ee20682b3a6","title":"The Sleep of Reason Produces Monsters","relatedCount":0}
+[2026-06-30 14:33:15] INFO: GET /api/paintings/6a43a94440ce6ee20682b3a6 [36m304[39m 41ms {"meta":{}}
+[2026-06-30 14:33:16] INFO: Fetching all paintings
+[2026-06-30 14:33:17] INFO: Paintings fetched successfully {"count":24}
+[2026-06-30 14:33:17] INFO: GET /api/paintings [36m304[39m 55ms {"meta":{}}
+[2026-06-30 14:33:17] INFO: Fetching all paintings
+[2026-06-30 14:33:17] INFO: Paintings fetched successfully {"count":24}
+[2026-06-30 14:33:17] INFO: GET /api/paintings [36m304[39m 38ms {"meta":{}}
+[2026-06-30 14:33:19] INFO: Fetching painting {"paintingId":"6a43a94440ce6ee20682b3a1"}
+[2026-06-30 14:33:19] INFO: Painting fetched successfully {"paintingId":"6a43a94440ce6ee20682b3a1","title":"The Raft of the Medusa","relatedCount":0}
+[2026-06-30 14:33:19] INFO: GET /api/paintings/6a43a94440ce6ee20682b3a1 [32m200[39m 38ms {"meta":{}}
+[2026-06-30 14:33:19] INFO: Fetching painting {"paintingId":"6a43a94440ce6ee20682b3a1"}
+[2026-06-30 14:33:19] INFO: Painting fetched successfully {"paintingId":"6a43a94440ce6ee20682b3a1","title":"The Raft of the Medusa","relatedCount":0}
+[2026-06-30 14:33:19] INFO: GET /api/paintings/6a43a94440ce6ee20682b3a1 [36m304[39m 39ms {"meta":{}}
+[2026-06-30 14:33:21] INFO: Fetching all paintings
+[2026-06-30 14:33:21] INFO: Paintings fetched successfully {"count":24}
+[2026-06-30 14:33:21] INFO: GET /api/paintings [36m304[39m 38ms {"meta":{}}
+[2026-06-30 14:33:21] INFO: Fetching all paintings
+[2026-06-30 14:33:21] INFO: Paintings fetched successfully {"count":24}
+[2026-06-30 14:33:21] INFO: GET /api/paintings [36m304[39m 41ms {"meta":{}}

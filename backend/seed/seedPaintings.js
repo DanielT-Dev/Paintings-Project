@@ -4,6 +4,9 @@ require("dotenv").config();
 const Painting = require("../models/Painting");
 
 const paintings = [
+  // -------------------------
+  // ORIGINAL 8 PAINTINGS
+  // -------------------------
   {
     title: "The Death of Socrates",
     artist: "Jacques-Louis David",
@@ -42,8 +45,7 @@ const paintings = [
     artist: "Benjamin West",
     year: 1785,
     medium: "Oil on canvas",
-    description:
-      "A melancholic bard reflects on the loss of his culture.",
+    description: "A melancholic bard reflects on the loss of his culture.",
     imageUrls: ["http://localhost:5000/paintings/painting4.jpg"],
     tags: ["Romanticism", "Music", "Myth"],
     relatedPaintings: [],
@@ -53,8 +55,7 @@ const paintings = [
     artist: "Unknown",
     year: 1890,
     medium: "Oil on canvas",
-    description:
-      "A symbolic chess game between a young man and the Devil.",
+    description: "A symbolic chess game between a young man and the Devil.",
     imageUrls: ["http://localhost:5000/paintings/painting5.jpg"],
     tags: ["Symbolism", "Allegory", "Morality"],
     relatedPaintings: [],
@@ -92,19 +93,206 @@ const paintings = [
     tags: ["Medieval", "Chivalry", "Religious"],
     relatedPaintings: [],
   },
+
+  // -------------------------
+  // NEW 16 PAINTINGS
+  // -------------------------
+
+  {
+    title: "The Oath of the Horatii",
+    artist: "Jacques-Louis David",
+    year: 1784,
+    medium: "Oil on canvas",
+    description:
+      "Three brothers swear loyalty to Rome as they prepare for deadly combat against Alba Longa.",
+    imageUrls: ["http://localhost:5000/paintings/painting9.jpg"],
+    tags: ["Neoclassicism", "Patriotism", "Roman Legend"],
+    relatedPaintings: [],
+  },
+  {
+    title: "The Coronation of Napoleon",
+    artist: "Jacques-Louis David",
+    year: 1807,
+    medium: "Oil on canvas",
+    description:
+      "Napoleon crowns himself Emperor in a grand political spectacle inside Notre-Dame.",
+    imageUrls: ["http://localhost:5000/paintings/painting10.jpg"],
+    tags: ["Neoclassicism", "Napoleon", "Coronation"],
+    relatedPaintings: [],
+  },
+  {
+    title: "The Death of Marat",
+    artist: "Jacques-Louis David",
+    year: 1793,
+    medium: "Oil on canvas",
+    description:
+      "Jean-Paul Marat is depicted as a martyr after his assassination in a bath.",
+    imageUrls: ["http://localhost:5000/paintings/painting11.jpg"],
+    tags: ["Neoclassicism", "Revolution", "Martyrdom"],
+    relatedPaintings: [],
+  },
+  {
+    title: "The Apotheosis of Homer",
+    artist: "Jean-Auguste-Dominique Ingres",
+    year: 1827,
+    medium: "Oil on canvas",
+    description:
+      "Homer is glorified among the greatest thinkers and artists of Western civilization.",
+    imageUrls: ["http://localhost:5000/paintings/painting12.jpg"],
+    tags: ["Neoclassicism", "Homer", "Allegory"],
+    relatedPaintings: [],
+  },
+  {
+    title: "Liberty Leading the People",
+    artist: "Eugène Delacroix",
+    year: 1830,
+    medium: "Oil on canvas",
+    description:
+      "Liberty leads revolutionaries over barricades during the July Revolution in France.",
+    imageUrls: ["http://localhost:5000/paintings/painting13.jpg"],
+    tags: ["Romanticism", "Revolution", "Liberty"],
+    relatedPaintings: [],
+  },
+  {
+    title: "The Raft of the Medusa",
+    artist: "Théodore Géricault",
+    year: 1819,
+    medium: "Oil on canvas",
+    description:
+      "Shipwreck survivors struggle for life on a desperate makeshift raft.",
+    imageUrls: ["http://localhost:5000/paintings/painting14.jpg"],
+    tags: ["Romanticism", "Shipwreck", "Tragedy"],
+    relatedPaintings: [],
+  },
+  {
+    title: "Wanderer above the Sea of Fog",
+    artist: "Caspar David Friedrich",
+    year: 1818,
+    medium: "Oil on canvas",
+    description:
+      "A solitary figure contemplates a vast fog-covered mountain landscape.",
+    imageUrls: ["http://localhost:5000/paintings/painting15.jpg"],
+    tags: ["Romanticism", "Sublime", "Solitude"],
+    relatedPaintings: [],
+  },
+  {
+    title: "The Nightmare",
+    artist: "Henry Fuseli",
+    year: 1781,
+    medium: "Oil on canvas",
+    description:
+      "A sleeping woman is haunted by a demon and a ghostly horse.",
+    imageUrls: ["http://localhost:5000/paintings/painting16.jpg"],
+    tags: ["Romanticism", "Gothic", "Nightmare"],
+    relatedPaintings: [],
+  },
+  {
+    title: "Ophelia",
+    artist: "John Everett Millais",
+    year: 1852,
+    medium: "Oil on canvas",
+    description:
+      "Ophelia floats in a river surrounded by symbolic flowers before drowning.",
+    imageUrls: ["http://localhost:5000/paintings/painting17.jpg"],
+    tags: ["Pre-Raphaelite", "Tragedy", "Shakespeare"],
+    relatedPaintings: [],
+  },
+  {
+    title: "The Isle of the Dead",
+    artist: "Arnold Böcklin",
+    year: 1880,
+    medium: "Oil on canvas",
+    description:
+      "A mysterious island of the dead looms as a boat approaches silently.",
+    imageUrls: ["http://localhost:5000/paintings/painting18.jpg"],
+    tags: ["Symbolism", "Death", "Mystery"],
+    relatedPaintings: [],
+  },
+  {
+    title: "The Sleep of Reason Produces Monsters",
+    artist: "Francisco Goya",
+    year: 1799,
+    medium: "Etching and aquatint on laid paper",
+    description:
+      "A sleeping figure is surrounded by owls, bats, and beasts representing the irrational forces unleashed when reason is absent.",
+    imageUrls: ["http://localhost:5000/paintings/painting19.jpg"],
+    tags: ["Romanticism", "Los Caprichos", "Enlightenment", "Satire"],
+    relatedPaintings: [],
+  },
+  {
+    title: "The Kiss",
+    artist: "Gustav Klimt",
+    year: 1908,
+    medium: "Oil and gold leaf on canvas",
+    description:
+      "A couple embraces in a golden, symbolic expression of love and unity.",
+    imageUrls: ["http://localhost:5000/paintings/painting20.jpg"],
+    tags: ["Symbolism", "Love", "Art Nouveau"],
+    relatedPaintings: [],
+  },
+  {
+    title: "The Return of the Prodigal Son",
+    artist: "Rembrandt",
+    year: 1669,
+    medium: "Oil on canvas",
+    description:
+      "A father forgives his returning son in a powerful scene of redemption.",
+    imageUrls: ["http://localhost:5000/paintings/painting21.jpg"],
+    tags: ["Baroque", "Forgiveness", "Biblical"],
+    relatedPaintings: [],
+  },
+  {
+    title: "The Last Supper",
+    artist: "Leonardo da Vinci",
+    year: 1498,
+    medium: "Fresco",
+    description:
+      "Jesus announces betrayal among his disciples during the Last Supper.",
+    imageUrls: ["http://localhost:5000/paintings/painting22.jpg"],
+    tags: ["Renaissance", "Biblical", "Betrayal"],
+    relatedPaintings: [],
+  },
+  {
+    title: "The Creation of Adam",
+    artist: "Michelangelo",
+    year: 1511,
+    medium: "Fresco",
+    description:
+      "God reaches out to give life to Adam in the Sistine Chapel ceiling.",
+    imageUrls: ["http://localhost:5000/paintings/painting23.jpg"],
+    tags: ["Renaissance", "Creation", "Sistine Chapel"],
+    relatedPaintings: [],
+  },
+  {
+    title: "Ivan the Terrible and His Son Ivan",
+    artist: "Ilya Repin",
+    year: 1885,
+    medium: "Oil on canvas",
+    description:
+      "A tragic moment of regret as Ivan cradles his dying son after a fatal strike.",
+    imageUrls: ["http://localhost:5000/paintings/painting24.jpg"],
+    tags: ["Realism", "Russian History", "Tragedy"],
+    relatedPaintings: [],
+  },
 ];
 
 async function seed() {
   try {
     await mongoose.connect(process.env.MONGO_URI);
 
-    await Painting.deleteMany();
-    await Painting.insertMany(paintings);
+    console.log("Connected to MongoDB");
 
-    console.log("Database seeded");
+    await Painting.deleteMany();
+    console.log("Old paintings removed");
+
+    const inserted = await Painting.insertMany(paintings);
+    console.log(`Inserted ${inserted.length} paintings`);
+
+    console.log("Database seeded successfully");
+
     process.exit();
   } catch (err) {
-    console.error(err);
+    console.error("Seeding error:", err);
     process.exit(1);
   }
 }

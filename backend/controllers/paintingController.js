@@ -31,7 +31,9 @@ const getPaintingById = async (req, res) => {
       paintingId: req.params.id,
     });
 
-    const painting = await Painting.findById(req.params.id);
+    const painting = await Painting.findById(req.params.id).populate(
+      "relatedPaintings"
+    );
 
     if (!painting) {
       logger.warn("Painting not found", {
@@ -43,22 +45,13 @@ const getPaintingById = async (req, res) => {
       });
     }
 
-    const related = await Painting.find({
-      _id: {
-        $in: painting.relatedPaintings,
-      },
-    });
-
     logger.info("Painting fetched successfully", {
       paintingId: painting._id,
       title: painting.title,
-      relatedCount: related.length,
+      relatedCount: painting.relatedPaintings?.length || 0,
     });
 
-    res.json({
-      ...painting.toObject(),
-      relatedPaintings: related,
-    });
+    res.json(painting);
   } catch (err) {
     logger.error("Failed to fetch painting", {
       paintingId: req.params.id,

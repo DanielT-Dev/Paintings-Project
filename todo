@@ -1,56 +1,126 @@
-# Remember Context Prompt
-I am building a full-stack digital museum / paintings gallery web app.
+PROJECT CONTEXT PROMPT (PAINTINGS / DIGITAL MUSEUM APP)
 
+I am building a full-stack Digital Museum / Paintings Gallery web app.
+
+🧠 STACK
 Frontend
 React + TypeScript (Vite)
 Chakra UI
 Framer Motion
 React Router
-Current frontend features
-Landing page with animations and carousel
-Gallery page with:
-responsive masonry-style grid
-hover interactions
-filter UI (tags-based)
-search bar (frontend only for now)
-Painting Details page (dynamic route /painting/:id)
-Navbar + navigation
 Backend
 Node.js + Express
 MongoDB Atlas (Mongoose)
-REST API:
-GET /api/paintings → all paintings
-GET /api/paintings/:id → single painting
-Seed script already created and working
-Images are served statically from backend using:
-/paintings route
-images stored in sibling frontend folder:
-paintings-project/public/paintings
-Data model (Painting)
+Winston logging (structured logging system implemented)
+🏛 CURRENT ARCHITECTURE
+API
+GET /api/paintings → fetch all paintings
+GET /api/paintings/:id → fetch single painting (with related paintings populated)
+Static Images
+Served via Express:
+/paintings → maps to local image folder
+📦 DATA MODEL (Mongoose)
+
+Painting schema:
+
 title
 artist
 year
 medium
-description (museum-style text)
-imageUrls (array of local server URLs)
-tags
-relatedPaintings (currently empty, future feature)
-Current status
-Backend + MongoDB Atlas fully working
-Seed data inserted successfully
-Images now correctly loading from Express static server
-Frontend Gallery already fetching from API instead of mock data
-Painting details page is partially implemented but still needs full backend integration improvements
-Next goals
-Improve Painting Details page (fully dynamic, clean UI)
-Implement related paintings properly (based on tags or IDs)
-Improve search/filter to use backend later
-Prepare architecture for scaling (real museum-like system)
-Important context
+description
+imageUrls (array)
+tags (array)
+relatedPaintings (ObjectId refs → self-referencing via populate)
+🎨 CURRENT DATASET
 
-We are NOT using mock data anymore. Everything is now API-driven.
+We have 24 paintings total seeded into MongoDB:
+
+Original 8 paintings:
+The Death of Socrates
+Reply of the Zaporozhian Cossacks
+Water from the Rock
+The Bard
+The Chess Players
+Daniel in the Lion's Den
+The Knight in the Enchanted Garden
+The Knight of the White Cross
+Added 16 classical/masterworks:
+
+Includes works from:
+
+Neoclassicism (David, Ingres)
+Romanticism (Delacroix, Géricault, Friedrich, Fuseli)
+Symbolism (Klimt, Böcklin, Millais, Goya)
+Renaissance (Michelangelo, Leonardo)
+Baroque / Realism (Rembrandt, Repin)
+Replacement made:
+“Saturn Devouring His Son” was replaced with:
+→ “The Sleep of Reason Produces Monsters” (Goya)
+🔗 RELATED PAINTINGS SYSTEM (CURRENT STATE)
+relatedPaintings is an array of MongoDB ObjectIds
+backend uses .populate("relatedPaintings")
+frontend displays related works in PaintingDetails page
+system is NOT fully connected yet (graph not built)
+🎯 FRONTEND STATE
+Pages implemented:
+Landing page (animated)
+Gallery page (grid + filters + search frontend-only)
+Painting details page (dynamic route /painting/:id)
+Painting Details page:
+Fetches single painting from backend
+Displays:
+image
+title, artist, year, medium
+description
+related paintings section (basic UI, now needs proper graph logic)
+⚙️ BACKEND IMPROVEMENTS DONE
+Logging system upgraded:
+Winston logger implemented
+request logging middleware added
+structured logs with metadata
+logs saved to:
+logs/combined.log
+logs/error.log
+replaced console.log usage in controllers
+🚧 NEXT DEVELOPMENT PRIORITIES
+Build relatedPaintings graph system
+manual + intelligent linking based on:
+tags
+art movement
+artist
+themes
+Improve Painting Details page:
+better UI polish
+related carousel / grid upgrade
+Backend search/filter (move logic from frontend → backend)
+Optional future scaling:
+recommendation system
+museum-style navigation experience
+🧭 PROJECT GOAL
+
+Build a high-quality digital museum experience with:
+
+curated art structure (not random CRUD)
+meaningful relationships between paintings
+smooth UI animations
+scalable backend architecture
+portfolio-grade code quality
+🚀 START CONTEXT
+
+When continuing, assume:
+
+backend + frontend already fully working
+24 paintings already seeded
+logging system already implemented
+we are now focusing on data relationships + UX improvements
+
+# FIX FRONTEND PAINTING DETAILS PAGE -> MAKE IMAGE VIEW COVER / CONTAIN THE WHOLE IMAGE
+# MANUALLY FIX IMAGE QUALITY WITH BETTER PHOTOS
+# MAKE GALLERY PAGE FILTERING AND SEARCHING FUNCTIONAL
+# ADD MULTIPLE LANGUAGE TRANSLATION
 
 # Create backend for authentication with:
+    [DONE] # Server-side logging
     # Unit Testing
     # UML diagrams
     [DONE] # MongoDB database 

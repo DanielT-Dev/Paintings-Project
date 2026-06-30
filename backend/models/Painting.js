@@ -9,7 +9,12 @@ const paintingSchema = new mongoose.Schema(
     description: String,
     imageUrls: [String],
     tags: [String],
-    relatedPaintings: [String],
+    relatedPaintings: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Painting",
+      },
+    ],
   },
   { timestamps: true }
 );

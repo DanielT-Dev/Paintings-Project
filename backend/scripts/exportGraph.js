@@ -7,43 +7,40 @@ const logger = require("../utils/logger");
 async function exportGraph() {
   await connectDB();
 
-  logger.info("📊 Exporting graph data...");
+  logger.info("📊 Exporting graph...");
 
   const paintings = await Painting.find();
 
-  const nodes = paintings.map((p) => ({
+  const nodes = paintings.map(p => ({
     id: p._id.toString(),
     title: p.title,
     artist: p.artist,
+    tags: p.tags || [],
   }));
 
-  const edges = [];
+  const links = [];
 
   for (const p of paintings) {
-    for (const relId of p.relatedPaintings || []) {
-      edges.push({
+    for (const rel of p.relatedPaintings || []) {
+      links.push({
         source: p._id.toString(),
-        target: relId.toString(),
+        target: rel.id.toString(),
+        weight: rel.score || 1,
+        type: rel.score > 8 ? "strong" : "semantic",
       });
     }
   }
 
-const graph = { nodes, links: edges };
+  const graph = { nodes, links };
 
-  fs.writeFileSync(
-    "graph.json",
-    JSON.stringify(graph, null, 2)
-  );
+  fs.writeFileSync("graph.json", JSON.stringify(graph, null, 2));
 
-  logger.info("📁 graph.json generated successfully");
+  logger.info("✅ graph.json exported");
 
   mongoose.connection.close();
 }
 
-exportGraph().catch((err) => {
-  logger.error("❌ Graph export failed");
+exportGraph().catch(err => {
   logger.error(err);
   mongoose.connection.close();
 });
-
-module.exports = exportGraph;

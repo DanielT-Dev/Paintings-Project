@@ -114,6 +114,77 @@ backend + frontend already fully working
 logging system already implemented
 we are now focusing on data relationships + UX improvements
 
+📦 DATA MODEL (Mongoose)
+
+Painting schema includes:
+
+title
+artist
+year
+medium
+description
+imageUrls (array)
+tags (array)
+relatedPaintings (ObjectId refs to other paintings)
+🎨 DATASET
+
+24 total paintings seeded:
+
+Classical + Romanticism + Renaissance + Symbolism + Baroque + Realism
+Includes Goya, Klimt, Delacroix, Rembrandt, Michelangelo, Leonardo, etc.
+“Saturn Devouring His Son” replaced with “The Sleep of Reason Produces Monsters”
+🧠 GRAPH SYSTEM (IMPORTANT FEATURE)
+
+We built a relationship engine:
+
+buildRelationships.js
+compares every painting with every other painting
+computes similarity score using:
+same artist (+5)
+shared art movement (+4 per match)
+shared tags (+2 per tag)
+keyword overlap in description
+stores top related paintings in MongoDB (relatedPaintings array)
+📊 GRAPH EXPORT SYSTEM
+exportGraph.js
+converts MongoDB paintings into:
+{
+  nodes: [{ id, title, artist }],
+  links: [{ source, target }]
+}
+outputs graph.json used by frontend visualization
+🌐 FRONTEND STATE
+
+Pages:
+
+Landing page (animated)
+Gallery page (search + grid)
+Painting details page (shows related paintings)
+Graph page (/graph) → force-directed graph visualization
+🧠 GRAPH VISUALIZATION
+
+We use:
+
+react-force-graph-2d
+
+Features:
+
+nodes = paintings
+links = relationships
+click node → navigate to painting details
+colored clusters by artist
+interactive physics simulation
+
+Current improvements:
+
+improved node visibility
+link styling
+force simulation tuning
+labels rendered via canvas
+
+
+# ADD NODEMON DEPENDENCY ON SERVER SIDE
+# LINK RELATED PAINTINGS GRAPH VIEWER PAGE TO MAIN APP
 # FIX FRONTEND PAINTING DETAILS PAGE -> MAKE IMAGE VIEW COVER / CONTAIN THE WHOLE IMAGE
 # MANUALLY FIX IMAGE QUALITY WITH BETTER PHOTOS
 # MAKE GALLERY PAGE FILTERING AND SEARCHING FUNCTIONAL

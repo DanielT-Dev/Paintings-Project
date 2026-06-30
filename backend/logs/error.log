@@ -1,0 +1,82 @@
+[2026-06-30 15:20:26] ERROR: Cast to [ObjectId] failed for value "[\n' +
+  "  { id: new ObjectId('6a43a94440ce6ee20682b39c'), score: 11 },\n" +
+  "  { id: new ObjectId('6a43a94440ce6ee20682b39d'), score: 11 },\n" +
+  "  { id: new ObjectId('6a43a94440ce6ee20682b39e'), score: 11 },\n" +
+  "  { id: new ObjectId('6a43a94440ce6ee20682b39f'), score: 6 }\n" +
+  ']" (type string) at path "relatedPaintings.0" because of "CastError" {"stringValue":"\"[\\n' +\n  \"  { id: new ObjectId('6a43a94440ce6ee20682b39c'), score: 11 },\\n\" +\n  \"  { id: new ObjectId('6a43a94440ce6ee20682b39d'), score: 11 },\\n\" +\n  \"  { id: new ObjectId('6a43a94440ce6ee20682b39e'), score: 11 },\\n\" +\n  \"  { id: new ObjectId('6a43a94440ce6ee20682b39f'), score: 6 }\\n\" +\n  ']\"","kind":"[ObjectId]","value":"[\n  { id: new ObjectId('6a43a94440ce6ee20682b39c'), score: 11 },\n  { id: new ObjectId('6a43a94440ce6ee20682b39d'), score: 11 },\n  { id: new ObjectId('6a43a94440ce6ee20682b39e'), score: 11 },\n  { id: new ObjectId('6a43a94440ce6ee20682b39f'), score: 6 }\n]","path":"relatedPaintings.0","reason":{"stringValue":"\"{ id: new ObjectId('6a43a94440ce6ee20682b39c'), score: 11 }\"","valueType":"Object","kind":"ObjectId","value":{"id":"6a43a94440ce6ee20682b39c","score":11},"path":"relatedPaintings","reason":{},"name":"CastError","message":"Cast to ObjectId failed for value \"{ id: new ObjectId('6a43a94440ce6ee20682b39c'), score: 11 }\" (type Object) at path \"relatedPaintings\""},"valueType":"string"}
+CastError: Cast to [ObjectId] failed for value "[\n' +
+  "  { id: new ObjectId('6a43a94440ce6ee20682b39c'), score: 11 },\n" +
+  "  { id: new ObjectId('6a43a94440ce6ee20682b39d'), score: 11 },\n" +
+  "  { id: new ObjectId('6a43a94440ce6ee20682b39e'), score: 11 },\n" +
+  "  { id: new ObjectId('6a43a94440ce6ee20682b39f'), score: 6 }\n" +
+  ']" (type string) at path "relatedPaintings.0" because of "CastError"
+    at SchemaArray.cast (C:\Users\danie\Desktop\My Portfolio\Paintings-Project\Paintings-Project\backend\node_modules\mongoose\lib\schema\array.js:407:15)
+    at SchemaType.applySetters (C:\Users\danie\Desktop\My Portfolio\Paintings-Project\Paintings-Project\backend\node_modules\mongoose\lib\schemaType.js:1373:12)
+    at castUpdateVal (C:\Users\danie\Desktop\My Portfolio\Paintings-Project\Paintings-Project\backend\node_modules\mongoose\lib\helpers\query\castUpdate.js:637:21)
+    at walkUpdatePath (C:\Users\danie\Desktop\My Portfolio\Paintings-Project\Paintings-Project\backend\node_modules\mongoose\lib\helpers\query\castUpdate.js:442:24)
+    at castUpdate (C:\Users\danie\Desktop\My Portfolio\Paintings-Project\Paintings-Project\backend\node_modules\mongoose\lib\helpers\query\castUpdate.js:148:7)
+    at model.Query._castUpdate (C:\Users\danie\Desktop\My Portfolio\Paintings-Project\Paintings-Project\backend\node_modules\mongoose\lib\query.js:5043:10)
+    at model.Query._findOneAndUpdate (C:\Users\danie\Desktop\My Portfolio\Paintings-Project\Paintings-Project\backend\node_modules\mongoose\lib\query.js:3579:34)
+    at maybeTracedQueryExec (C:\Users\danie\Desktop\My Portfolio\Paintings-Project\Paintings-Project\backend\node_modules\mongoose\lib\query.js:4801:83)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async buildRelationships (C:\Users\danie\Desktop\My Portfolio\Paintings-Project\Paintings-Project\backend\scripts\buildRelationships.js:84:5)
+[2026-06-30 15:27:41] ERROR: Cast to [ObjectId] failed for value "[\n' +
+  "  { id: '6a43a94440ce6ee20682b39c', score: 7 },\n" +
+  "  { id: '6a43a94440ce6ee20682b39d', score: 7 },\n" +
+  "  { id: '6a43a94440ce6ee20682b39e', score: 7 },\n" +
+  "  { id: '6a43a94440ce6ee20682b39f', score: 2 },\n" +
+  "  { id: '6a43a94440ce6ee20682b395', score: 1 },\n" +
+  "  { id: '6a43a94440ce6ee20682b39b', score: 1 },\n" +
+  "  { id: '6a43a94440ce6ee20682b3a4', score: 1 },\n" +
+  "  { id: '6a43a94440ce6ee20682b3a6', score: 1 }\n" +
+  ']" (type string) at path "relatedPaintings.0" because of "CastError" {"stringValue":"\"[\\n' +\n  \"  { id: '6a43a94440ce6ee20682b39c', score: 7 },\\n\" +\n  \"  { id: '6a43a94440ce6ee20682b39d', score: 7 },\\n\" +\n  \"  { id: '6a43a94440ce6ee20682b39e', score: 7 },\\n\" +\n  \"  { id: '6a43a94440ce6ee20682b39f', score: 2 },\\n\" +\n  \"  { id: '6a43a94440ce6ee20682b395', score: 1 },\\n\" +\n  \"  { id: '6a43a94440ce6ee20682b39b', score: 1 },\\n\" +\n  \"  { id: '6a43a94440ce6ee20682b3a4', score: 1 },\\n\" +\n  \"  { id: '6a43a94440ce6ee20682b3a6', score: 1 }\\n\" +\n  ']\"","kind":"[ObjectId]","value":"[\n  { id: '6a43a94440ce6ee20682b39c', score: 7 },\n  { id: '6a43a94440ce6ee20682b39d', score: 7 },\n  { id: '6a43a94440ce6ee20682b39e', score: 7 },\n  { id: '6a43a94440ce6ee20682b39f', score: 2 },\n  { id: '6a43a94440ce6ee20682b395', score: 1 },\n  { id: '6a43a94440ce6ee20682b39b', score: 1 },\n  { id: '6a43a94440ce6ee20682b3a4', score: 1 },\n  { id: '6a43a94440ce6ee20682b3a6', score: 1 }\n]","path":"relatedPaintings.0","reason":{"stringValue":"\"{ id: '6a43a94440ce6ee20682b39c', score: 7 }\"","valueType":"Object","kind":"ObjectId","value":{"id":"6a43a94440ce6ee20682b39c","score":7},"path":"relatedPaintings","reason":{},"name":"CastError","message":"Cast to ObjectId failed for value \"{ id: '6a43a94440ce6ee20682b39c', score: 7 }\" (type Object) at path \"relatedPaintings\""},"valueType":"string"}
+CastError: Cast to [ObjectId] failed for value "[\n' +
+  "  { id: '6a43a94440ce6ee20682b39c', score: 7 },\n" +
+  "  { id: '6a43a94440ce6ee20682b39d', score: 7 },\n" +
+  "  { id: '6a43a94440ce6ee20682b39e', score: 7 },\n" +
+  "  { id: '6a43a94440ce6ee20682b39f', score: 2 },\n" +
+  "  { id: '6a43a94440ce6ee20682b395', score: 1 },\n" +
+  "  { id: '6a43a94440ce6ee20682b39b', score: 1 },\n" +
+  "  { id: '6a43a94440ce6ee20682b3a4', score: 1 },\n" +
+  "  { id: '6a43a94440ce6ee20682b3a6', score: 1 }\n" +
+  ']" (type string) at path "relatedPaintings.0" because of "CastError"
+    at SchemaArray.cast (C:\Users\danie\Desktop\My Portfolio\Paintings-Project\Paintings-Project\backend\node_modules\mongoose\lib\schema\array.js:407:15)
+    at SchemaType.applySetters (C:\Users\danie\Desktop\My Portfolio\Paintings-Project\Paintings-Project\backend\node_modules\mongoose\lib\schemaType.js:1373:12)
+    at castUpdateVal (C:\Users\danie\Desktop\My Portfolio\Paintings-Project\Paintings-Project\backend\node_modules\mongoose\lib\helpers\query\castUpdate.js:637:21)
+    at walkUpdatePath (C:\Users\danie\Desktop\My Portfolio\Paintings-Project\Paintings-Project\backend\node_modules\mongoose\lib\helpers\query\castUpdate.js:442:24)
+    at castUpdate (C:\Users\danie\Desktop\My Portfolio\Paintings-Project\Paintings-Project\backend\node_modules\mongoose\lib\helpers\query\castUpdate.js:148:7)
+    at model.Query._castUpdate (C:\Users\danie\Desktop\My Portfolio\Paintings-Project\Paintings-Project\backend\node_modules\mongoose\lib\query.js:5043:10)
+    at model.Query._findOneAndUpdate (C:\Users\danie\Desktop\My Portfolio\Paintings-Project\Paintings-Project\backend\node_modules\mongoose\lib\query.js:3579:34)
+    at maybeTracedQueryExec (C:\Users\danie\Desktop\My Portfolio\Paintings-Project\Paintings-Project\backend\node_modules\mongoose\lib\query.js:4801:83)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async buildRelationships (C:\Users\danie\Desktop\My Portfolio\Paintings-Project\Paintings-Project\backend\scripts\buildRelationships.js:81:5)
+[2026-06-30 15:29:36] ERROR: Cast to [ObjectId] failed for value "[\n' +
+  "  { id: new ObjectId('6a43b6aa962f3e851634e79c'), score: 11 },\n" +
+  "  { id: new ObjectId('6a43b6aa962f3e851634e79d'), score: 11 },\n" +
+  "  { id: new ObjectId('6a43b6aa962f3e851634e79e'), score: 11 },\n" +
+  "  { id: new ObjectId('6a43b6aa962f3e851634e79f'), score: 6 },\n" +
+  "  { id: new ObjectId('6a43b6aa962f3e851634e795'), score: 1 },\n" +
+  "  { id: new ObjectId('6a43b6aa962f3e851634e79b'), score: 1 },\n" +
+  "  { id: new ObjectId('6a43b6aa962f3e851634e7a4'), score: 1 },\n" +
+  "  { id: new ObjectId('6a43b6aa962f3e851634e7a6'), score: 1 }\n" +
+  ']" (type string) at path "relatedPaintings.0" because of "CastError" {"stringValue":"\"[\\n' +\n  \"  { id: new ObjectId('6a43b6aa962f3e851634e79c'), score: 11 },\\n\" +\n  \"  { id: new ObjectId('6a43b6aa962f3e851634e79d'), score: 11 },\\n\" +\n  \"  { id: new ObjectId('6a43b6aa962f3e851634e79e'), score: 11 },\\n\" +\n  \"  { id: new ObjectId('6a43b6aa962f3e851634e79f'), score: 6 },\\n\" +\n  \"  { id: new ObjectId('6a43b6aa962f3e851634e795'), score: 1 },\\n\" +\n  \"  { id: new ObjectId('6a43b6aa962f3e851634e79b'), score: 1 },\\n\" +\n  \"  { id: new ObjectId('6a43b6aa962f3e851634e7a4'), score: 1 },\\n\" +\n  \"  { id: new ObjectId('6a43b6aa962f3e851634e7a6'), score: 1 }\\n\" +\n  ']\"","kind":"[ObjectId]","value":"[\n  { id: new ObjectId('6a43b6aa962f3e851634e79c'), score: 11 },\n  { id: new ObjectId('6a43b6aa962f3e851634e79d'), score: 11 },\n  { id: new ObjectId('6a43b6aa962f3e851634e79e'), score: 11 },\n  { id: new ObjectId('6a43b6aa962f3e851634e79f'), score: 6 },\n  { id: new ObjectId('6a43b6aa962f3e851634e795'), score: 1 },\n  { id: new ObjectId('6a43b6aa962f3e851634e79b'), score: 1 },\n  { id: new ObjectId('6a43b6aa962f3e851634e7a4'), score: 1 },\n  { id: new ObjectId('6a43b6aa962f3e851634e7a6'), score: 1 }\n]","path":"relatedPaintings.0","reason":{"stringValue":"\"{ id: new ObjectId('6a43b6aa962f3e851634e79c'), score: 11 }\"","valueType":"Object","kind":"ObjectId","value":{"id":"6a43b6aa962f3e851634e79c","score":11},"path":"relatedPaintings","reason":{},"name":"CastError","message":"Cast to ObjectId failed for value \"{ id: new ObjectId('6a43b6aa962f3e851634e79c'), score: 11 }\" (type Object) at path \"relatedPaintings\""},"valueType":"string"}
+CastError: Cast to [ObjectId] failed for value "[\n' +
+  "  { id: new ObjectId('6a43b6aa962f3e851634e79c'), score: 11 },\n" +
+  "  { id: new ObjectId('6a43b6aa962f3e851634e79d'), score: 11 },\n" +
+  "  { id: new ObjectId('6a43b6aa962f3e851634e79e'), score: 11 },\n" +
+  "  { id: new ObjectId('6a43b6aa962f3e851634e79f'), score: 6 },\n" +
+  "  { id: new ObjectId('6a43b6aa962f3e851634e795'), score: 1 },\n" +
+  "  { id: new ObjectId('6a43b6aa962f3e851634e79b'), score: 1 },\n" +
+  "  { id: new ObjectId('6a43b6aa962f3e851634e7a4'), score: 1 },\n" +
+  "  { id: new ObjectId('6a43b6aa962f3e851634e7a6'), score: 1 }\n" +
+  ']" (type string) at path "relatedPaintings.0" because of "CastError"
+    at SchemaArray.cast (C:\Users\danie\Desktop\My Portfolio\Paintings-Project\Paintings-Project\backend\node_modules\mongoose\lib\schema\array.js:407:15)
+    at SchemaType.applySetters (C:\Users\danie\Desktop\My Portfolio\Paintings-Project\Paintings-Project\backend\node_modules\mongoose\lib\schemaType.js:1373:12)
+    at castUpdateVal (C:\Users\danie\Desktop\My Portfolio\Paintings-Project\Paintings-Project\backend\node_modules\mongoose\lib\helpers\query\castUpdate.js:637:21)
+    at walkUpdatePath (C:\Users\danie\Desktop\My Portfolio\Paintings-Project\Paintings-Project\backend\node_modules\mongoose\lib\helpers\query\castUpdate.js:442:24)
+    at castUpdate (C:\Users\danie\Desktop\My Portfolio\Paintings-Project\Paintings-Project\backend\node_modules\mongoose\lib\helpers\query\castUpdate.js:148:7)
+    at model.Query._castUpdate (C:\Users\danie\Desktop\My Portfolio\Paintings-Project\Paintings-Project\backend\node_modules\mongoose\lib\query.js:5043:10)
+    at model.Query._findOneAndUpdate (C:\Users\danie\Desktop\My Portfolio\Paintings-Project\Paintings-Project\backend\node_modules\mongoose\lib\query.js:3579:34)
+    at maybeTracedQueryExec (C:\Users\danie\Desktop\My Portfolio\Paintings-Project\Paintings-Project\backend\node_modules\mongoose\lib\query.js:4801:83)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async buildRelationships (C:\Users\danie\Desktop\My Portfolio\Paintings-Project\Paintings-Project\backend\scripts\buildRelationships.js:81:5)

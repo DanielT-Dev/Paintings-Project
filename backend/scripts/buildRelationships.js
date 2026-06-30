@@ -3,16 +3,11 @@ const Painting = require("../models/Painting");
 const connectDB = require("../db/connect");
 const logger = require("../utils/logger");
 
-// 🧠 scoring logic
 function calculateScore(a, b) {
   let score = 0;
 
-  // same artist (strong signal)
-  if (a.artist === b.artist) {
-    score += 5;
-  }
+  if (a.artist === b.artist) score += 5;
 
-  // movement tags
   const movementTags = [
     "renaissance",
     "baroque",
@@ -23,28 +18,26 @@ function calculateScore(a, b) {
     "gothic",
   ];
 
-  const aMovements = (a.tags || []).filter((t) =>
+  const aMovements = (a.tags || []).filter(t =>
     movementTags.includes(t.toLowerCase())
   );
 
-  const bMovements = (b.tags || []).filter((t) =>
+  const bMovements = (b.tags || []).filter(t =>
     movementTags.includes(t.toLowerCase())
   );
 
-  const sharedMovements = aMovements.filter((m) =>
+  const sharedMovements = aMovements.filter(m =>
     bMovements.includes(m)
   );
 
   score += sharedMovements.length * 4;
 
-  // shared tags
-  const sharedTags = (a.tags || []).filter((tag) =>
+  const sharedTags = (a.tags || []).filter(tag =>
     (b.tags || []).includes(tag)
   );
 
   score += sharedTags.length * 2;
 
-  // lightweight text overlap
   const aWords = new Set((a.description || "").toLowerCase().split(/\W+/));
   const bWords = new Set((b.description || "").toLowerCase().split(/\W+/));
 
@@ -61,7 +54,7 @@ function calculateScore(a, b) {
 async function buildRelationships() {
   await connectDB();
 
-  logger.info("🔗 Building painting relationships...");
+  logger.info("🔗 Building relationships...");
 
   const paintings = await Painting.find();
 
@@ -73,16 +66,17 @@ async function buildRelationships() {
 
       const score = calculateScore(painting, other);
 
-      scores.push({
-        id: other._id,
-        score,
-      });
+      if (score > 0) {
+        scores.push({
+          id: other._id, // 👈 KEEP ObjectId
+          score,
+        });
+      }
     }
 
     const topRelated = scores
       .sort((a, b) => b.score - a.score)
-      .slice(0, 4)
-      .map((s) => s.id);
+      .slice(0, 8);
 
     await Painting.findByIdAndUpdate(painting._id, {
       relatedPaintings: topRelated,
@@ -91,13 +85,12 @@ async function buildRelationships() {
     logger.info(`Updated: ${painting.title}`);
   }
 
-  logger.info("✅ Relationship graph built successfully");
+  logger.info("✅ Done building relationships");
 
   mongoose.connection.close();
 }
 
-buildRelationships().catch((err) => {
-  logger.error("❌ Relationship build failed");
+buildRelationships().catch(err => {
   logger.error(err);
   mongoose.connection.close();
 });

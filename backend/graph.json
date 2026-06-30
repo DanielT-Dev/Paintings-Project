@@ -1,510 +1,955 @@
 {
   "nodes": [
     {
-      "id": "6a43a94440ce6ee20682b394",
+      "id": "6a43b6dde14eb9283bfbe007",
       "title": "The Death of Socrates",
-      "artist": "Jacques-Louis David"
+      "artist": "Jacques-Louis David",
+      "tags": [
+        "Neoclassicism",
+        "Philosophy",
+        "Stoicism"
+      ]
     },
     {
-      "id": "6a43a94440ce6ee20682b395",
+      "id": "6a43b6dde14eb9283bfbe008",
       "title": "Reply of the Zaporozhian Cossacks",
-      "artist": "Ilya Repin"
+      "artist": "Ilya Repin",
+      "tags": [
+        "Realism",
+        "Cossacks",
+        "Humor"
+      ]
     },
     {
-      "id": "6a43a94440ce6ee20682b396",
+      "id": "6a43b6dde14eb9283bfbe009",
       "title": "Water from the Rock",
-      "artist": "Tom Lovell"
+      "artist": "Tom Lovell",
+      "tags": [
+        "Biblical",
+        "Moses",
+        "Miracle"
+      ]
     },
     {
-      "id": "6a43a94440ce6ee20682b397",
+      "id": "6a43b6dde14eb9283bfbe00a",
       "title": "The Bard",
-      "artist": "Benjamin West"
+      "artist": "Benjamin West",
+      "tags": [
+        "Romanticism",
+        "Music",
+        "Myth"
+      ]
     },
     {
-      "id": "6a43a94440ce6ee20682b398",
+      "id": "6a43b6dde14eb9283bfbe00b",
       "title": "The Chess Players",
-      "artist": "Unknown"
+      "artist": "Unknown",
+      "tags": [
+        "Symbolism",
+        "Allegory",
+        "Morality"
+      ]
     },
     {
-      "id": "6a43a94440ce6ee20682b399",
+      "id": "6a43b6dde14eb9283bfbe00c",
       "title": "Daniel in the Lion's Den",
-      "artist": "Briton Rivière"
+      "artist": "Briton Rivière",
+      "tags": [
+        "Biblical",
+        "Faith",
+        "Realism"
+      ]
     },
     {
-      "id": "6a43a94440ce6ee20682b39a",
+      "id": "6a43b6dde14eb9283bfbe00d",
       "title": "The Knight in the Enchanted Garden",
-      "artist": "Armand Point"
+      "artist": "Armand Point",
+      "tags": [
+        "Symbolism",
+        "Fantasy",
+        "Nature"
+      ]
     },
     {
-      "id": "6a43a94440ce6ee20682b39b",
+      "id": "6a43b6dde14eb9283bfbe00e",
       "title": "The Knight of the White Cross",
-      "artist": "Georges-Antoine Rochegrosse"
+      "artist": "Georges-Antoine Rochegrosse",
+      "tags": [
+        "Medieval",
+        "Chivalry",
+        "Religious"
+      ]
     },
     {
-      "id": "6a43a94440ce6ee20682b39c",
+      "id": "6a43b6dde14eb9283bfbe00f",
       "title": "The Oath of the Horatii",
-      "artist": "Jacques-Louis David"
+      "artist": "Jacques-Louis David",
+      "tags": [
+        "Neoclassicism",
+        "Patriotism",
+        "Roman Legend"
+      ]
     },
     {
-      "id": "6a43a94440ce6ee20682b39d",
+      "id": "6a43b6dde14eb9283bfbe010",
       "title": "The Coronation of Napoleon",
-      "artist": "Jacques-Louis David"
+      "artist": "Jacques-Louis David",
+      "tags": [
+        "Neoclassicism",
+        "Napoleon",
+        "Coronation"
+      ]
     },
     {
-      "id": "6a43a94440ce6ee20682b39e",
+      "id": "6a43b6dde14eb9283bfbe011",
       "title": "The Death of Marat",
-      "artist": "Jacques-Louis David"
+      "artist": "Jacques-Louis David",
+      "tags": [
+        "Neoclassicism",
+        "Revolution",
+        "Martyrdom"
+      ]
     },
     {
-      "id": "6a43a94440ce6ee20682b39f",
+      "id": "6a43b6dde14eb9283bfbe012",
       "title": "The Apotheosis of Homer",
-      "artist": "Jean-Auguste-Dominique Ingres"
+      "artist": "Jean-Auguste-Dominique Ingres",
+      "tags": [
+        "Neoclassicism",
+        "Homer",
+        "Allegory"
+      ]
     },
     {
-      "id": "6a43a94440ce6ee20682b3a0",
+      "id": "6a43b6dde14eb9283bfbe013",
       "title": "Liberty Leading the People",
-      "artist": "Eugène Delacroix"
+      "artist": "Eugène Delacroix",
+      "tags": [
+        "Romanticism",
+        "Revolution",
+        "Liberty"
+      ]
     },
     {
-      "id": "6a43a94440ce6ee20682b3a1",
+      "id": "6a43b6dde14eb9283bfbe014",
       "title": "The Raft of the Medusa",
-      "artist": "Théodore Géricault"
+      "artist": "Théodore Géricault",
+      "tags": [
+        "Romanticism",
+        "Shipwreck",
+        "Tragedy"
+      ]
     },
     {
-      "id": "6a43a94440ce6ee20682b3a2",
+      "id": "6a43b6dde14eb9283bfbe015",
       "title": "Wanderer above the Sea of Fog",
-      "artist": "Caspar David Friedrich"
+      "artist": "Caspar David Friedrich",
+      "tags": [
+        "Romanticism",
+        "Sublime",
+        "Solitude"
+      ]
     },
     {
-      "id": "6a43a94440ce6ee20682b3a3",
+      "id": "6a43b6dde14eb9283bfbe016",
       "title": "The Nightmare",
-      "artist": "Henry Fuseli"
+      "artist": "Henry Fuseli",
+      "tags": [
+        "Romanticism",
+        "Gothic",
+        "Nightmare"
+      ]
     },
     {
-      "id": "6a43a94440ce6ee20682b3a4",
+      "id": "6a43b6dde14eb9283bfbe017",
       "title": "Ophelia",
-      "artist": "John Everett Millais"
+      "artist": "John Everett Millais",
+      "tags": [
+        "Pre-Raphaelite",
+        "Tragedy",
+        "Shakespeare"
+      ]
     },
     {
-      "id": "6a43a94440ce6ee20682b3a5",
+      "id": "6a43b6dde14eb9283bfbe018",
       "title": "The Isle of the Dead",
-      "artist": "Arnold Böcklin"
+      "artist": "Arnold Böcklin",
+      "tags": [
+        "Symbolism",
+        "Death",
+        "Mystery"
+      ]
     },
     {
-      "id": "6a43a94440ce6ee20682b3a6",
+      "id": "6a43b6dde14eb9283bfbe019",
       "title": "The Sleep of Reason Produces Monsters",
-      "artist": "Francisco Goya"
+      "artist": "Francisco Goya",
+      "tags": [
+        "Romanticism",
+        "Los Caprichos",
+        "Enlightenment",
+        "Satire"
+      ]
     },
     {
-      "id": "6a43a94440ce6ee20682b3a7",
+      "id": "6a43b6dde14eb9283bfbe01a",
       "title": "The Kiss",
-      "artist": "Gustav Klimt"
+      "artist": "Gustav Klimt",
+      "tags": [
+        "Symbolism",
+        "Love",
+        "Art Nouveau"
+      ]
     },
     {
-      "id": "6a43a94440ce6ee20682b3a8",
+      "id": "6a43b6dde14eb9283bfbe01b",
       "title": "The Return of the Prodigal Son",
-      "artist": "Rembrandt"
+      "artist": "Rembrandt",
+      "tags": [
+        "Baroque",
+        "Forgiveness",
+        "Biblical"
+      ]
     },
     {
-      "id": "6a43a94440ce6ee20682b3a9",
+      "id": "6a43b6dde14eb9283bfbe01c",
       "title": "The Last Supper",
-      "artist": "Leonardo da Vinci"
+      "artist": "Leonardo da Vinci",
+      "tags": [
+        "Renaissance",
+        "Biblical",
+        "Betrayal"
+      ]
     },
     {
-      "id": "6a43a94440ce6ee20682b3aa",
+      "id": "6a43b6dde14eb9283bfbe01d",
       "title": "The Creation of Adam",
-      "artist": "Michelangelo"
+      "artist": "Michelangelo",
+      "tags": [
+        "Renaissance",
+        "Creation",
+        "Sistine Chapel"
+      ]
     },
     {
-      "id": "6a43a94440ce6ee20682b3ab",
+      "id": "6a43b6dde14eb9283bfbe01e",
       "title": "Ivan the Terrible and His Son Ivan",
-      "artist": "Ilya Repin"
+      "artist": "Ilya Repin",
+      "tags": [
+        "Realism",
+        "Russian History",
+        "Tragedy"
+      ]
     }
   ],
   "links": [
     {
-      "source": "6a43a94440ce6ee20682b394",
-      "target": "6a43a94440ce6ee20682b39c"
+      "source": "6a43b6dde14eb9283bfbe007",
+      "target": "6a43b6dde14eb9283bfbe00f",
+      "weight": 11,
+      "type": "strong"
     },
     {
-      "source": "6a43a94440ce6ee20682b394",
-      "target": "6a43a94440ce6ee20682b39d"
+      "source": "6a43b6dde14eb9283bfbe007",
+      "target": "6a43b6dde14eb9283bfbe010",
+      "weight": 11,
+      "type": "strong"
     },
     {
-      "source": "6a43a94440ce6ee20682b394",
-      "target": "6a43a94440ce6ee20682b39e"
+      "source": "6a43b6dde14eb9283bfbe007",
+      "target": "6a43b6dde14eb9283bfbe011",
+      "weight": 11,
+      "type": "strong"
     },
     {
-      "source": "6a43a94440ce6ee20682b394",
-      "target": "6a43a94440ce6ee20682b39f"
+      "source": "6a43b6dde14eb9283bfbe007",
+      "target": "6a43b6dde14eb9283bfbe012",
+      "weight": 6,
+      "type": "semantic"
     },
     {
-      "source": "6a43a94440ce6ee20682b395",
-      "target": "6a43a94440ce6ee20682b3ab"
+      "source": "6a43b6dde14eb9283bfbe007",
+      "target": "6a43b6dde14eb9283bfbe008",
+      "weight": 1,
+      "type": "semantic"
     },
     {
-      "source": "6a43a94440ce6ee20682b395",
-      "target": "6a43a94440ce6ee20682b399"
+      "source": "6a43b6dde14eb9283bfbe007",
+      "target": "6a43b6dde14eb9283bfbe00e",
+      "weight": 1,
+      "type": "semantic"
     },
     {
-      "source": "6a43a94440ce6ee20682b395",
-      "target": "6a43a94440ce6ee20682b394"
+      "source": "6a43b6dde14eb9283bfbe007",
+      "target": "6a43b6dde14eb9283bfbe017",
+      "weight": 1,
+      "type": "semantic"
     },
     {
-      "source": "6a43a94440ce6ee20682b395",
-      "target": "6a43a94440ce6ee20682b396"
+      "source": "6a43b6dde14eb9283bfbe007",
+      "target": "6a43b6dde14eb9283bfbe019",
+      "weight": 1,
+      "type": "semantic"
     },
     {
-      "source": "6a43a94440ce6ee20682b396",
-      "target": "6a43a94440ce6ee20682b399"
+      "source": "6a43b6dde14eb9283bfbe008",
+      "target": "6a43b6dde14eb9283bfbe01e",
+      "weight": 11,
+      "type": "strong"
     },
     {
-      "source": "6a43a94440ce6ee20682b396",
-      "target": "6a43a94440ce6ee20682b3a8"
+      "source": "6a43b6dde14eb9283bfbe008",
+      "target": "6a43b6dde14eb9283bfbe00c",
+      "weight": 6,
+      "type": "semantic"
     },
     {
-      "source": "6a43a94440ce6ee20682b396",
-      "target": "6a43a94440ce6ee20682b3a9"
+      "source": "6a43b6dde14eb9283bfbe008",
+      "target": "6a43b6dde14eb9283bfbe007",
+      "weight": 1,
+      "type": "semantic"
     },
     {
-      "source": "6a43a94440ce6ee20682b396",
-      "target": "6a43a94440ce6ee20682b394"
+      "source": "6a43b6dde14eb9283bfbe009",
+      "target": "6a43b6dde14eb9283bfbe00c",
+      "weight": 2,
+      "type": "semantic"
     },
     {
-      "source": "6a43a94440ce6ee20682b397",
-      "target": "6a43a94440ce6ee20682b3a0"
+      "source": "6a43b6dde14eb9283bfbe009",
+      "target": "6a43b6dde14eb9283bfbe01b",
+      "weight": 2,
+      "type": "semantic"
     },
     {
-      "source": "6a43a94440ce6ee20682b397",
-      "target": "6a43a94440ce6ee20682b3a1"
+      "source": "6a43b6dde14eb9283bfbe009",
+      "target": "6a43b6dde14eb9283bfbe01c",
+      "weight": 2,
+      "type": "semantic"
     },
     {
-      "source": "6a43a94440ce6ee20682b397",
-      "target": "6a43a94440ce6ee20682b3a2"
+      "source": "6a43b6dde14eb9283bfbe00a",
+      "target": "6a43b6dde14eb9283bfbe013",
+      "weight": 6,
+      "type": "semantic"
     },
     {
-      "source": "6a43a94440ce6ee20682b397",
-      "target": "6a43a94440ce6ee20682b3a3"
+      "source": "6a43b6dde14eb9283bfbe00a",
+      "target": "6a43b6dde14eb9283bfbe014",
+      "weight": 6,
+      "type": "semantic"
     },
     {
-      "source": "6a43a94440ce6ee20682b398",
-      "target": "6a43a94440ce6ee20682b3a7"
+      "source": "6a43b6dde14eb9283bfbe00a",
+      "target": "6a43b6dde14eb9283bfbe015",
+      "weight": 6,
+      "type": "semantic"
     },
     {
-      "source": "6a43a94440ce6ee20682b398",
-      "target": "6a43a94440ce6ee20682b39a"
+      "source": "6a43b6dde14eb9283bfbe00a",
+      "target": "6a43b6dde14eb9283bfbe016",
+      "weight": 6,
+      "type": "semantic"
     },
     {
-      "source": "6a43a94440ce6ee20682b398",
-      "target": "6a43a94440ce6ee20682b3a5"
+      "source": "6a43b6dde14eb9283bfbe00a",
+      "target": "6a43b6dde14eb9283bfbe019",
+      "weight": 6,
+      "type": "semantic"
     },
     {
-      "source": "6a43a94440ce6ee20682b398",
-      "target": "6a43a94440ce6ee20682b39f"
+      "source": "6a43b6dde14eb9283bfbe00b",
+      "target": "6a43b6dde14eb9283bfbe01a",
+      "weight": 7,
+      "type": "semantic"
     },
     {
-      "source": "6a43a94440ce6ee20682b399",
-      "target": "6a43a94440ce6ee20682b395"
+      "source": "6a43b6dde14eb9283bfbe00b",
+      "target": "6a43b6dde14eb9283bfbe00d",
+      "weight": 6,
+      "type": "semantic"
     },
     {
-      "source": "6a43a94440ce6ee20682b399",
-      "target": "6a43a94440ce6ee20682b3ab"
+      "source": "6a43b6dde14eb9283bfbe00b",
+      "target": "6a43b6dde14eb9283bfbe018",
+      "weight": 6,
+      "type": "semantic"
     },
     {
-      "source": "6a43a94440ce6ee20682b399",
-      "target": "6a43a94440ce6ee20682b396"
+      "source": "6a43b6dde14eb9283bfbe00b",
+      "target": "6a43b6dde14eb9283bfbe012",
+      "weight": 2,
+      "type": "semantic"
     },
     {
-      "source": "6a43a94440ce6ee20682b399",
-      "target": "6a43a94440ce6ee20682b3a8"
+      "source": "6a43b6dde14eb9283bfbe00b",
+      "target": "6a43b6dde14eb9283bfbe017",
+      "weight": 1,
+      "type": "semantic"
     },
     {
-      "source": "6a43a94440ce6ee20682b39a",
-      "target": "6a43a94440ce6ee20682b398"
+      "source": "6a43b6dde14eb9283bfbe00c",
+      "target": "6a43b6dde14eb9283bfbe008",
+      "weight": 6,
+      "type": "semantic"
     },
     {
-      "source": "6a43a94440ce6ee20682b39a",
-      "target": "6a43a94440ce6ee20682b3a5"
+      "source": "6a43b6dde14eb9283bfbe00c",
+      "target": "6a43b6dde14eb9283bfbe01e",
+      "weight": 6,
+      "type": "semantic"
     },
     {
-      "source": "6a43a94440ce6ee20682b39a",
-      "target": "6a43a94440ce6ee20682b3a7"
+      "source": "6a43b6dde14eb9283bfbe00c",
+      "target": "6a43b6dde14eb9283bfbe009",
+      "weight": 2,
+      "type": "semantic"
     },
     {
-      "source": "6a43a94440ce6ee20682b39a",
-      "target": "6a43a94440ce6ee20682b394"
+      "source": "6a43b6dde14eb9283bfbe00c",
+      "target": "6a43b6dde14eb9283bfbe01b",
+      "weight": 2,
+      "type": "semantic"
     },
     {
-      "source": "6a43a94440ce6ee20682b39b",
-      "target": "6a43a94440ce6ee20682b394"
+      "source": "6a43b6dde14eb9283bfbe00c",
+      "target": "6a43b6dde14eb9283bfbe01c",
+      "weight": 2,
+      "type": "semantic"
     },
     {
-      "source": "6a43a94440ce6ee20682b39b",
-      "target": "6a43a94440ce6ee20682b3a4"
+      "source": "6a43b6dde14eb9283bfbe00c",
+      "target": "6a43b6dde14eb9283bfbe017",
+      "weight": 1,
+      "type": "semantic"
     },
     {
-      "source": "6a43a94440ce6ee20682b39b",
-      "target": "6a43a94440ce6ee20682b3a6"
+      "source": "6a43b6dde14eb9283bfbe00d",
+      "target": "6a43b6dde14eb9283bfbe00b",
+      "weight": 6,
+      "type": "semantic"
     },
     {
-      "source": "6a43a94440ce6ee20682b39b",
-      "target": "6a43a94440ce6ee20682b395"
+      "source": "6a43b6dde14eb9283bfbe00d",
+      "target": "6a43b6dde14eb9283bfbe018",
+      "weight": 6,
+      "type": "semantic"
     },
     {
-      "source": "6a43a94440ce6ee20682b39c",
-      "target": "6a43a94440ce6ee20682b394"
+      "source": "6a43b6dde14eb9283bfbe00d",
+      "target": "6a43b6dde14eb9283bfbe01a",
+      "weight": 6,
+      "type": "semantic"
     },
     {
-      "source": "6a43a94440ce6ee20682b39c",
-      "target": "6a43a94440ce6ee20682b39d"
+      "source": "6a43b6dde14eb9283bfbe00e",
+      "target": "6a43b6dde14eb9283bfbe007",
+      "weight": 1,
+      "type": "semantic"
     },
     {
-      "source": "6a43a94440ce6ee20682b39c",
-      "target": "6a43a94440ce6ee20682b39e"
+      "source": "6a43b6dde14eb9283bfbe00e",
+      "target": "6a43b6dde14eb9283bfbe017",
+      "weight": 1,
+      "type": "semantic"
     },
     {
-      "source": "6a43a94440ce6ee20682b39c",
-      "target": "6a43a94440ce6ee20682b39f"
+      "source": "6a43b6dde14eb9283bfbe00e",
+      "target": "6a43b6dde14eb9283bfbe019",
+      "weight": 1,
+      "type": "semantic"
     },
     {
-      "source": "6a43a94440ce6ee20682b39d",
-      "target": "6a43a94440ce6ee20682b394"
+      "source": "6a43b6dde14eb9283bfbe00f",
+      "target": "6a43b6dde14eb9283bfbe007",
+      "weight": 11,
+      "type": "strong"
     },
     {
-      "source": "6a43a94440ce6ee20682b39d",
-      "target": "6a43a94440ce6ee20682b39c"
+      "source": "6a43b6dde14eb9283bfbe00f",
+      "target": "6a43b6dde14eb9283bfbe010",
+      "weight": 11,
+      "type": "strong"
     },
     {
-      "source": "6a43a94440ce6ee20682b39d",
-      "target": "6a43a94440ce6ee20682b39e"
+      "source": "6a43b6dde14eb9283bfbe00f",
+      "target": "6a43b6dde14eb9283bfbe011",
+      "weight": 11,
+      "type": "strong"
     },
     {
-      "source": "6a43a94440ce6ee20682b39d",
-      "target": "6a43a94440ce6ee20682b39f"
+      "source": "6a43b6dde14eb9283bfbe00f",
+      "target": "6a43b6dde14eb9283bfbe012",
+      "weight": 6,
+      "type": "semantic"
     },
     {
-      "source": "6a43a94440ce6ee20682b39e",
-      "target": "6a43a94440ce6ee20682b394"
+      "source": "6a43b6dde14eb9283bfbe010",
+      "target": "6a43b6dde14eb9283bfbe007",
+      "weight": 11,
+      "type": "strong"
     },
     {
-      "source": "6a43a94440ce6ee20682b39e",
-      "target": "6a43a94440ce6ee20682b39c"
+      "source": "6a43b6dde14eb9283bfbe010",
+      "target": "6a43b6dde14eb9283bfbe00f",
+      "weight": 11,
+      "type": "strong"
     },
     {
-      "source": "6a43a94440ce6ee20682b39e",
-      "target": "6a43a94440ce6ee20682b39d"
+      "source": "6a43b6dde14eb9283bfbe010",
+      "target": "6a43b6dde14eb9283bfbe011",
+      "weight": 11,
+      "type": "strong"
     },
     {
-      "source": "6a43a94440ce6ee20682b39e",
-      "target": "6a43a94440ce6ee20682b39f"
+      "source": "6a43b6dde14eb9283bfbe010",
+      "target": "6a43b6dde14eb9283bfbe012",
+      "weight": 6,
+      "type": "semantic"
     },
     {
-      "source": "6a43a94440ce6ee20682b39f",
-      "target": "6a43a94440ce6ee20682b394"
+      "source": "6a43b6dde14eb9283bfbe011",
+      "target": "6a43b6dde14eb9283bfbe007",
+      "weight": 11,
+      "type": "strong"
     },
     {
-      "source": "6a43a94440ce6ee20682b39f",
-      "target": "6a43a94440ce6ee20682b39c"
+      "source": "6a43b6dde14eb9283bfbe011",
+      "target": "6a43b6dde14eb9283bfbe00f",
+      "weight": 11,
+      "type": "strong"
     },
     {
-      "source": "6a43a94440ce6ee20682b39f",
-      "target": "6a43a94440ce6ee20682b39d"
+      "source": "6a43b6dde14eb9283bfbe011",
+      "target": "6a43b6dde14eb9283bfbe010",
+      "weight": 11,
+      "type": "strong"
     },
     {
-      "source": "6a43a94440ce6ee20682b39f",
-      "target": "6a43a94440ce6ee20682b39e"
+      "source": "6a43b6dde14eb9283bfbe011",
+      "target": "6a43b6dde14eb9283bfbe012",
+      "weight": 6,
+      "type": "semantic"
     },
     {
-      "source": "6a43a94440ce6ee20682b3a0",
-      "target": "6a43a94440ce6ee20682b397"
+      "source": "6a43b6dde14eb9283bfbe011",
+      "target": "6a43b6dde14eb9283bfbe013",
+      "weight": 2,
+      "type": "semantic"
     },
     {
-      "source": "6a43a94440ce6ee20682b3a0",
-      "target": "6a43a94440ce6ee20682b3a1"
+      "source": "6a43b6dde14eb9283bfbe011",
+      "target": "6a43b6dde14eb9283bfbe01e",
+      "weight": 1,
+      "type": "semantic"
     },
     {
-      "source": "6a43a94440ce6ee20682b3a0",
-      "target": "6a43a94440ce6ee20682b3a2"
+      "source": "6a43b6dde14eb9283bfbe012",
+      "target": "6a43b6dde14eb9283bfbe007",
+      "weight": 6,
+      "type": "semantic"
     },
     {
-      "source": "6a43a94440ce6ee20682b3a0",
-      "target": "6a43a94440ce6ee20682b3a3"
+      "source": "6a43b6dde14eb9283bfbe012",
+      "target": "6a43b6dde14eb9283bfbe00f",
+      "weight": 6,
+      "type": "semantic"
     },
     {
-      "source": "6a43a94440ce6ee20682b3a1",
-      "target": "6a43a94440ce6ee20682b397"
+      "source": "6a43b6dde14eb9283bfbe012",
+      "target": "6a43b6dde14eb9283bfbe010",
+      "weight": 6,
+      "type": "semantic"
     },
     {
-      "source": "6a43a94440ce6ee20682b3a1",
-      "target": "6a43a94440ce6ee20682b3a0"
+      "source": "6a43b6dde14eb9283bfbe012",
+      "target": "6a43b6dde14eb9283bfbe011",
+      "weight": 6,
+      "type": "semantic"
     },
     {
-      "source": "6a43a94440ce6ee20682b3a1",
-      "target": "6a43a94440ce6ee20682b3a2"
+      "source": "6a43b6dde14eb9283bfbe012",
+      "target": "6a43b6dde14eb9283bfbe00b",
+      "weight": 2,
+      "type": "semantic"
     },
     {
-      "source": "6a43a94440ce6ee20682b3a1",
-      "target": "6a43a94440ce6ee20682b3a3"
+      "source": "6a43b6dde14eb9283bfbe012",
+      "target": "6a43b6dde14eb9283bfbe01c",
+      "weight": 1,
+      "type": "semantic"
     },
     {
-      "source": "6a43a94440ce6ee20682b3a2",
-      "target": "6a43a94440ce6ee20682b3a6"
+      "source": "6a43b6dde14eb9283bfbe013",
+      "target": "6a43b6dde14eb9283bfbe00a",
+      "weight": 6,
+      "type": "semantic"
     },
     {
-      "source": "6a43a94440ce6ee20682b3a2",
-      "target": "6a43a94440ce6ee20682b397"
+      "source": "6a43b6dde14eb9283bfbe013",
+      "target": "6a43b6dde14eb9283bfbe014",
+      "weight": 6,
+      "type": "semantic"
     },
     {
-      "source": "6a43a94440ce6ee20682b3a2",
-      "target": "6a43a94440ce6ee20682b3a0"
+      "source": "6a43b6dde14eb9283bfbe013",
+      "target": "6a43b6dde14eb9283bfbe015",
+      "weight": 6,
+      "type": "semantic"
     },
     {
-      "source": "6a43a94440ce6ee20682b3a2",
-      "target": "6a43a94440ce6ee20682b3a1"
+      "source": "6a43b6dde14eb9283bfbe013",
+      "target": "6a43b6dde14eb9283bfbe016",
+      "weight": 6,
+      "type": "semantic"
     },
     {
-      "source": "6a43a94440ce6ee20682b3a3",
-      "target": "6a43a94440ce6ee20682b3a6"
+      "source": "6a43b6dde14eb9283bfbe013",
+      "target": "6a43b6dde14eb9283bfbe019",
+      "weight": 6,
+      "type": "semantic"
     },
     {
-      "source": "6a43a94440ce6ee20682b3a3",
-      "target": "6a43a94440ce6ee20682b397"
+      "source": "6a43b6dde14eb9283bfbe013",
+      "target": "6a43b6dde14eb9283bfbe011",
+      "weight": 2,
+      "type": "semantic"
     },
     {
-      "source": "6a43a94440ce6ee20682b3a3",
-      "target": "6a43a94440ce6ee20682b3a0"
+      "source": "6a43b6dde14eb9283bfbe013",
+      "target": "6a43b6dde14eb9283bfbe01c",
+      "weight": 1,
+      "type": "semantic"
     },
     {
-      "source": "6a43a94440ce6ee20682b3a3",
-      "target": "6a43a94440ce6ee20682b3a1"
+      "source": "6a43b6dde14eb9283bfbe014",
+      "target": "6a43b6dde14eb9283bfbe00a",
+      "weight": 6,
+      "type": "semantic"
     },
     {
-      "source": "6a43a94440ce6ee20682b3a4",
-      "target": "6a43a94440ce6ee20682b3a1"
+      "source": "6a43b6dde14eb9283bfbe014",
+      "target": "6a43b6dde14eb9283bfbe013",
+      "weight": 6,
+      "type": "semantic"
     },
     {
-      "source": "6a43a94440ce6ee20682b3a4",
-      "target": "6a43a94440ce6ee20682b3ab"
+      "source": "6a43b6dde14eb9283bfbe014",
+      "target": "6a43b6dde14eb9283bfbe015",
+      "weight": 6,
+      "type": "semantic"
     },
     {
-      "source": "6a43a94440ce6ee20682b3a4",
-      "target": "6a43a94440ce6ee20682b394"
+      "source": "6a43b6dde14eb9283bfbe014",
+      "target": "6a43b6dde14eb9283bfbe016",
+      "weight": 6,
+      "type": "semantic"
     },
     {
-      "source": "6a43a94440ce6ee20682b3a4",
-      "target": "6a43a94440ce6ee20682b398"
+      "source": "6a43b6dde14eb9283bfbe014",
+      "target": "6a43b6dde14eb9283bfbe019",
+      "weight": 6,
+      "type": "semantic"
     },
     {
-      "source": "6a43a94440ce6ee20682b3a5",
-      "target": "6a43a94440ce6ee20682b398"
+      "source": "6a43b6dde14eb9283bfbe014",
+      "target": "6a43b6dde14eb9283bfbe017",
+      "weight": 2,
+      "type": "semantic"
     },
     {
-      "source": "6a43a94440ce6ee20682b3a5",
-      "target": "6a43a94440ce6ee20682b39a"
+      "source": "6a43b6dde14eb9283bfbe014",
+      "target": "6a43b6dde14eb9283bfbe01e",
+      "weight": 2,
+      "type": "semantic"
     },
     {
-      "source": "6a43a94440ce6ee20682b3a5",
-      "target": "6a43a94440ce6ee20682b3a7"
+      "source": "6a43b6dde14eb9283bfbe015",
+      "target": "6a43b6dde14eb9283bfbe019",
+      "weight": 7,
+      "type": "semantic"
     },
     {
-      "source": "6a43a94440ce6ee20682b3a5",
-      "target": "6a43a94440ce6ee20682b394"
+      "source": "6a43b6dde14eb9283bfbe015",
+      "target": "6a43b6dde14eb9283bfbe00a",
+      "weight": 6,
+      "type": "semantic"
     },
     {
-      "source": "6a43a94440ce6ee20682b3a6",
-      "target": "6a43a94440ce6ee20682b3a2"
+      "source": "6a43b6dde14eb9283bfbe015",
+      "target": "6a43b6dde14eb9283bfbe013",
+      "weight": 6,
+      "type": "semantic"
     },
     {
-      "source": "6a43a94440ce6ee20682b3a6",
-      "target": "6a43a94440ce6ee20682b3a3"
+      "source": "6a43b6dde14eb9283bfbe015",
+      "target": "6a43b6dde14eb9283bfbe014",
+      "weight": 6,
+      "type": "semantic"
     },
     {
-      "source": "6a43a94440ce6ee20682b3a6",
-      "target": "6a43a94440ce6ee20682b397"
+      "source": "6a43b6dde14eb9283bfbe015",
+      "target": "6a43b6dde14eb9283bfbe016",
+      "weight": 6,
+      "type": "semantic"
     },
     {
-      "source": "6a43a94440ce6ee20682b3a6",
-      "target": "6a43a94440ce6ee20682b3a0"
+      "source": "6a43b6dde14eb9283bfbe016",
+      "target": "6a43b6dde14eb9283bfbe019",
+      "weight": 7,
+      "type": "semantic"
     },
     {
-      "source": "6a43a94440ce6ee20682b3a7",
-      "target": "6a43a94440ce6ee20682b398"
+      "source": "6a43b6dde14eb9283bfbe016",
+      "target": "6a43b6dde14eb9283bfbe00a",
+      "weight": 6,
+      "type": "semantic"
     },
     {
-      "source": "6a43a94440ce6ee20682b3a7",
-      "target": "6a43a94440ce6ee20682b39a"
+      "source": "6a43b6dde14eb9283bfbe016",
+      "target": "6a43b6dde14eb9283bfbe013",
+      "weight": 6,
+      "type": "semantic"
     },
     {
-      "source": "6a43a94440ce6ee20682b3a7",
-      "target": "6a43a94440ce6ee20682b3a5"
+      "source": "6a43b6dde14eb9283bfbe016",
+      "target": "6a43b6dde14eb9283bfbe014",
+      "weight": 6,
+      "type": "semantic"
     },
     {
-      "source": "6a43a94440ce6ee20682b3a7",
-      "target": "6a43a94440ce6ee20682b3a4"
+      "source": "6a43b6dde14eb9283bfbe016",
+      "target": "6a43b6dde14eb9283bfbe015",
+      "weight": 6,
+      "type": "semantic"
     },
     {
-      "source": "6a43a94440ce6ee20682b3a8",
-      "target": "6a43a94440ce6ee20682b396"
+      "source": "6a43b6dde14eb9283bfbe017",
+      "target": "6a43b6dde14eb9283bfbe014",
+      "weight": 2,
+      "type": "semantic"
     },
     {
-      "source": "6a43a94440ce6ee20682b3a8",
-      "target": "6a43a94440ce6ee20682b399"
+      "source": "6a43b6dde14eb9283bfbe017",
+      "target": "6a43b6dde14eb9283bfbe01e",
+      "weight": 2,
+      "type": "semantic"
     },
     {
-      "source": "6a43a94440ce6ee20682b3a8",
-      "target": "6a43a94440ce6ee20682b3a9"
+      "source": "6a43b6dde14eb9283bfbe017",
+      "target": "6a43b6dde14eb9283bfbe007",
+      "weight": 1,
+      "type": "semantic"
     },
     {
-      "source": "6a43a94440ce6ee20682b3a8",
-      "target": "6a43a94440ce6ee20682b394"
+      "source": "6a43b6dde14eb9283bfbe017",
+      "target": "6a43b6dde14eb9283bfbe00b",
+      "weight": 1,
+      "type": "semantic"
     },
     {
-      "source": "6a43a94440ce6ee20682b3a9",
-      "target": "6a43a94440ce6ee20682b3aa"
+      "source": "6a43b6dde14eb9283bfbe017",
+      "target": "6a43b6dde14eb9283bfbe00c",
+      "weight": 1,
+      "type": "semantic"
     },
     {
-      "source": "6a43a94440ce6ee20682b3a9",
-      "target": "6a43a94440ce6ee20682b396"
+      "source": "6a43b6dde14eb9283bfbe017",
+      "target": "6a43b6dde14eb9283bfbe00e",
+      "weight": 1,
+      "type": "semantic"
     },
     {
-      "source": "6a43a94440ce6ee20682b3a9",
-      "target": "6a43a94440ce6ee20682b399"
+      "source": "6a43b6dde14eb9283bfbe017",
+      "target": "6a43b6dde14eb9283bfbe019",
+      "weight": 1,
+      "type": "semantic"
     },
     {
-      "source": "6a43a94440ce6ee20682b3a9",
-      "target": "6a43a94440ce6ee20682b3a8"
+      "source": "6a43b6dde14eb9283bfbe017",
+      "target": "6a43b6dde14eb9283bfbe01a",
+      "weight": 1,
+      "type": "semantic"
     },
     {
-      "source": "6a43a94440ce6ee20682b3aa",
-      "target": "6a43a94440ce6ee20682b3a9"
+      "source": "6a43b6dde14eb9283bfbe018",
+      "target": "6a43b6dde14eb9283bfbe00b",
+      "weight": 6,
+      "type": "semantic"
     },
     {
-      "source": "6a43a94440ce6ee20682b3aa",
-      "target": "6a43a94440ce6ee20682b394"
+      "source": "6a43b6dde14eb9283bfbe018",
+      "target": "6a43b6dde14eb9283bfbe00d",
+      "weight": 6,
+      "type": "semantic"
     },
     {
-      "source": "6a43a94440ce6ee20682b3aa",
-      "target": "6a43a94440ce6ee20682b395"
+      "source": "6a43b6dde14eb9283bfbe018",
+      "target": "6a43b6dde14eb9283bfbe01a",
+      "weight": 6,
+      "type": "semantic"
     },
     {
-      "source": "6a43a94440ce6ee20682b3aa",
-      "target": "6a43a94440ce6ee20682b396"
+      "source": "6a43b6dde14eb9283bfbe019",
+      "target": "6a43b6dde14eb9283bfbe015",
+      "weight": 7,
+      "type": "semantic"
     },
     {
-      "source": "6a43a94440ce6ee20682b3ab",
-      "target": "6a43a94440ce6ee20682b395"
+      "source": "6a43b6dde14eb9283bfbe019",
+      "target": "6a43b6dde14eb9283bfbe016",
+      "weight": 7,
+      "type": "semantic"
     },
     {
-      "source": "6a43a94440ce6ee20682b3ab",
-      "target": "6a43a94440ce6ee20682b399"
+      "source": "6a43b6dde14eb9283bfbe019",
+      "target": "6a43b6dde14eb9283bfbe00a",
+      "weight": 6,
+      "type": "semantic"
     },
     {
-      "source": "6a43a94440ce6ee20682b3ab",
-      "target": "6a43a94440ce6ee20682b3a1"
+      "source": "6a43b6dde14eb9283bfbe019",
+      "target": "6a43b6dde14eb9283bfbe013",
+      "weight": 6,
+      "type": "semantic"
     },
     {
-      "source": "6a43a94440ce6ee20682b3ab",
-      "target": "6a43a94440ce6ee20682b3a4"
+      "source": "6a43b6dde14eb9283bfbe019",
+      "target": "6a43b6dde14eb9283bfbe014",
+      "weight": 6,
+      "type": "semantic"
+    },
+    {
+      "source": "6a43b6dde14eb9283bfbe019",
+      "target": "6a43b6dde14eb9283bfbe007",
+      "weight": 1,
+      "type": "semantic"
+    },
+    {
+      "source": "6a43b6dde14eb9283bfbe019",
+      "target": "6a43b6dde14eb9283bfbe00e",
+      "weight": 1,
+      "type": "semantic"
+    },
+    {
+      "source": "6a43b6dde14eb9283bfbe019",
+      "target": "6a43b6dde14eb9283bfbe017",
+      "weight": 1,
+      "type": "semantic"
+    },
+    {
+      "source": "6a43b6dde14eb9283bfbe01a",
+      "target": "6a43b6dde14eb9283bfbe00b",
+      "weight": 7,
+      "type": "semantic"
+    },
+    {
+      "source": "6a43b6dde14eb9283bfbe01a",
+      "target": "6a43b6dde14eb9283bfbe00d",
+      "weight": 6,
+      "type": "semantic"
+    },
+    {
+      "source": "6a43b6dde14eb9283bfbe01a",
+      "target": "6a43b6dde14eb9283bfbe018",
+      "weight": 6,
+      "type": "semantic"
+    },
+    {
+      "source": "6a43b6dde14eb9283bfbe01a",
+      "target": "6a43b6dde14eb9283bfbe017",
+      "weight": 1,
+      "type": "semantic"
+    },
+    {
+      "source": "6a43b6dde14eb9283bfbe01b",
+      "target": "6a43b6dde14eb9283bfbe009",
+      "weight": 2,
+      "type": "semantic"
+    },
+    {
+      "source": "6a43b6dde14eb9283bfbe01b",
+      "target": "6a43b6dde14eb9283bfbe00c",
+      "weight": 2,
+      "type": "semantic"
+    },
+    {
+      "source": "6a43b6dde14eb9283bfbe01b",
+      "target": "6a43b6dde14eb9283bfbe01c",
+      "weight": 2,
+      "type": "semantic"
+    },
+    {
+      "source": "6a43b6dde14eb9283bfbe01c",
+      "target": "6a43b6dde14eb9283bfbe01d",
+      "weight": 6,
+      "type": "semantic"
+    },
+    {
+      "source": "6a43b6dde14eb9283bfbe01c",
+      "target": "6a43b6dde14eb9283bfbe009",
+      "weight": 2,
+      "type": "semantic"
+    },
+    {
+      "source": "6a43b6dde14eb9283bfbe01c",
+      "target": "6a43b6dde14eb9283bfbe00c",
+      "weight": 2,
+      "type": "semantic"
+    },
+    {
+      "source": "6a43b6dde14eb9283bfbe01c",
+      "target": "6a43b6dde14eb9283bfbe01b",
+      "weight": 2,
+      "type": "semantic"
+    },
+    {
+      "source": "6a43b6dde14eb9283bfbe01c",
+      "target": "6a43b6dde14eb9283bfbe012",
+      "weight": 1,
+      "type": "semantic"
+    },
+    {
+      "source": "6a43b6dde14eb9283bfbe01c",
+      "target": "6a43b6dde14eb9283bfbe013",
+      "weight": 1,
+      "type": "semantic"
+    },
+    {
+      "source": "6a43b6dde14eb9283bfbe01d",
+      "target": "6a43b6dde14eb9283bfbe01c",
+      "weight": 6,
+      "type": "semantic"
+    },
+    {
+      "source": "6a43b6dde14eb9283bfbe01e",
+      "target": "6a43b6dde14eb9283bfbe008",
+      "weight": 11,
+      "type": "strong"
+    },
+    {
+      "source": "6a43b6dde14eb9283bfbe01e",
+      "target": "6a43b6dde14eb9283bfbe00c",
+      "weight": 6,
+      "type": "semantic"
+    },
+    {
+      "source": "6a43b6dde14eb9283bfbe01e",
+      "target": "6a43b6dde14eb9283bfbe014",
+      "weight": 2,
+      "type": "semantic"
+    },
+    {
+      "source": "6a43b6dde14eb9283bfbe01e",
+      "target": "6a43b6dde14eb9283bfbe017",
+      "weight": 2,
+      "type": "semantic"
+    },
+    {
+      "source": "6a43b6dde14eb9283bfbe01e",
+      "target": "6a43b6dde14eb9283bfbe011",
+      "weight": 1,
+      "type": "semantic"
     }
   ]
 }

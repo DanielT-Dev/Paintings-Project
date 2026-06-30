@@ -11,10 +11,13 @@ const paintingSchema = new mongoose.Schema(
     tags: [String],
     relatedPaintings: [
       {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Painting",
+        id: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: "Painting",
+        },
+        score: Number,
       },
-    ],
+    ]
   },
   { timestamps: true }
 );

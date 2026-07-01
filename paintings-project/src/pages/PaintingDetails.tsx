@@ -73,14 +73,25 @@ export default function PaintingDetails() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
                 >
-                    <Image
-                        src={painting.imageUrls?.[0]}
+                    <Box
                         w="100%"
                         h={{ base: "300px", md: "500px" }}
-                        objectFit="cover"
+                        bg="gray.100"
                         borderRadius="2xl"
+                        overflow="hidden"
+                        display="flex"
+                        alignItems="center"
+                        justifyContent="center"
                         boxShadow="xl"
-                    />
+                    >
+                        <Image
+                            src={painting.imageUrls?.[0]}
+                            w="100%"
+                            h="100%"
+                            objectFit="contain"
+                            objectPosition="center"
+                        />
+                    </Box>
                 </MotionBox>
 
                 {/* INFO */}

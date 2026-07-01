@@ -373,3 +373,39 @@ CastError: Cast to [ObjectId] failed for value "[\n' +
 [2026-06-30 15:30:30] INFO: ✅ graph.json exported
 [2026-06-30 15:30:33] INFO: GET /graph.json [32m200[39m 7ms {"meta":{}}
 [2026-06-30 15:30:33] INFO: GET /graph.json [36m304[39m 1ms {"meta":{}}
+[2026-06-30 15:37:16] INFO: Fetching all paintings
+[2026-06-30 15:37:16] INFO: Paintings fetched successfully {"count":24}
+[2026-06-30 15:37:16] INFO: GET /api/paintings [32m200[39m 136ms {"meta":{}}
+[2026-06-30 15:37:16] INFO: Fetching all paintings
+[2026-06-30 15:37:16] INFO: Paintings fetched successfully {"count":24}
+[2026-06-30 15:37:16] INFO: GET /api/paintings [36m304[39m 59ms {"meta":{}}
+[2026-06-30 15:37:26] INFO: Fetching all paintings
+[2026-06-30 15:37:27] INFO: Paintings fetched successfully {"count":24}
+[2026-06-30 15:37:27] INFO: GET /api/paintings [36m304[39m 114ms {"meta":{}}
+[2026-06-30 15:37:27] INFO: Fetching all paintings
+[2026-06-30 15:37:27] INFO: Paintings fetched successfully {"count":24}
+[2026-06-30 15:37:27] INFO: GET /api/paintings [36m304[39m 61ms {"meta":{}}
+[2026-06-30 15:37:36] INFO: Fetching painting {"paintingId":"6a43b6dde14eb9283bfbe01b"}
+[2026-06-30 15:37:36] INFO: Painting fetched successfully {"paintingId":"6a43b6dde14eb9283bfbe01b","title":"The Return of the Prodigal Son","relatedCount":0}
+[2026-06-30 15:37:36] INFO: GET /api/paintings/6a43b6dde14eb9283bfbe01b [32m200[39m 105ms {"meta":{}}
+[2026-06-30 15:37:36] INFO: Fetching painting {"paintingId":"6a43b6dde14eb9283bfbe01b"}
+[2026-06-30 15:37:36] INFO: Painting fetched successfully {"paintingId":"6a43b6dde14eb9283bfbe01b","title":"The Return of the Prodigal Son","relatedCount":0}
+[2026-06-30 15:37:36] INFO: GET /api/paintings/6a43b6dde14eb9283bfbe01b [36m304[39m 79ms {"meta":{}}
+[2026-06-30 15:37:39] INFO: Fetching all paintings
+[2026-06-30 15:37:39] INFO: Paintings fetched successfully {"count":24}
+[2026-06-30 15:37:39] INFO: GET /api/paintings [36m304[39m 110ms {"meta":{}}
+[2026-06-30 15:37:39] INFO: Fetching all paintings
+[2026-06-30 15:37:40] INFO: Paintings fetched successfully {"count":24}
+[2026-06-30 15:37:40] INFO: GET /api/paintings [36m304[39m 49ms {"meta":{}}
+[2026-06-30 15:37:42] INFO: Fetching painting {"paintingId":"6a43b6dde14eb9283bfbe008"}
+[2026-06-30 15:37:42] INFO: Painting fetched successfully {"paintingId":"6a43b6dde14eb9283bfbe008","title":"Reply of the Zaporozhian Cossacks","relatedCount":0}
+[2026-06-30 15:37:42] INFO: GET /api/paintings/6a43b6dde14eb9283bfbe008 [32m200[39m 81ms {"meta":{}}
+[2026-06-30 15:37:42] INFO: Fetching painting {"paintingId":"6a43b6dde14eb9283bfbe008"}
+[2026-06-30 15:37:42] INFO: Painting fetched successfully {"paintingId":"6a43b6dde14eb9283bfbe008","title":"Reply of the Zaporozhian Cossacks","relatedCount":0}
+[2026-06-30 15:37:42] INFO: GET /api/paintings/6a43b6dde14eb9283bfbe008 [36m304[39m 83ms {"meta":{}}
+[2026-06-30 15:37:48] INFO: Fetching all paintings
+[2026-06-30 15:37:48] INFO: Paintings fetched successfully {"count":24}
+[2026-06-30 15:37:48] INFO: GET /api/paintings [36m304[39m 99ms {"meta":{}}
+[2026-06-30 15:37:48] INFO: Fetching all paintings
+[2026-06-30 15:37:48] INFO: Paintings fetched successfully {"count":24}
+[2026-06-30 15:37:48] INFO: GET /api/paintings [36m304[39m 48ms {"meta":{}}

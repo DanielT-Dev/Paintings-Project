@@ -31,9 +31,8 @@ const getPaintingById = async (req, res) => {
       paintingId: req.params.id,
     });
 
-    const painting = await Painting.findById(req.params.id).populate(
-      "relatedPaintings"
-    );
+    const painting = await Painting.findById(req.params.id)
+      .populate("relatedPaintings.id");
 
     if (!painting) {
       logger.warn("Painting not found", {
@@ -45,13 +44,28 @@ const getPaintingById = async (req, res) => {
       });
     }
 
+    // 🔥 FLATTEN RELATED PAINTINGS
+    const formattedPainting = {
+      ...painting.toObject(),
+      relatedPaintings: painting.relatedPaintings
+        .map((r) => {
+          if (!r.id) return null;
+
+          return {
+            score: r.score,
+            ...r.id.toObject(),
+          };
+        })
+        .filter(Boolean),
+    };
+
     logger.info("Painting fetched successfully", {
       paintingId: painting._id,
       title: painting.title,
-      relatedCount: painting.relatedPaintings?.length || 0,
+      relatedCount: formattedPainting.relatedPaintings.length,
     });
 
-    res.json(painting);
+    res.json(formattedPainting);
   } catch (err) {
     logger.error("Failed to fetch painting", {
       paintingId: req.params.id,

@@ -1,5 +1,20 @@
 const mongoose = require("mongoose");
 
+const relatedPaintingSchema = new mongoose.Schema(
+  {
+    id: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Painting",
+      required: true,
+    },
+    score: {
+      type: Number,
+      default: 0,
+    },
+  },
+  { _id: false }
+);
+
 const paintingSchema = new mongoose.Schema(
   {
     title: String,
@@ -9,15 +24,8 @@ const paintingSchema = new mongoose.Schema(
     description: String,
     imageUrls: [String],
     tags: [String],
-    relatedPaintings: [
-      {
-        id: {
-          type: mongoose.Schema.Types.ObjectId,
-          ref: "Painting",
-        },
-        score: Number,
-      },
-    ]
+
+    relatedPaintings: [relatedPaintingSchema],
   },
   { timestamps: true }
 );

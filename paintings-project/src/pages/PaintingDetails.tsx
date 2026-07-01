@@ -27,7 +27,8 @@ export default function PaintingDetails() {
             if (!id) return;
 
             const data = await getPaintingById(id);
-            console.log("PAINTING DETAILS:", data);
+            // console.log("PAINTING DETAILS:", data);
+            // console.log("RELATED PAINTINGS:", data.relatedPaintings);
 
             setPainting(data);
             setLoading(false);
@@ -113,7 +114,6 @@ export default function PaintingDetails() {
                     </Text>
                 </VStack>
 
-                {/* RELATED (simple version for now) */}
                 <Box mt={16}>
                     <Heading fontSize="xl" mb={6}>
                         Related Works
@@ -121,24 +121,35 @@ export default function PaintingDetails() {
 
                     <Grid templateColumns="repeat(3, 1fr)" gap={6}>
                         {painting.relatedPaintings?.length ? (
-                            painting.relatedPaintings.map((p: any, i: number) => (
-                                <Box
-                                    key={p._id || i}
-                                    cursor="pointer"
-                                    onClick={() => navigate(`/painting/${p._id}`)}
-                                >
-                                    <Image
-                                        src={p.imageUrls?.[0]}
-                                        h="180px"
-                                        w="100%"
-                                        objectFit="cover"
-                                        borderRadius="xl"
-                                    />
-                                    <Text mt={2} fontWeight="500">
-                                        {p.title}
-                                    </Text>
-                                </Box>
-                            ))
+                            painting.relatedPaintings
+                                .sort((a: any, b: any) => b.score - a.score) // highest score first
+                                .slice(0, 6) // optional safety limit
+                                .map((p: any, i: number) => (
+                                    <Box
+                                        key={p._id || i}
+                                        cursor="pointer"
+                                        onClick={() => navigate(`/painting/${p._id}`)}
+                                        _hover={{ transform: "scale(1.02)" }}
+                                        transition="0.2s ease"
+                                    >
+                                        <Image
+                                            src={p.imageUrls?.[0]}
+                                            h="180px"
+                                            w="100%"
+                                            objectFit="cover"
+                                            borderRadius="xl"
+                                            fallbackSrc="https://via.placeholder.com/400x300?text=No+Image"
+                                        />
+
+                                        <Text mt={2} fontWeight="500">
+                                            {p.title}
+                                        </Text>
+
+                                        {/* <Text fontSize="sm" color="gray.500">
+                                            Score: {p.score}
+                                        </Text> */}
+                                    </Box>
+                                ))
                         ) : (
                             <Text color="gray.500">
                                 No related paintings yet

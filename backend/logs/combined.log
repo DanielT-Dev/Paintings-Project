@@ -409,3 +409,11 @@ CastError: Cast to [ObjectId] failed for value "[\n' +
 [2026-06-30 15:37:48] INFO: Fetching all paintings
 [2026-06-30 15:37:48] INFO: Paintings fetched successfully {"count":24}
 [2026-06-30 15:37:48] INFO: GET /api/paintings [36m304[39m 48ms {"meta":{}}
+[2026-07-01 15:57:02] INFO: Connected to MongoDB
+[2026-07-01 15:57:02] INFO: Server running on http://localhost:5000
+[2026-07-01 15:57:05] INFO: Fetching all paintings
+[2026-07-01 15:57:05] INFO: Paintings fetched successfully {"count":24}
+[2026-07-01 15:57:05] INFO: GET /api/paintings [32m200[39m 155ms {"meta":{}}
+[2026-07-01 15:57:05] INFO: Fetching all paintings
+[2026-07-01 15:57:05] INFO: Paintings fetched successfully {"count":24}
+[2026-07-01 15:57:05] INFO: GET /api/paintings [36m304[39m 36ms {"meta":{}}

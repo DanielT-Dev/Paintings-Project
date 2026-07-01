@@ -101,6 +101,8 @@ This structure allows:
 
 ---
 
+![image1](https://github.com/DanielT-Dev/Paintings-Project/blob/main/paintings-project/public/image1.png)
+
 ## API Layer (Controllers)
 
 The API follows a controller-based architecture to separate logic from routes.
@@ -195,6 +197,12 @@ const getPaintingById = async (req, res) => {
 ```
 
 ---
+
+<img 
+  src="https://raw.githubusercontent.com/DanielT-Dev/Paintings-Project/main/paintings-project/public/image2.png" 
+  width="800" 
+  height="500"
+/>
 
 ## Architecture Summary
 

@@ -1019,3 +1019,227 @@ CastError: Cast to [ObjectId] failed for value "[\n' +
 [2026-07-03 15:46:45] INFO: GET /api/paintings [36m304[39m 77ms {"meta":{}}
 [2026-07-03 15:48:22] INFO: Connected to MongoDB
 [2026-07-03 15:48:22] INFO: Server running on http://localhost:5000
+[2026-07-03 16:07:00] INFO: Connected to MongoDB
+[2026-07-03 16:07:00] INFO: Server running on http://localhost:5000
+[2026-07-03 16:08:50] INFO: Fetching all categories
+[2026-07-03 16:08:50] INFO: Fetching paintings {"categoryFilter":null}
+[2026-07-03 16:08:50] INFO: Categories fetched successfully {"count":7}
+[2026-07-03 16:08:50] INFO: GET /api/categories [36m304[39m 52ms {"meta":{}}
+[2026-07-03 16:08:50] INFO: Paintings fetched successfully {"count":24}
+[2026-07-03 16:08:50] INFO: GET /api/paintings [36m304[39m 127ms {"meta":{}}
+[2026-07-03 16:09:16] INFO: Fetching all categories
+[2026-07-03 16:09:16] INFO: Fetching paintings {"categoryFilter":null}
+[2026-07-03 16:09:16] INFO: Categories fetched successfully {"count":7}
+[2026-07-03 16:09:16] INFO: GET /api/categories [36m304[39m 37ms {"meta":{}}
+[2026-07-03 16:09:16] INFO: Fetching all categories
+[2026-07-03 16:09:16] INFO: Paintings fetched successfully {"count":24}
+[2026-07-03 16:09:16] INFO: GET /api/paintings [36m304[39m 89ms {"meta":{}}
+[2026-07-03 16:09:16] INFO: Categories fetched successfully {"count":7}
+[2026-07-03 16:09:16] INFO: GET /api/categories [36m304[39m 48ms {"meta":{}}
+[2026-07-03 16:09:16] INFO: Fetching paintings {"categoryFilter":null}
+[2026-07-03 16:09:16] INFO: Paintings fetched successfully {"count":24}
+[2026-07-03 16:09:16] INFO: GET /api/paintings [36m304[39m 74ms {"meta":{}}
+[2026-07-03 16:09:50] INFO: Fetching all categories
+[2026-07-03 16:09:50] INFO: Fetching paintings {"categoryFilter":null}
+[2026-07-03 16:09:50] INFO: Categories fetched successfully {"count":7}
+[2026-07-03 16:09:50] INFO: GET /api/categories [36m304[39m 36ms {"meta":{}}
+[2026-07-03 16:09:50] INFO: Paintings fetched successfully {"count":24}
+[2026-07-03 16:09:50] INFO: GET /api/paintings [36m304[39m 75ms {"meta":{}}
+[2026-07-03 16:10:05] INFO: Fetching paintings {"categoryFilter":null}
+[2026-07-03 16:10:05] INFO: Fetching all categories
+[2026-07-03 16:10:05] INFO: Categories fetched successfully {"count":7}
+[2026-07-03 16:10:05] INFO: GET /api/categories [36m304[39m 38ms {"meta":{}}
+[2026-07-03 16:10:05] INFO: Paintings fetched successfully {"count":24}
+[2026-07-03 16:10:05] INFO: GET /api/paintings? [32m200[39m 76ms {"meta":{}}
+[2026-07-03 16:10:17] INFO: Fetching all categories
+[2026-07-03 16:10:17] INFO: Fetching paintings {"categoryFilter":null}
+[2026-07-03 16:10:17] INFO: Categories fetched successfully {"count":7}
+[2026-07-03 16:10:17] INFO: GET /api/categories [36m304[39m 35ms {"meta":{}}
+[2026-07-03 16:10:17] INFO: Paintings fetched successfully {"count":24}
+[2026-07-03 16:10:17] INFO: GET /api/paintings? [36m304[39m 75ms {"meta":{}}
+[2026-07-03 16:10:26] INFO: Fetching all categories
+[2026-07-03 16:10:26] INFO: Fetching paintings {"categoryFilter":null}
+[2026-07-03 16:10:26] INFO: Categories fetched successfully {"count":7}
+[2026-07-03 16:10:26] INFO: GET /api/categories [36m304[39m 36ms {"meta":{}}
+[2026-07-03 16:10:26] INFO: Fetching all categories
+[2026-07-03 16:10:26] INFO: Paintings fetched successfully {"count":24}
+[2026-07-03 16:10:26] INFO: GET /api/paintings? [36m304[39m 78ms {"meta":{}}
+[2026-07-03 16:10:26] INFO: Categories fetched successfully {"count":7}
+[2026-07-03 16:10:26] INFO: GET /api/categories [36m304[39m 36ms {"meta":{}}
+[2026-07-03 16:10:26] INFO: Fetching paintings {"categoryFilter":null}
+[2026-07-03 16:10:26] INFO: Paintings fetched successfully {"count":24}
+[2026-07-03 16:10:26] INFO: GET /api/paintings? [36m304[39m 85ms {"meta":{}}
+[2026-07-03 16:10:27] INFO: Fetching all categories
+[2026-07-03 16:10:27] INFO: Fetching paintings {"categoryFilter":null}
+[2026-07-03 16:10:27] INFO: Categories fetched successfully {"count":7}
+[2026-07-03 16:10:27] INFO: GET /api/categories [36m304[39m 34ms {"meta":{}}
+[2026-07-03 16:10:27] INFO: Fetching all categories
+[2026-07-03 16:10:27] INFO: Paintings fetched successfully {"count":24}
+[2026-07-03 16:10:27] INFO: GET /api/paintings? [36m304[39m 71ms {"meta":{}}
+[2026-07-03 16:10:27] INFO: Categories fetched successfully {"count":7}
+[2026-07-03 16:10:27] INFO: GET /api/categories [36m304[39m 37ms {"meta":{}}
+[2026-07-03 16:10:27] INFO: Fetching paintings {"categoryFilter":null}
+[2026-07-03 16:10:27] INFO: Paintings fetched successfully {"count":24}
+[2026-07-03 16:10:27] INFO: GET /api/paintings? [36m304[39m 73ms {"meta":{}}
+[2026-07-03 16:10:51] INFO: Fetching all categories
+[2026-07-03 16:10:51] INFO: Fetching paintings {"categoryFilter":null}
+[2026-07-03 16:10:51] INFO: Categories fetched successfully {"count":7}
+[2026-07-03 16:10:51] INFO: GET /api/categories [36m304[39m 36ms {"meta":{}}
+[2026-07-03 16:10:51] INFO: Paintings fetched successfully {"count":24}
+[2026-07-03 16:10:51] INFO: GET /api/paintings? [36m304[39m 89ms {"meta":{}}
+[2026-07-03 16:11:01] INFO: Fetching all categories
+[2026-07-03 16:11:01] INFO: Fetching paintings {"categoryFilter":null}
+[2026-07-03 16:11:01] INFO: Categories fetched successfully {"count":7}
+[2026-07-03 16:11:01] INFO: GET /api/categories [36m304[39m 42ms {"meta":{}}
+[2026-07-03 16:11:01] INFO: Fetching all categories
+[2026-07-03 16:11:01] INFO: Paintings fetched successfully {"count":24}
+[2026-07-03 16:11:01] INFO: GET /api/paintings? [36m304[39m 100ms {"meta":{}}
+[2026-07-03 16:11:01] INFO: Categories fetched successfully {"count":7}
+[2026-07-03 16:11:01] INFO: GET /api/categories [36m304[39m 38ms {"meta":{}}
+[2026-07-03 16:11:01] INFO: Fetching paintings {"categoryFilter":null}
+[2026-07-03 16:11:01] INFO: Paintings fetched successfully {"count":24}
+[2026-07-03 16:11:01] INFO: GET /api/paintings? [36m304[39m 85ms {"meta":{}}
+[2026-07-03 16:11:04] INFO: Fetching paintings {"categoryFilter":null}
+[2026-07-03 16:11:04] INFO: Paintings fetched successfully {"count":24}
+[2026-07-03 16:11:04] INFO: GET /api/paintings?search=w [32m200[39m 92ms {"meta":{}}
+[2026-07-03 16:11:06] INFO: Fetching paintings {"categoryFilter":null}
+[2026-07-03 16:11:06] INFO: Paintings fetched successfully {"count":24}
+[2026-07-03 16:11:06] INFO: GET /api/paintings?search=wa [32m200[39m 91ms {"meta":{}}
+[2026-07-03 16:11:07] INFO: Fetching paintings {"categoryFilter":null}
+[2026-07-03 16:11:07] INFO: Paintings fetched successfully {"count":24}
+[2026-07-03 16:11:07] INFO: GET /api/paintings?search=wat [32m200[39m 104ms {"meta":{}}
+[2026-07-03 16:11:09] INFO: Fetching paintings {"categoryFilter":null}
+[2026-07-03 16:11:09] INFO: Paintings fetched successfully {"count":24}
+[2026-07-03 16:11:09] INFO: GET /api/paintings?search=wate [32m200[39m 100ms {"meta":{}}
+[2026-07-03 16:11:10] INFO: Fetching paintings {"categoryFilter":null}
+[2026-07-03 16:11:10] INFO: Paintings fetched successfully {"count":24}
+[2026-07-03 16:11:10] INFO: GET /api/paintings?search=water [32m200[39m 99ms {"meta":{}}
+[2026-07-03 16:11:13] INFO: Fetching paintings {"categoryFilter":null}
+[2026-07-03 16:11:13] INFO: Fetching all categories
+[2026-07-03 16:11:13] INFO: Categories fetched successfully {"count":7}
+[2026-07-03 16:11:13] INFO: GET /api/categories [36m304[39m 48ms {"meta":{}}
+[2026-07-03 16:11:13] INFO: Fetching all categories
+[2026-07-03 16:11:13] INFO: Paintings fetched successfully {"count":24}
+[2026-07-03 16:11:13] INFO: GET /api/paintings? [36m304[39m 111ms {"meta":{}}
+[2026-07-03 16:11:13] INFO: Categories fetched successfully {"count":7}
+[2026-07-03 16:11:13] INFO: GET /api/categories [36m304[39m 49ms {"meta":{}}
+[2026-07-03 16:11:13] INFO: Fetching paintings {"categoryFilter":null}
+[2026-07-03 16:11:13] INFO: Paintings fetched successfully {"count":24}
+[2026-07-03 16:11:13] INFO: GET /api/paintings? [36m304[39m 78ms {"meta":{}}
+[2026-07-03 16:11:49] INFO: Fetching all categories
+[2026-07-03 16:11:49] INFO: Fetching paintings {"categoryFilter":null}
+[2026-07-03 16:11:49] INFO: Categories fetched successfully {"count":7}
+[2026-07-03 16:11:49] INFO: GET /api/categories [36m304[39m 40ms {"meta":{}}
+[2026-07-03 16:11:49] INFO: Paintings fetched successfully {"count":24}
+[2026-07-03 16:11:49] INFO: GET /api/paintings? [36m304[39m 83ms {"meta":{}}
+[2026-07-03 16:12:08] INFO: Fetching all categories
+[2026-07-03 16:12:08] INFO: Fetching paintings {"categoryFilter":null}
+[2026-07-03 16:12:08] INFO: Categories fetched successfully {"count":7}
+[2026-07-03 16:12:08] INFO: GET /api/categories [36m304[39m 34ms {"meta":{}}
+[2026-07-03 16:12:08] INFO: Paintings fetched successfully {"count":24}
+[2026-07-03 16:12:08] INFO: GET /api/paintings? [36m304[39m 71ms {"meta":{}}
+[2026-07-03 16:12:09] INFO: Fetching all categories
+[2026-07-03 16:12:09] INFO: Fetching paintings {"categoryFilter":null}
+[2026-07-03 16:12:09] INFO: Categories fetched successfully {"count":7}
+[2026-07-03 16:12:09] INFO: GET /api/categories [36m304[39m 34ms {"meta":{}}
+[2026-07-03 16:12:09] INFO: Paintings fetched successfully {"count":24}
+[2026-07-03 16:12:09] INFO: GET /api/paintings? [36m304[39m 70ms {"meta":{}}
+[2026-07-03 16:12:56] INFO: Fetching all categories
+[2026-07-03 16:12:56] INFO: Fetching paintings {"categoryFilter":null}
+[2026-07-03 16:12:56] INFO: Categories fetched successfully {"count":7}
+[2026-07-03 16:12:56] INFO: GET /api/categories [36m304[39m 36ms {"meta":{}}
+[2026-07-03 16:12:56] INFO: Fetching all categories
+[2026-07-03 16:12:56] INFO: Paintings fetched successfully {"count":24}
+[2026-07-03 16:12:56] INFO: GET /api/paintings? [36m304[39m 80ms {"meta":{}}
+[2026-07-03 16:12:56] INFO: Categories fetched successfully {"count":7}
+[2026-07-03 16:12:56] INFO: GET /api/categories [36m304[39m 40ms {"meta":{}}
+[2026-07-03 16:12:56] INFO: Fetching paintings {"categoryFilter":null}
+[2026-07-03 16:12:56] INFO: Paintings fetched successfully {"count":24}
+[2026-07-03 16:12:56] INFO: GET /api/paintings? [36m304[39m 74ms {"meta":{}}
+[2026-07-03 16:12:57] INFO: Fetching all categories
+[2026-07-03 16:12:57] INFO: Fetching paintings {"categoryFilter":null}
+[2026-07-03 16:12:57] INFO: Categories fetched successfully {"count":7}
+[2026-07-03 16:12:57] INFO: GET /api/categories [36m304[39m 35ms {"meta":{}}
+[2026-07-03 16:12:57] INFO: Paintings fetched successfully {"count":24}
+[2026-07-03 16:12:57] INFO: GET /api/paintings? [36m304[39m 73ms {"meta":{}}
+[2026-07-03 16:12:58] INFO: Fetching all categories
+[2026-07-03 16:12:58] INFO: Fetching paintings {"categoryFilter":null}
+[2026-07-03 16:12:58] INFO: Categories fetched successfully {"count":7}
+[2026-07-03 16:12:58] INFO: GET /api/categories [36m304[39m 38ms {"meta":{}}
+[2026-07-03 16:12:58] INFO: Fetching all categories
+[2026-07-03 16:12:58] INFO: Paintings fetched successfully {"count":24}
+[2026-07-03 16:12:58] INFO: GET /api/paintings? [36m304[39m 100ms {"meta":{}}
+[2026-07-03 16:12:58] INFO: Categories fetched successfully {"count":7}
+[2026-07-03 16:12:58] INFO: GET /api/categories [36m304[39m 56ms {"meta":{}}
+[2026-07-03 16:12:58] INFO: Fetching paintings {"categoryFilter":null}
+[2026-07-03 16:12:59] INFO: Paintings fetched successfully {"count":24}
+[2026-07-03 16:12:59] INFO: GET /api/paintings? [36m304[39m 79ms {"meta":{}}
+[2026-07-03 16:13:02] INFO: Fetching paintings {"categoryFilter":"neoclassicism"}
+[2026-07-03 16:13:02] INFO: Paintings fetched successfully {"count":5}
+[2026-07-03 16:13:02] INFO: GET /api/paintings?category=neoclassicism [36m304[39m 124ms {"meta":{}}
+[2026-07-03 16:13:03] INFO: Fetching paintings {"categoryFilter":null}
+[2026-07-03 16:13:03] INFO: Paintings fetched successfully {"count":24}
+[2026-07-03 16:13:03] INFO: GET /api/paintings? [36m304[39m 89ms {"meta":{}}
+[2026-07-03 16:13:07] INFO: Fetching paintings {"categoryFilter":null}
+[2026-07-03 16:13:07] INFO: Paintings fetched successfully {"count":24}
+[2026-07-03 16:13:07] INFO: GET /api/paintings?search=ww [32m200[39m 70ms {"meta":{}}
+[2026-07-03 16:13:10] INFO: Fetching paintings {"categoryFilter":null}
+[2026-07-03 16:13:10] INFO: Paintings fetched successfully {"count":24}
+[2026-07-03 16:13:10] INFO: GET /api/paintings?search=w [36m304[39m 97ms {"meta":{}}
+[2026-07-03 16:13:12] INFO: Fetching paintings {"categoryFilter":null}
+[2026-07-03 16:13:12] INFO: Paintings fetched successfully {"count":24}
+[2026-07-03 16:13:12] INFO: GET /api/paintings?search=wa [36m304[39m 85ms {"meta":{}}
+[2026-07-03 16:13:14] INFO: Fetching paintings {"categoryFilter":null}
+[2026-07-03 16:13:14] INFO: Paintings fetched successfully {"count":24}
+[2026-07-03 16:13:14] INFO: GET /api/paintings?search=water [36m304[39m 79ms {"meta":{}}
+[2026-07-03 16:13:17] INFO: Fetching paintings {"categoryFilter":null}
+[2026-07-03 16:13:17] INFO: Paintings fetched successfully {"count":24}
+[2026-07-03 16:13:17] INFO: GET /api/paintings?search=water+from+the+rock [32m200[39m 99ms {"meta":{}}
+[2026-07-03 16:15:17] INFO: Fetching all categories
+[2026-07-03 16:15:17] INFO: Fetching paintings {"categoryFilter":null}
+[2026-07-03 16:15:17] INFO: Categories fetched successfully {"count":7}
+[2026-07-03 16:15:17] INFO: GET /api/categories [36m304[39m 39ms {"meta":{}}
+[2026-07-03 16:15:17] INFO: Fetching all categories
+[2026-07-03 16:15:17] INFO: Paintings fetched successfully {"count":24}
+[2026-07-03 16:15:17] INFO: GET /api/paintings? [36m304[39m 85ms {"meta":{}}
+[2026-07-03 16:15:17] INFO: Categories fetched successfully {"count":7}
+[2026-07-03 16:15:17] INFO: GET /api/categories [36m304[39m 42ms {"meta":{}}
+[2026-07-03 16:15:17] INFO: Fetching paintings {"categoryFilter":null}
+[2026-07-03 16:15:17] INFO: Paintings fetched successfully {"count":24}
+[2026-07-03 16:15:17] INFO: GET /api/paintings? [36m304[39m 85ms {"meta":{}}
+[2026-07-03 16:15:20] INFO: Fetching all categories
+[2026-07-03 16:15:20] INFO: Fetching paintings {"categoryFilter":null}
+[2026-07-03 16:15:20] INFO: Categories fetched successfully {"count":7}
+[2026-07-03 16:15:20] INFO: GET /api/categories [36m304[39m 39ms {"meta":{}}
+[2026-07-03 16:15:20] INFO: Fetching all categories
+[2026-07-03 16:15:20] INFO: Paintings fetched successfully {"count":24}
+[2026-07-03 16:15:20] INFO: GET /api/paintings? [36m304[39m 101ms {"meta":{}}
+[2026-07-03 16:15:20] INFO: Categories fetched successfully {"count":7}
+[2026-07-03 16:15:20] INFO: GET /api/categories [36m304[39m 60ms {"meta":{}}
+[2026-07-03 16:15:20] INFO: Fetching paintings {"categoryFilter":null}
+[2026-07-03 16:15:20] INFO: Paintings fetched successfully {"count":24}
+[2026-07-03 16:15:20] INFO: GET /api/paintings? [36m304[39m 81ms {"meta":{}}
+[2026-07-03 16:15:24] INFO: Fetching paintings {"categoryFilter":"history"}
+[2026-07-03 16:15:25] INFO: Paintings fetched successfully {"count":7}
+[2026-07-03 16:15:25] INFO: GET /api/paintings?category=history [36m304[39m 120ms {"meta":{}}
+[2026-07-03 16:15:25] INFO: Fetching paintings {"categoryFilter":"neoclassicism"}
+[2026-07-03 16:15:25] INFO: Paintings fetched successfully {"count":5}
+[2026-07-03 16:15:25] INFO: GET /api/paintings?category=neoclassicism [36m304[39m 118ms {"meta":{}}
+[2026-07-03 16:15:26] INFO: Fetching paintings {"categoryFilter":"philosophy"}
+[2026-07-03 16:15:26] INFO: Paintings fetched successfully {"count":1}
+[2026-07-03 16:15:26] INFO: GET /api/paintings?category=philosophy [36m304[39m 127ms {"meta":{}}
+[2026-07-03 16:15:29] INFO: Fetching paintings {"categoryFilter":"history"}
+[2026-07-03 16:15:29] INFO: Paintings fetched successfully {"count":7}
+[2026-07-03 16:15:29] INFO: GET /api/paintings?category=history [36m304[39m 114ms {"meta":{}}
+[2026-07-03 16:15:29] INFO: Fetching paintings {"categoryFilter":"neoclassicism"}
+[2026-07-03 16:15:29] INFO: Paintings fetched successfully {"count":5}
+[2026-07-03 16:15:29] INFO: GET /api/paintings?category=neoclassicism [36m304[39m 113ms {"meta":{}}
+[2026-07-03 16:15:30] INFO: Fetching paintings {"categoryFilter":null}
+[2026-07-03 16:15:30] INFO: Paintings fetched successfully {"count":24}
+[2026-07-03 16:15:30] INFO: GET /api/paintings? [36m304[39m 81ms {"meta":{}}
+[2026-07-03 16:15:34] INFO: Fetching paintings {"categoryFilter":null}
+[2026-07-03 16:15:34] INFO: Paintings fetched successfully {"count":24}
+[2026-07-03 16:15:34] INFO: GET /api/paintings?search=water [36m304[39m 86ms {"meta":{}}
+[2026-07-03 16:15:37] INFO: Fetching paintings {"categoryFilter":null}
+[2026-07-03 16:15:37] INFO: Paintings fetched successfully {"count":24}
+[2026-07-03 16:15:37] INFO: GET /api/paintings?search=water+from [32m200[39m 91ms {"meta":{}}

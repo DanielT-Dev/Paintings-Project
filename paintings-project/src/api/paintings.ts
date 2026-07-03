@@ -1,21 +1,24 @@
 const API_URL = "http://localhost:5000/api/paintings";
 
 // -----------------------------------------------------------------------------
-// GET ALL PAINTINGS (with optional category filter)
+// GET ALL PAINTINGS (with optional category + search filter)
 // -----------------------------------------------------------------------------
 
-export async function getPaintings(category?: string) {
-  const url = category
-    ? `${API_URL}?category=${category}`
-    : API_URL;
+export async function getPaintings(category?: string, search?: string) {
+    const params = new URLSearchParams();
 
-  const res = await fetch(url);
+    if (category) params.append("category", category);
+    if (search) params.append("search", search);
 
-  if (!res.ok) {
-    throw new Error("Failed to fetch paintings");
-  }
+    const url = `${API_URL}?${params.toString()}`;
 
-  return res.json();
+    const res = await fetch(url);
+
+    if (!res.ok) {
+        throw new Error("Failed to fetch paintings");
+    }
+
+    return res.json();
 }
 
 // -----------------------------------------------------------------------------
@@ -23,11 +26,11 @@ export async function getPaintings(category?: string) {
 // -----------------------------------------------------------------------------
 
 export async function getPaintingById(id: string) {
-  const res = await fetch(`${API_URL}/${id}`);
+    const res = await fetch(`${API_URL}/${id}`);
 
-  if (!res.ok) {
-    throw new Error("Painting not found");
-  }
+    if (!res.ok) {
+        throw new Error("Painting not found");
+    }
 
-  return res.json();
+    return res.json();
 }

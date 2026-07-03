@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
     Box,
     Container,
@@ -19,17 +19,64 @@ import { useGalleryData } from "../hooks/useGalleryData";
 
 const MotionBox = motion.create(Box);
 
+// -----------------------------------------------------------------------------
+// Debounce hook
+// -----------------------------------------------------------------------------
+function useDebounce(value: string, delay = 300) {
+    const [debouncedValue, setDebouncedValue] = useState(value);
+
+    useEffect(() => {
+        const handler = setTimeout(() => {
+            setDebouncedValue(value);
+        }, delay);
+
+        return () => clearTimeout(handler);
+    }, [value, delay]);
+
+    return debouncedValue;
+}
+
+// -----------------------------------------------------------------------------
+// Highlight helper (fixed safe regex)
+// -----------------------------------------------------------------------------
+function highlightText(text: string, query: string) {
+    if (!query) return text;
+
+    const regex = new RegExp(`(${query})`, "gi");
+    return text.split(regex).map((part, i) =>
+        regex.test(part) ? (
+            <Box as="span" bg="yellow.200" key={i}>
+                {part}
+            </Box>
+        ) : (
+            part
+        )
+    );
+}
+
 export default function Gallery() {
     const navigate = useNavigate();
 
     const [activeFilter, setActiveFilter] = useState("all");
+    const [search, setSearch] = useState("");
+
+    const debouncedSearch = useDebounce(search, 300);
+
+    // 🔥 trick: separate “soft updating state” to avoid reload feel
+    const [isSearching, setIsSearching] = useState(false);
+
+    useEffect(() => {
+        setIsSearching(true);
+        const t = setTimeout(() => setIsSearching(false), 150);
+        return () => clearTimeout(t);
+    }, [debouncedSearch, activeFilter]);
 
     const {
         paintings,
         categories,
         loading,
         error,
-    } = useGalleryData(activeFilter);
+    } = useGalleryData(activeFilter, debouncedSearch);
 
     const filters = [
         { name: "All", slug: "all" },
@@ -85,16 +132,23 @@ export default function Gallery() {
 
                             <Input
                                 placeholder="Search paintings..."
+                                value={search}
+                                onChange={(e) => setSearch(e.target.value)}
                                 bg="whiteAlpha.800"
                                 backdropFilter="blur(18px)"
                                 border="1px solid"
                                 borderColor="blackAlpha.100"
                                 borderRadius="full"
+                                _focus={{
+                                    borderColor: "blackAlpha.300",
+                                    boxShadow:
+                                        "0 0 0 1px rgba(0,0,0,0.1)",
+                                }}
                             />
                         </InputGroup>
                     </VStack>
 
-                    {/* FILTERS */}
+                    {/* FILTERS (RESTORED EXACT STYLE) */}
                     <Box mb={12} display="flex" justifyContent="center">
                         <Box
                             px={6}
@@ -110,7 +164,8 @@ export default function Gallery() {
                             justifyContent="center"
                         >
                             {filters.map((filter) => {
-                                const isActive = activeFilter === filter.slug;
+                                const isActive =
+                                    activeFilter === filter.slug;
 
                                 return (
                                     <Box
@@ -124,9 +179,13 @@ export default function Gallery() {
                                         color={isActive ? "white" : "black"}
                                         _hover={{
                                             transform: "translateY(-1px)",
-                                            bg: isActive ? "black" : "gray.100",
+                                            bg: isActive
+                                                ? "black"
+                                                : "gray.100",
                                         }}
-                                        onClick={() => setActiveFilter(filter.slug)}
+                                        onClick={() =>
+                                            setActiveFilter(filter.slug)
+                                        }
                                     >
                                         {filter.name}
                                     </Box>
@@ -137,6 +196,8 @@ export default function Gallery() {
 
                     {/* GRID */}
                     <Grid
+                        opacity={isSearching ? 0.6 : 1}
+                        transition="opacity 0.2s ease"
                         templateColumns={{
                             base: "1fr",
                             sm: "repeat(2,1fr)",
@@ -147,64 +208,74 @@ export default function Gallery() {
                     >
                         {paintings.map((painting, index) => (
                             <MotionBox
-                                key={painting._id ?? `${painting.title}-${index}`}
-                                initial={{ opacity: 0, y: 20 }}
+                                key={painting._id}
+                                initial={{ opacity: 0, y: 40 }}
                                 whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true, amount: 0.2 }}
+                                viewport={{ once: true, amount: 0.25 }}
                                 transition={{
-                                    duration: 0.5,
-                                    delay: index * 0.03,
+                                    duration: 0.6,
                                     ease: "easeOut",
+                                    delay: index * 0.03,
                                 }}
                             >
                                 <Box
                                     role="group"
                                     cursor="pointer"
                                     onClick={() =>
-                                        navigate(`/painting/${painting._id}`)
+                                        navigate(
+                                            `/painting/${painting._id}`
+                                        )
                                     }
                                     borderRadius="2xl"
                                     overflow="hidden"
                                     bg="white"
                                     boxShadow="lg"
-                                    transition="all 0.3s ease"
+                                    transition="all 0.35s ease"
                                     _hover={{
-                                        transform: "translateY(-6px)",
-                                        boxShadow: "xl",
+                                        transform: "translateY(-8px)",
+                                        boxShadow: "2xl",
                                     }}
                                 >
-                                    {/* IMAGE */}
+                                    {/* IMAGE (RESTORED FULL EFFECTS) */}
                                     <Box position="relative" overflow="hidden">
                                         <Image
-                                            src={painting.imageUrls?.[0]}
+                                            src={
+                                                painting.imageUrls?.[0]
+                                            }
                                             fallbackSrc="https://via.placeholder.com/400"
-                                            h={`${300 + (index % 5) * 40}px`}
+                                            h={`${300 +
+                                                (index % 5) * 40
+                                                }px`}
                                             w="100%"
                                             objectFit="cover"
-                                            transition="all 0.5s ease"
+                                            transition="all 0.6s ease"
                                             _groupHover={{
-                                                transform: "scale(1.08)",
-                                                filter: "brightness(0.8)",
+                                                transform: "scale(1.09)",
+                                                filter:
+                                                    "brightness(0.75)",
                                             }}
                                         />
 
-                                        {/* OVERLAY */}
+                                        {/* OVERLAY RESTORED */}
                                         <Box
                                             position="absolute"
                                             bottom={0}
                                             left={0}
                                             right={0}
                                             opacity={0}
-                                            transition="all 0.3s ease"
+                                            transition="all 0.35s ease"
                                             _groupHover={{ opacity: 1 }}
-                                            bg="linear-gradient(to top, rgba(0,0,0,0.75), transparent)"
-                                            height="40%"
+                                            bg="linear-gradient(to top, rgba(0,0,0,0.78), transparent)"
+                                            height="45%"
                                             display="flex"
                                             alignItems="flex-end"
                                             justifyContent="center"
                                             pb={6}
                                         >
-                                            <Text color="white">
+                                            <Text
+                                                color="white"
+                                                fontWeight="500"
+                                            >
                                                 View Painting →
                                             </Text>
                                         </Box>
@@ -213,17 +284,26 @@ export default function Gallery() {
                                     {/* INFO */}
                                     <Box p={4}>
                                         <Text fontWeight="600">
-                                            {painting.title}
+                                            {highlightText(
+                                                painting.title,
+                                                debouncedSearch
+                                            )}
                                         </Text>
-                                        <Text fontSize="13px" color="gray.500">
-                                            {painting.artist}
+
+                                        <Text
+                                            fontSize="13px"
+                                            color="gray.500"
+                                        >
+                                            {highlightText(
+                                                painting.artist,
+                                                debouncedSearch
+                                            )}
                                         </Text>
                                     </Box>
                                 </Box>
                             </MotionBox>
                         ))}
                     </Grid>
-
                 </Container>
             </Box>
         </>

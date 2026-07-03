@@ -15,7 +15,7 @@ type Category = {
     slug: string;
 };
 
-export function useGalleryData(activeFilter: string) {
+export function useGalleryData(activeFilter: string, search: string) {
     const [paintings, setPaintings] = useState<Painting[]>([]);
     const [categories, setCategories] = useState<Category[]>([]);
     const [loading, setLoading] = useState(true);
@@ -35,16 +35,17 @@ export function useGalleryData(activeFilter: string) {
         loadCategories();
     }, []);
 
-    // Load paintings when filter changes
+    // Load paintings when filter OR search changes
     useEffect(() => {
         const loadPaintings = async () => {
             try {
                 setLoading(true);
+                setError("");
 
                 const category =
                     activeFilter === "all" ? undefined : activeFilter;
 
-                const data = await getPaintings(category);
+                const data = await getPaintings(category, search);
 
                 setPaintings(data);
             } catch (err) {
@@ -55,7 +56,7 @@ export function useGalleryData(activeFilter: string) {
         };
 
         loadPaintings();
-    }, [activeFilter]);
+    }, [activeFilter, search]);
 
     return {
         paintings,

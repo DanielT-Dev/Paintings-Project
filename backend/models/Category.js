@@ -32,17 +32,15 @@ const categorySchema = new mongoose.Schema(
   }
 );
 
-// Automatically generate slug from name
-categorySchema.pre("validate", function (next) {
-  if (this.name) {
+// Automatically generate slug from name (safe version)
+categorySchema.pre("validate", function () {
+  if (this.name && !this.slug) {
     this.slug = this.name
       .toLowerCase()
       .trim()
       .replace(/[^\w\s-]/g, "")
       .replace(/\s+/g, "-");
   }
-
-  next();
 });
 
 module.exports = mongoose.model("Category", categorySchema);

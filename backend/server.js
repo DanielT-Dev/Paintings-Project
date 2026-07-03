@@ -7,8 +7,7 @@ const logger = require("./utils/logger");
 const requestLogger = require("./middleware/requestLogger");
 const connectDB = require("./db/connect");
 
-const paintingRoutes = require("./routes/paintingRoutes");
-const categoryRoutes = require("./routes/categoryRoutes");
+const apiRoutes = require("./routes");
 
 dotenv.config();
 
@@ -34,11 +33,14 @@ app.use(
 );
 
 // -----------------------------------------------------------------------------
-// API Routes
+// API Routes (clean + scalable)
 // -----------------------------------------------------------------------------
 
-app.use("/api/paintings", paintingRoutes);
-app.use("/api/categories", categoryRoutes);
+app.use("/api", apiRoutes);
+
+// -----------------------------------------------------------------------------
+// Static frontend (optional)
+// -----------------------------------------------------------------------------
 
 app.use(express.static(path.join(__dirname)));
 

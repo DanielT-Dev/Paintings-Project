@@ -1,12 +1,38 @@
 const Painting = require("../models/Painting");
+const Category = require("../models/Category");
 const logger = require("../utils/logger");
 
 // GET all paintings
 const getPaintings = async (req, res) => {
   try {
-    logger.info("Fetching all paintings");
+    const { category } = req.query;
 
-    const paintings = await Painting.find().populate("categories");
+    logger.info("Fetching paintings", {
+      categoryFilter: category || null,
+    });
+
+    let filter = {};
+
+    // -------------------------------------------------------------------------
+    // CATEGORY FILTER (by slug)
+    // -------------------------------------------------------------------------
+    if (category) {
+      const categoryDoc = await Category.findOne({
+        slug: category.trim().toLowerCase(),
+      });
+
+      if (!categoryDoc) {
+        logger.warn("Category not found", { category });
+
+        return res.status(404).json({
+          message: "Category not found",
+        });
+      }
+
+      filter.categories = categoryDoc._id;
+    }
+
+    const paintings = await Painting.find(filter).populate("categories");
 
     logger.info("Paintings fetched successfully", {
       count: paintings.length,

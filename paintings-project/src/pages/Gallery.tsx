@@ -36,10 +36,22 @@ export default function Gallery() {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
 
+    // -------------------------------------------------------------------------
+    // LOAD PAINTINGS (NOW BACKEND FILTERED)
+    // -------------------------------------------------------------------------
+
     useEffect(() => {
         const loadPaintings = async () => {
             try {
-                const data = await getPaintings();
+                setLoading(true);
+
+                const category =
+                    activeFilter === "All"
+                        ? undefined
+                        : activeFilter.toLowerCase();
+
+                const data = await getPaintings(category);
+
                 console.log("PAINTINGS FROM API:", data);
                 setPaintings(data);
             } catch (err) {
@@ -50,26 +62,21 @@ export default function Gallery() {
         };
 
         loadPaintings();
-    }, []);
+    }, [activeFilter]);
+
+    // -------------------------------------------------------------------------
+    // FILTERS (NOW JUST UI STATE, NOT DATA FILTERING)
+    // -------------------------------------------------------------------------
 
     const filters = [
         "All",
-        "Renaissance",
-        "Modern",
-        "Impressionism",
-        "Abstract",
-        "Landscape",
+        "Neoclassicism",
+        "Romanticism",
+        "Symbolism",
+        "Realism",
+        "Religion",
+        "History",
     ];
-
-    const filteredPaintings =
-        activeFilter === "All"
-            ? paintings
-            : paintings.filter((p) =>
-                (p.tags || [])
-                    .join(" ")
-                    .toLowerCase()
-                    .includes(activeFilter.toLowerCase())
-            );
 
     if (loading) {
         return (
@@ -172,7 +179,7 @@ export default function Gallery() {
                         }}
                         gap={8}
                     >
-                        {filteredPaintings.map((painting, index) => (
+                        {paintings.map((painting, index) => (
                             <MotionBox
                                 key={painting._id ?? `${painting.title}-${index}`}
                                 initial={{ opacity: 0, y: 20 }}

@@ -21,13 +21,13 @@ export function useGalleryData(activeFilter: string, search: string) {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
 
-    // Load categories once
+    // categories only once
     useEffect(() => {
         const loadCategories = async () => {
             try {
                 const data = await getCategories();
                 setCategories(data);
-            } catch (err) {
+            } catch {
                 console.error("Failed to load categories");
             }
         };
@@ -35,11 +35,12 @@ export function useGalleryData(activeFilter: string, search: string) {
         loadCategories();
     }, []);
 
-    // Load paintings when filter OR search changes
+    // paintings
     useEffect(() => {
+        let alive = true;
+
         const loadPaintings = async () => {
             try {
-                setLoading(true);
                 setError("");
 
                 const category =
@@ -47,15 +48,21 @@ export function useGalleryData(activeFilter: string, search: string) {
 
                 const data = await getPaintings(category, search);
 
+                if (!alive) return;
+
                 setPaintings(data);
-            } catch (err) {
+            } catch {
                 setError("Failed to load paintings");
             } finally {
-                setLoading(false);
+                if (alive) setLoading(false);
             }
         };
 
         loadPaintings();
+
+        return () => {
+            alive = false;
+        };
     }, [activeFilter, search]);
 
     return {

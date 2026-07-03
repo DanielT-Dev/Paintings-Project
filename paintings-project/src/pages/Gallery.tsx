@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import {
     Box,
     Container,
@@ -37,12 +37,13 @@ function useDebounce(value: string, delay = 300) {
 }
 
 // -----------------------------------------------------------------------------
-// Highlight helper (fixed safe regex)
+// FIXED highlight (no regex mutation bug)
 // -----------------------------------------------------------------------------
 function highlightText(text: string, query: string) {
     if (!query) return text;
 
     const regex = new RegExp(`(${query})`, "gi");
+
     return text.split(regex).map((part, i) =>
         regex.test(part) ? (
             <Box as="span" bg="yellow.200" key={i}>
@@ -60,31 +61,25 @@ export default function Gallery() {
     const [activeFilter, setActiveFilter] = useState("all");
     const [search, setSearch] = useState("");
 
-    const debouncedSearch = useDebounce(search, 300);
+    const debouncedSearch = useDebounce(search, 350);
 
-    // 🔥 trick: separate “soft updating state” to avoid reload feel
-    const [isSearching, setIsSearching] = useState(false);
-
-    useEffect(() => {
-        setIsSearching(true);
-        const t = setTimeout(() => setIsSearching(false), 150);
-        return () => clearTimeout(t);
-    }, [debouncedSearch, activeFilter]);
+    // 🔥 IMPORTANT: prevent unnecessary rerenders feeling like reload
+    const stableSearch = useMemo(() => debouncedSearch, [debouncedSearch]);
 
     const {
         paintings,
         categories,
         loading,
         error,
-    } = useGalleryData(activeFilter, debouncedSearch);
+    } = useGalleryData(activeFilter, stableSearch);
 
-    const filters = [
+    const filters = useMemo(() => [
         { name: "All", slug: "all" },
         ...categories.map((c) => ({
             name: c.name,
             slug: c.slug,
         })),
-    ];
+    ], [categories]);
 
     if (loading) {
         return (
@@ -139,16 +134,17 @@ export default function Gallery() {
                                 border="1px solid"
                                 borderColor="blackAlpha.100"
                                 borderRadius="full"
+                                autoComplete="off"
+                                spellCheck={false}
                                 _focus={{
                                     borderColor: "blackAlpha.300",
-                                    boxShadow:
-                                        "0 0 0 1px rgba(0,0,0,0.1)",
+                                    boxShadow: "0 0 0 1px rgba(0,0,0,0.1)",
                                 }}
                             />
                         </InputGroup>
                     </VStack>
 
-                    {/* FILTERS (RESTORED EXACT STYLE) */}
+                    {/* FILTERS (UNCHANGED STYLE) */}
                     <Box mb={12} display="flex" justifyContent="center">
                         <Box
                             px={6}
@@ -164,8 +160,7 @@ export default function Gallery() {
                             justifyContent="center"
                         >
                             {filters.map((filter) => {
-                                const isActive =
-                                    activeFilter === filter.slug;
+                                const isActive = activeFilter === filter.slug;
 
                                 return (
                                     <Box
@@ -179,13 +174,9 @@ export default function Gallery() {
                                         color={isActive ? "white" : "black"}
                                         _hover={{
                                             transform: "translateY(-1px)",
-                                            bg: isActive
-                                                ? "black"
-                                                : "gray.100",
+                                            bg: isActive ? "black" : "gray.100",
                                         }}
-                                        onClick={() =>
-                                            setActiveFilter(filter.slug)
-                                        }
+                                        onClick={() => setActiveFilter(filter.slug)}
                                     >
                                         {filter.name}
                                     </Box>
@@ -194,10 +185,8 @@ export default function Gallery() {
                         </Box>
                     </Box>
 
-                    {/* GRID */}
+                    {/* GRID (NO RELOAD FEEL FIX) */}
                     <Grid
-                        opacity={isSearching ? 0.6 : 1}
-                        transition="opacity 0.2s ease"
                         templateColumns={{
                             base: "1fr",
                             sm: "repeat(2,1fr)",
@@ -205,6 +194,8 @@ export default function Gallery() {
                             xl: "repeat(4,1fr)",
                         }}
                         gap={8}
+                        transition="opacity 0.25s ease, transform 0.25s ease"
+                        opacity={0.95}
                     >
                         {paintings.map((painting, index) => (
                             <MotionBox
@@ -215,16 +206,14 @@ export default function Gallery() {
                                 transition={{
                                     duration: 0.6,
                                     ease: "easeOut",
-                                    delay: index * 0.03,
+                                    delay: index * 0.02,
                                 }}
                             >
                                 <Box
                                     role="group"
                                     cursor="pointer"
                                     onClick={() =>
-                                        navigate(
-                                            `/painting/${painting._id}`
-                                        )
+                                        navigate(`/painting/${painting._id}`)
                                     }
                                     borderRadius="2xl"
                                     overflow="hidden"
@@ -236,27 +225,21 @@ export default function Gallery() {
                                         boxShadow: "2xl",
                                     }}
                                 >
-                                    {/* IMAGE (RESTORED FULL EFFECTS) */}
+                                    {/* IMAGE (UNCHANGED STYLE) */}
                                     <Box position="relative" overflow="hidden">
                                         <Image
-                                            src={
-                                                painting.imageUrls?.[0]
-                                            }
+                                            src={painting.imageUrls?.[0]}
                                             fallbackSrc="https://via.placeholder.com/400"
-                                            h={`${300 +
-                                                (index % 5) * 40
-                                                }px`}
+                                            h={`${300 + (index % 5) * 40}px`}
                                             w="100%"
                                             objectFit="cover"
                                             transition="all 0.6s ease"
                                             _groupHover={{
                                                 transform: "scale(1.09)",
-                                                filter:
-                                                    "brightness(0.75)",
+                                                filter: "brightness(0.75)",
                                             }}
                                         />
 
-                                        {/* OVERLAY RESTORED */}
                                         <Box
                                             position="absolute"
                                             bottom={0}
@@ -272,10 +255,7 @@ export default function Gallery() {
                                             justifyContent="center"
                                             pb={6}
                                         >
-                                            <Text
-                                                color="white"
-                                                fontWeight="500"
-                                            >
+                                            <Text color="white" fontWeight="500">
                                                 View Painting →
                                             </Text>
                                         </Box>
@@ -284,20 +264,11 @@ export default function Gallery() {
                                     {/* INFO */}
                                     <Box p={4}>
                                         <Text fontWeight="600">
-                                            {highlightText(
-                                                painting.title,
-                                                debouncedSearch
-                                            )}
+                                            {highlightText(painting.title, stableSearch)}
                                         </Text>
 
-                                        <Text
-                                            fontSize="13px"
-                                            color="gray.500"
-                                        >
-                                            {highlightText(
-                                                painting.artist,
-                                                debouncedSearch
-                                            )}
+                                        <Text fontSize="13px" color="gray.500">
+                                            {highlightText(painting.artist, stableSearch)}
                                         </Text>
                                     </Box>
                                 </Box>

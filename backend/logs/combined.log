@@ -949,3 +949,51 @@ CastError: Cast to [ObjectId] failed for value "[\n' +
 [2026-07-01 17:02:29] INFO: Fetching painting {"paintingId":"6a43b6dde14eb9283bfbe00c"}
 [2026-07-01 17:02:29] INFO: Painting fetched successfully {"paintingId":"6a43b6dde14eb9283bfbe00c","title":"Daniel in the Lion's Den","relatedCount":6}
 [2026-07-01 17:02:29] INFO: GET /api/paintings/6a43b6dde14eb9283bfbe00c [36m304[39m 88ms {"meta":{}}
+[2026-07-03 15:26:02] INFO: Connected to MongoDB
+[2026-07-03 15:26:02] INFO: Server running on http://localhost:5000
+[2026-07-03 15:26:04] INFO: Fetching all paintings
+[2026-07-03 15:26:05] INFO: Paintings fetched successfully {"count":24}
+[2026-07-03 15:26:05] INFO: GET /api/paintings [32m200[39m 130ms {"meta":{}}
+[2026-07-03 15:26:05] INFO: Fetching all paintings
+[2026-07-03 15:26:05] INFO: Paintings fetched successfully {"count":24}
+[2026-07-03 15:26:05] INFO: GET /api/paintings [36m304[39m 52ms {"meta":{}}
+[2026-07-03 15:26:07] INFO: Fetching all paintings
+[2026-07-03 15:26:07] INFO: Paintings fetched successfully {"count":24}
+[2026-07-03 15:26:07] INFO: GET /api/paintings [36m304[39m 74ms {"meta":{}}
+[2026-07-03 15:26:07] INFO: Fetching all paintings
+[2026-07-03 15:26:07] INFO: Paintings fetched successfully {"count":24}
+[2026-07-03 15:26:07] INFO: GET /api/paintings [36m304[39m 48ms {"meta":{}}
+[2026-07-03 15:26:19] INFO: Fetching all paintings
+[2026-07-03 15:26:19] INFO: Paintings fetched successfully {"count":24}
+[2026-07-03 15:26:19] INFO: GET /api/paintings [36m304[39m 87ms {"meta":{}}
+[2026-07-03 15:26:19] INFO: Fetching all paintings
+[2026-07-03 15:26:19] INFO: Paintings fetched successfully {"count":24}
+[2026-07-03 15:26:19] INFO: GET /api/paintings [36m304[39m 35ms {"meta":{}}
+[2026-07-03 15:26:32] INFO: Connected to MongoDB
+[2026-07-03 15:26:32] INFO: Server running on http://localhost:5000
+[2026-07-03 15:26:34] INFO: Fetching all paintings
+[2026-07-03 15:26:34] INFO: Paintings fetched successfully {"count":24}
+[2026-07-03 15:26:34] INFO: GET /api/paintings [36m304[39m 102ms {"meta":{}}
+[2026-07-03 15:26:34] INFO: Fetching all paintings
+[2026-07-03 15:26:34] INFO: Paintings fetched successfully {"count":24}
+[2026-07-03 15:26:34] INFO: GET /api/paintings [36m304[39m 56ms {"meta":{}}
+[2026-07-03 15:28:04] INFO: Connected to MongoDB
+[2026-07-03 15:28:04] INFO: Server running on http://localhost:5000
+[2026-07-03 15:28:12] INFO: Connected to MongoDB
+[2026-07-03 15:28:12] INFO: Server running on http://localhost:5000
+[2026-07-03 15:28:14] INFO: Connected to MongoDB
+[2026-07-03 15:28:14] INFO: Server running on http://localhost:5000
+[2026-07-03 15:29:30] INFO: Connected to MongoDB
+[2026-07-03 15:29:30] INFO: Server running on http://localhost:5000
+[2026-07-03 15:29:40] INFO: Connected to MongoDB
+[2026-07-03 15:29:40] INFO: Server running on http://localhost:5000
+[2026-07-03 15:30:17] INFO: Connected to MongoDB
+[2026-07-03 15:30:17] INFO: Server running on http://localhost:5000
+[2026-07-03 15:30:31] INFO: Connected to MongoDB
+[2026-07-03 15:30:31] INFO: Server running on http://localhost:5000
+[2026-07-03 15:30:34] INFO: Connected to MongoDB
+[2026-07-03 15:30:34] INFO: Server running on http://localhost:5000
+[2026-07-03 15:30:52] INFO: Connected to MongoDB
+[2026-07-03 15:30:52] INFO: Server running on http://localhost:5000
+[2026-07-03 15:32:36] INFO: Connected to MongoDB
+[2026-07-03 15:32:36] INFO: Server running on http://localhost:5000

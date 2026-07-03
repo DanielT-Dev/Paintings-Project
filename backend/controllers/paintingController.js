@@ -6,7 +6,7 @@ const getPaintings = async (req, res) => {
   try {
     logger.info("Fetching all paintings");
 
-    const paintings = await Painting.find();
+    const paintings = await Painting.find().populate("categories");
 
     logger.info("Paintings fetched successfully", {
       count: paintings.length,
@@ -32,6 +32,7 @@ const getPaintingById = async (req, res) => {
     });
 
     const painting = await Painting.findById(req.params.id)
+      .populate("categories")
       .populate("relatedPaintings.id");
 
     if (!painting) {
@@ -44,7 +45,7 @@ const getPaintingById = async (req, res) => {
       });
     }
 
-    // 🔥 FLATTEN RELATED PAINTINGS
+    // Flatten related paintings
     const formattedPainting = {
       ...painting.toObject(),
       relatedPaintings: painting.relatedPaintings

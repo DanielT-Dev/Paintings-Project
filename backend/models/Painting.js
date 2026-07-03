@@ -25,6 +25,13 @@ const paintingSchema = new mongoose.Schema(
     imageUrls: [String],
     tags: [String],
 
+    categories: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Category",
+      },
+    ],
+
     relatedPaintings: [relatedPaintingSchema],
   },
   { timestamps: true }

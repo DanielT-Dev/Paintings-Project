@@ -6,18 +6,26 @@ const path = require("path");
 const logger = require("./utils/logger");
 const requestLogger = require("./middleware/requestLogger");
 const connectDB = require("./db/connect");
+
 const paintingRoutes = require("./routes/paintingRoutes");
+const categoryRoutes = require("./routes/categoryRoutes");
 
 dotenv.config();
 
 const app = express();
 
+// -----------------------------------------------------------------------------
 // Middleware
+// -----------------------------------------------------------------------------
+
 app.use(cors());
 app.use(express.json());
 app.use(requestLogger);
 
+// -----------------------------------------------------------------------------
 // Static images
+// -----------------------------------------------------------------------------
+
 app.use(
   "/paintings",
   express.static(
@@ -25,8 +33,12 @@ app.use(
   )
 );
 
-// Routes
+// -----------------------------------------------------------------------------
+// API Routes
+// -----------------------------------------------------------------------------
+
 app.use("/api/paintings", paintingRoutes);
+app.use("/api/categories", categoryRoutes);
 
 app.use(express.static(path.join(__dirname)));
 

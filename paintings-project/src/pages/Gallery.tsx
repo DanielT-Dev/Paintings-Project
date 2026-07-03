@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import {
     Box,
     Container,
@@ -15,67 +15,28 @@ import { SearchIcon } from "@chakra-ui/icons";
 import { motion } from "framer-motion";
 import Navbar from "../components/Navbar";
 import { useNavigate } from "react-router-dom";
-import { getPaintings } from "../api/paintings";
+import { useGalleryData } from "../hooks/useGalleryData";
 
 const MotionBox = motion.create(Box);
-
-type Painting = {
-    _id?: string;
-    title: string;
-    artist: string;
-    imageUrls?: string[];
-    tags?: string[];
-};
 
 export default function Gallery() {
     const navigate = useNavigate();
 
-    const [paintings, setPaintings] = useState<Painting[]>([]);
-    const [activeFilter, setActiveFilter] = useState("All");
+    const [activeFilter, setActiveFilter] = useState("all");
 
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState("");
-
-    // -------------------------------------------------------------------------
-    // LOAD PAINTINGS (NOW BACKEND FILTERED)
-    // -------------------------------------------------------------------------
-
-    useEffect(() => {
-        const loadPaintings = async () => {
-            try {
-                setLoading(true);
-
-                const category =
-                    activeFilter === "All"
-                        ? undefined
-                        : activeFilter.toLowerCase();
-
-                const data = await getPaintings(category);
-
-                console.log("PAINTINGS FROM API:", data);
-                setPaintings(data);
-            } catch (err) {
-                setError("Failed to load paintings");
-            } finally {
-                setLoading(false);
-            }
-        };
-
-        loadPaintings();
-    }, [activeFilter]);
-
-    // -------------------------------------------------------------------------
-    // FILTERS (NOW JUST UI STATE, NOT DATA FILTERING)
-    // -------------------------------------------------------------------------
+    const {
+        paintings,
+        categories,
+        loading,
+        error,
+    } = useGalleryData(activeFilter);
 
     const filters = [
-        "All",
-        "Neoclassicism",
-        "Romanticism",
-        "Symbolism",
-        "Realism",
-        "Religion",
-        "History",
+        { name: "All", slug: "all" },
+        ...categories.map((c) => ({
+            name: c.name,
+            slug: c.slug,
+        })),
     ];
 
     if (loading) {
@@ -117,7 +78,7 @@ export default function Gallery() {
                             Explore timeless masterpieces from artists around the world.
                         </Text>
 
-                        <InputGroup maxW="650px" mt={6}>
+                        <InputGroup maxW="650px">
                             <InputLeftElement pointerEvents="none">
                                 <SearchIcon color="gray.500" />
                             </InputLeftElement>
@@ -149,20 +110,25 @@ export default function Gallery() {
                             justifyContent="center"
                         >
                             {filters.map((filter) => {
-                                const isActive = activeFilter === filter;
+                                const isActive = activeFilter === filter.slug;
 
                                 return (
                                     <Box
-                                        key={filter}
+                                        key={filter.slug}
                                         px={5}
                                         py={2}
                                         borderRadius="full"
                                         cursor="pointer"
+                                        transition="all 0.25s ease"
                                         bg={isActive ? "black" : "transparent"}
                                         color={isActive ? "white" : "black"}
-                                        onClick={() => setActiveFilter(filter)}
+                                        _hover={{
+                                            transform: "translateY(-1px)",
+                                            bg: isActive ? "black" : "gray.100",
+                                        }}
+                                        onClick={() => setActiveFilter(filter.slug)}
                                     >
-                                        {filter}
+                                        {filter.name}
                                     </Box>
                                 );
                             })}
@@ -195,13 +161,17 @@ export default function Gallery() {
                                     role="group"
                                     cursor="pointer"
                                     onClick={() =>
-                                        navigate(`/painting/${painting._id ?? index}`)
+                                        navigate(`/painting/${painting._id}`)
                                     }
                                     borderRadius="2xl"
                                     overflow="hidden"
                                     bg="white"
                                     boxShadow="lg"
-                                    position="relative"
+                                    transition="all 0.3s ease"
+                                    _hover={{
+                                        transform: "translateY(-6px)",
+                                        boxShadow: "xl",
+                                    }}
                                 >
                                     {/* IMAGE */}
                                     <Box position="relative" overflow="hidden">
@@ -213,17 +183,19 @@ export default function Gallery() {
                                             objectFit="cover"
                                             transition="all 0.5s ease"
                                             _groupHover={{
-                                                transform: "scale(1.06)",
-                                                filter: "brightness(0.85)",
+                                                transform: "scale(1.08)",
+                                                filter: "brightness(0.8)",
                                             }}
                                         />
 
+                                        {/* OVERLAY */}
                                         <Box
                                             position="absolute"
                                             bottom={0}
                                             left={0}
                                             right={0}
                                             opacity={0}
+                                            transition="all 0.3s ease"
                                             _groupHover={{ opacity: 1 }}
                                             bg="linear-gradient(to top, rgba(0,0,0,0.75), transparent)"
                                             height="40%"

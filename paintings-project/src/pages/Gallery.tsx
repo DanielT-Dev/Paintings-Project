@@ -19,26 +19,19 @@ import { useGalleryData } from "../hooks/useGalleryData";
 
 const MotionBox = motion.create(Box);
 
-// -----------------------------------------------------------------------------
-// Debounce hook
-// -----------------------------------------------------------------------------
+// debounce
 function useDebounce(value: string, delay = 300) {
     const [debouncedValue, setDebouncedValue] = useState(value);
 
     useEffect(() => {
-        const handler = setTimeout(() => {
-            setDebouncedValue(value);
-        }, delay);
-
+        const handler = setTimeout(() => setDebouncedValue(value), delay);
         return () => clearTimeout(handler);
     }, [value, delay]);
 
     return debouncedValue;
 }
 
-// -----------------------------------------------------------------------------
-// FIXED highlight (no regex mutation bug)
-// -----------------------------------------------------------------------------
+// highlight
 function highlightText(text: string, query: string) {
     if (!query) return text;
 
@@ -63,23 +56,34 @@ export default function Gallery() {
 
     const debouncedSearch = useDebounce(search, 350);
 
-    // 🔥 IMPORTANT: prevent unnecessary rerenders feeling like reload
     const stableSearch = useMemo(() => debouncedSearch, [debouncedSearch]);
 
-    const {
-        paintings,
-        categories,
-        loading,
-        error,
-    } = useGalleryData(activeFilter, stableSearch);
+    const { paintings, categories, loading, error } =
+        useGalleryData(activeFilter, stableSearch);
 
-    const filters = useMemo(() => [
-        { name: "All", slug: "all" },
-        ...categories.map((c) => ({
-            name: c.name,
-            slug: c.slug,
-        })),
-    ], [categories]);
+    const filters = useMemo(
+        () => [
+            { name: "All", slug: "all" },
+            ...categories.map((c) => ({
+                name: c.name,
+                slug: c.slug,
+            })),
+        ],
+        [categories]
+    );
+
+    const filteredPaintings = useMemo(() => {
+        if (!stableSearch) return paintings;
+
+        const q = stableSearch.toLowerCase().trim();
+
+        return paintings.filter((p) => {
+            return (
+                p.title?.toLowerCase().includes(q) ||
+                p.artist?.toLowerCase().includes(q)
+            );
+        });
+    }, [paintings, stableSearch]);
 
     if (loading) {
         return (
@@ -107,20 +111,29 @@ export default function Gallery() {
         <>
             <Navbar />
 
-            <Box bg="#fafafa" minH="100vh" pt="120px" pb={20}>
-                <Container maxW="1400px">
+            <Box bg="#fafafa" minH="100vh" pt={{ base: "90px", md: "120px" }} pb={20}>
+                <Container maxW="1400px" px={{ base: 4, md: 8 }}>
 
                     {/* HEADER */}
-                    <VStack spacing={4} mb={10}>
-                        <Heading fontSize={{ base: "3xl", md: "5xl" }}>
+                    <VStack spacing={4} mb={{ base: 6, md: 10 }}>
+                        <Heading fontSize={{ base: "2xl", md: "5xl" }}>
                             Gallery
                         </Heading>
 
-                        <Text color="gray.600" textAlign="center" maxW="600px">
+                        <Text
+                            color="gray.600"
+                            textAlign="center"
+                            maxW="600px"
+                            fontSize={{ base: "sm", md: "md" }}
+                        >
                             Explore timeless masterpieces from artists around the world.
                         </Text>
 
-                        <InputGroup maxW="650px">
+                        {/* SEARCH */}
+                        <InputGroup
+                            maxW="650px"
+                            w="100%"
+                        >
                             <InputLeftElement pointerEvents="none">
                                 <SearchIcon color="gray.500" />
                             </InputLeftElement>
@@ -134,39 +147,42 @@ export default function Gallery() {
                                 border="1px solid"
                                 borderColor="blackAlpha.100"
                                 borderRadius="full"
-                                autoComplete="off"
-                                spellCheck={false}
+                                fontSize={{ base: "sm", md: "md" }}
                                 _focus={{
                                     borderColor: "blackAlpha.300",
-                                    boxShadow: "0 0 0 1px rgba(0,0,0,0.1)",
+                                    boxShadow:
+                                        "0 0 0 1px rgba(0,0,0,0.1)",
                                 }}
                             />
                         </InputGroup>
                     </VStack>
 
-                    {/* FILTERS (UNCHANGED STYLE) */}
-                    <Box mb={12} display="flex" justifyContent="center">
+                    {/* FILTERS */}
+                    <Box mb={10} display="flex" justifyContent="center">
                         <Box
-                            px={6}
-                            py={4}
+                            px={{ base: 3, md: 6 }}
+                            py={{ base: 2, md: 4 }}
                             borderRadius="full"
                             bg="rgba(255,255,255,0.6)"
                             backdropFilter="blur(18px)"
                             border="1px solid rgba(0,0,0,0.06)"
                             boxShadow="0 10px 30px rgba(0,0,0,0.05)"
                             display="flex"
-                            gap={3}
+                            gap={2}
                             flexWrap="wrap"
                             justifyContent="center"
+                            maxW="100%"
                         >
                             {filters.map((filter) => {
-                                const isActive = activeFilter === filter.slug;
+                                const isActive =
+                                    activeFilter === filter.slug;
 
                                 return (
                                     <Box
                                         key={filter.slug}
-                                        px={5}
-                                        py={2}
+                                        px={{ base: 3, md: 5 }}
+                                        py={{ base: 1, md: 2 }}
+                                        fontSize={{ base: "xs", md: "sm" }}
                                         borderRadius="full"
                                         cursor="pointer"
                                         transition="all 0.25s ease"
@@ -174,9 +190,13 @@ export default function Gallery() {
                                         color={isActive ? "white" : "black"}
                                         _hover={{
                                             transform: "translateY(-1px)",
-                                            bg: isActive ? "black" : "gray.100",
+                                            bg: isActive
+                                                ? "black"
+                                                : "gray.100",
                                         }}
-                                        onClick={() => setActiveFilter(filter.slug)}
+                                        onClick={() =>
+                                            setActiveFilter(filter.slug)
+                                        }
                                     >
                                         {filter.name}
                                     </Box>
@@ -185,19 +205,17 @@ export default function Gallery() {
                         </Box>
                     </Box>
 
-                    {/* GRID (NO RELOAD FEEL FIX) */}
+                    {/* GRID */}
                     <Grid
                         templateColumns={{
                             base: "1fr",
                             sm: "repeat(2,1fr)",
-                            lg: "repeat(3,1fr)",
-                            xl: "repeat(4,1fr)",
+                            md: "repeat(3,1fr)",
+                            lg: "repeat(4,1fr)",
                         }}
-                        gap={8}
-                        transition="opacity 0.25s ease, transform 0.25s ease"
-                        opacity={0.95}
+                        gap={{ base: 4, md: 8 }}
                     >
-                        {paintings.map((painting, index) => (
+                        {filteredPaintings.map((painting, index) => (
                             <MotionBox
                                 key={painting._id}
                                 initial={{ opacity: 0, y: 40 }}
@@ -225,12 +243,15 @@ export default function Gallery() {
                                         boxShadow: "2xl",
                                     }}
                                 >
-                                    {/* IMAGE (UNCHANGED STYLE) */}
+                                    {/* IMAGE */}
                                     <Box position="relative" overflow="hidden">
                                         <Image
                                             src={painting.imageUrls?.[0]}
                                             fallbackSrc="https://via.placeholder.com/400"
-                                            h={`${300 + (index % 5) * 40}px`}
+                                            h={{
+                                                base: "200px",
+                                                md: `${300 + (index % 5) * 40}px`,
+                                            }}
                                             w="100%"
                                             objectFit="cover"
                                             transition="all 0.6s ease"
@@ -255,20 +276,36 @@ export default function Gallery() {
                                             justifyContent="center"
                                             pb={6}
                                         >
-                                            <Text color="white" fontWeight="500">
+                                            <Text
+                                                color="white"
+                                                fontWeight="500"
+                                                fontSize={{ base: "sm", md: "md" }}
+                                            >
                                                 View Painting →
                                             </Text>
                                         </Box>
                                     </Box>
 
                                     {/* INFO */}
-                                    <Box p={4}>
-                                        <Text fontWeight="600">
-                                            {highlightText(painting.title, stableSearch)}
+                                    <Box p={{ base: 3, md: 4 }}>
+                                        <Text
+                                            fontWeight="600"
+                                            fontSize={{ base: "sm", md: "md" }}
+                                        >
+                                            {highlightText(
+                                                painting.title,
+                                                stableSearch
+                                            )}
                                         </Text>
 
-                                        <Text fontSize="13px" color="gray.500">
-                                            {highlightText(painting.artist, stableSearch)}
+                                        <Text
+                                            fontSize={{ base: "12px", md: "13px" }}
+                                            color="gray.500"
+                                        >
+                                            {highlightText(
+                                                painting.artist,
+                                                stableSearch
+                                            )}
                                         </Text>
                                     </Box>
                                 </Box>

@@ -1398,3 +1398,59 @@ CastError: Cast to [ObjectId] failed for value "[\n' +
 [2026-07-03 16:35:37] INFO: Fetching paintings {}
 [2026-07-03 16:35:37] INFO: Paintings fetched successfully {"count":24}
 [2026-07-03 16:35:37] INFO: GET /api/paintings? [36m304[39m 156ms {"meta":{}}
+[2026-07-03 16:39:53] INFO: Connected to MongoDB
+[2026-07-03 16:39:53] INFO: Server running on http://localhost:5000
+[2026-07-14 23:03:05] INFO: Connected to MongoDB
+[2026-07-14 23:03:05] INFO: Server running on http://localhost:5000
+[2026-07-14 23:03:06] INFO: Fetching all categories
+[2026-07-14 23:03:06] INFO: Fetching paintings {}
+[2026-07-14 23:03:06] INFO: Categories fetched successfully {"count":7}
+[2026-07-14 23:03:06] INFO: GET /api/categories [36m304[39m 56ms {"meta":{}}
+[2026-07-14 23:03:06] INFO: Fetching all categories
+[2026-07-14 23:03:06] INFO: Categories fetched successfully {"count":7}
+[2026-07-14 23:03:06] INFO: GET /api/categories [36m304[39m 37ms {"meta":{}}
+[2026-07-14 23:03:06] INFO: Paintings fetched successfully {"count":24}
+[2026-07-14 23:03:06] INFO: GET /api/paintings? [36m304[39m 136ms {"meta":{}}
+[2026-07-14 23:03:06] INFO: Fetching paintings {}
+[2026-07-14 23:03:06] INFO: Paintings fetched successfully {"count":24}
+[2026-07-14 23:03:06] INFO: GET /api/paintings? [36m304[39m 89ms {"meta":{}}
+[2026-07-14 23:04:03] INFO: GET /graph.json [36m304[39m 1ms {"meta":{}}
+[2026-07-14 23:04:03] INFO: GET /graph.json [36m304[39m 1ms {"meta":{}}
+[2026-07-14 23:04:06] INFO: Fetching paintings {}
+[2026-07-14 23:04:06] INFO: Fetching all categories
+[2026-07-14 23:04:06] INFO: Categories fetched successfully {"count":7}
+[2026-07-14 23:04:06] INFO: GET /api/categories [36m304[39m 41ms {"meta":{}}
+[2026-07-14 23:04:06] INFO: Fetching all categories
+[2026-07-14 23:04:06] INFO: Categories fetched successfully {"count":7}
+[2026-07-14 23:04:06] INFO: GET /api/categories [36m304[39m 44ms {"meta":{}}
+[2026-07-14 23:04:06] INFO: Paintings fetched successfully {"count":24}
+[2026-07-14 23:04:06] INFO: GET /api/paintings? [36m304[39m 130ms {"meta":{}}
+[2026-07-14 23:04:06] INFO: Fetching paintings {}
+[2026-07-14 23:04:06] INFO: Paintings fetched successfully {"count":24}
+[2026-07-14 23:04:06] INFO: GET /api/paintings? [36m304[39m 77ms {"meta":{}}
+[2026-07-14 23:04:15] INFO: Fetching painting {"paintingId":"6a47ad925aa0fc40bd8c0948"}
+[2026-07-14 23:04:15] INFO: Painting fetched successfully {"paintingId":"6a47ad925aa0fc40bd8c0948","title":"The Death of Socrates","relatedCount":8}
+[2026-07-14 23:04:15] INFO: GET /api/paintings/6a47ad925aa0fc40bd8c0948 [32m200[39m 80ms {"meta":{}}
+[2026-07-14 23:04:15] INFO: Fetching painting {"paintingId":"6a47ad925aa0fc40bd8c0948"}
+[2026-07-14 23:04:15] INFO: Painting fetched successfully {"paintingId":"6a47ad925aa0fc40bd8c0948","title":"The Death of Socrates","relatedCount":8}
+[2026-07-14 23:04:15] INFO: GET /api/paintings/6a47ad925aa0fc40bd8c0948 [36m304[39m 101ms {"meta":{}}
+[2026-07-14 23:04:21] INFO: Fetching all categories
+[2026-07-14 23:04:21] INFO: Fetching paintings {}
+[2026-07-14 23:04:21] INFO: Categories fetched successfully {"count":7}
+[2026-07-14 23:04:21] INFO: GET /api/categories [36m304[39m 37ms {"meta":{}}
+[2026-07-14 23:04:21] INFO: Fetching all categories
+[2026-07-14 23:04:21] INFO: Categories fetched successfully {"count":7}
+[2026-07-14 23:04:21] INFO: GET /api/categories [36m304[39m 69ms {"meta":{}}
+[2026-07-14 23:04:21] INFO: Paintings fetched successfully {"count":24}
+[2026-07-14 23:04:21] INFO: GET /api/paintings? [36m304[39m 163ms {"meta":{}}
+[2026-07-14 23:04:21] INFO: Fetching paintings {}
+[2026-07-14 23:04:21] INFO: Paintings fetched successfully {"count":24}
+[2026-07-14 23:04:21] INFO: GET /api/paintings? [36m304[39m 121ms {"meta":{}}
+[2026-07-14 23:06:54] INFO: Connected to MongoDB
+[2026-07-14 23:06:54] INFO: Server running on http://localhost:5000
+[2026-07-14 23:06:59] INFO: Connected to MongoDB
+[2026-07-14 23:06:59] INFO: Server running on http://localhost:5000
+[2026-07-14 23:07:10] INFO: Connected to MongoDB
+[2026-07-14 23:07:10] INFO: Server running on http://localhost:5000
+[2026-07-14 23:08:26] INFO: Connected to MongoDB
+[2026-07-14 23:08:26] INFO: Server running on http://localhost:5000

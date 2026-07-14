@@ -297,11 +297,11 @@ The token is returned to the frontend and stored locally. It is later used to id
 
   <img 
     src="https://raw.githubusercontent.com/DanielT-Dev/Paintings-Project/main/paintings-project/public/auth1.png" 
-    width="500" 
+    width="47%" 
     height="500"
   /><img 
     src="https://raw.githubusercontent.com/DanielT-Dev/Paintings-Project/main/paintings-project/public/auth2.png" 
-    width="500" 
+    width="47%" 
     height="500"
   />
 

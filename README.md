@@ -22,6 +22,7 @@ The collection is stored securely in the cloud, so you can access it anytime. Th
 | **Build Tools** | ![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white) ![NPM](https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white) |
 | **Backend** | ![Node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white) ![Express](https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express&logoColor=white) ![Nodemon](https://img.shields.io/badge/Nodemon-76D04B?style=for-the-badge&logo=nodemon&logoColor=white) |
 | **Database** | ![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white) |
+| **Security** | ![Bcrypt](https://img.shields.io/badge/Bcrypt-003A70?style=for-the-badge&logo=letsencrypt&logoColor=white) |
 | **Logging** | ![Winston](https://img.shields.io/badge/Winston-6C2BD9?style=for-the-badge&logo=winston&logoColor=white) |
 
 ## Database Connection (MongoDB + Mongoose)
@@ -211,3 +212,115 @@ const getPaintingById = async (req, res) => {
 - Controllers handle API logic
 - populate() is used to resolve relationships
 - Data is flattened before sending to the frontend for simplicity
+
+# Authentication System
+
+Users can create accounts and securely log in. Passwords are never stored directly in the database. Instead, they are encrypted using **bcrypt hashing** before being saved.
+
+After a successful login, the backend generates a **JWT (JSON Web Token)** which is stored on the client and used to maintain the user's authenticated session.
+
+## User Entity
+
+The `User` model stores account information and user preferences:
+
+```js
+const userSchema = new mongoose.Schema({
+    username: {
+        type: String,
+        required: true,
+        unique: true,
+    },
+
+    email: {
+        type: String,
+        required: true,
+        unique: true,
+    },
+
+    password: {
+        type: String,
+        required: true,
+    },
+
+    favoritePaintings: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Painting",
+        },
+    ],
+});
+```
+
+## Password Security
+
+During registration, passwords are hashed using bcrypt before being stored in MongoDB:
+
+```js
+const hashedPassword = await bcrypt.hash(
+    password,
+    10
+);
+
+const user = await User.create({
+    username,
+    email,
+    password: hashedPassword,
+});
+```
+During login, bcrypt compares the entered password with the stored encrypted password:
+```js
+const passwordMatch = await bcrypt.compare(
+    password,
+    user.password
+);
+```
+
+## JWT Authentication
+After successful authentication, the backend generates a JWT token:
+
+```js
+const token = jwt.sign(
+    {
+        id: user._id,
+        username: user.username,
+        email: user.email,
+    },
+    process.env.JWT_SECRET,
+    {
+        expiresIn: "7d",
+    }
+);
+```
+The token is returned to the frontend and stored locally. It is later used to identify the authenticated user.
+
+## Validation
+
+  <img 
+    src="https://raw.githubusercontent.com/DanielT-Dev/Paintings-Project/main/paintings-project/public/auth1.png" 
+    width="500" 
+    height="500"
+  /><img 
+    src="https://raw.githubusercontent.com/DanielT-Dev/Paintings-Project/main/paintings-project/public/auth2.png" 
+    width="500" 
+    height="500"
+  />
+
+The authentication pages provide a modern user experience with:
+
+* Username, email, password, and confirm password fields
+* Password strength indicator
+* Real-time password matching feedback
+* Client-side validation
+* Loading animations after successful actions
+* Error messages for invalid input
+* Automatic navigation after login/signup
+
+Password validation checks include:
+
+* Minimum password length
+* Uppercase letters
+* Lowercase letters
+* Numbers
+* Special characters
+
+The signup form prevents weak passwords from being submitted and gives immediate feedback while the user is typing.

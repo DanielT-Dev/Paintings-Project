@@ -25,6 +25,7 @@ const getUsers = async (req, res) => {
     }
 };
 
+
 // GET single user
 const getUserById = async (req, res) => {
     try {
@@ -51,6 +52,7 @@ const getUserById = async (req, res) => {
         });
 
         res.json(user);
+
     } catch (err) {
         logger.error("Failed to fetch user", {
             userId: req.params.id,
@@ -63,7 +65,81 @@ const getUserById = async (req, res) => {
     }
 };
 
+
+// CREATE user
+const createUser = async (req, res) => {
+    try {
+        const {
+            username,
+            email,
+            password,
+        } = req.body;
+
+
+        logger.info("Creating user", {
+            username,
+            email,
+        });
+
+
+        if (!username || !email || !password) {
+            logger.warn("Missing required user fields");
+
+            return res.status(400).json({
+                message: "Username, email and password are required",
+            });
+        }
+
+
+        const existingUser = await User.findOne({
+            $or: [
+                { username },
+                { email },
+            ],
+        });
+
+
+        if (existingUser) {
+            logger.warn("User already exists", {
+                username,
+                email,
+            });
+
+            return res.status(409).json({
+                message: "Username or email already exists",
+            });
+        }
+
+
+        const user = await User.create({
+            username,
+            email,
+            password,
+        });
+
+
+        logger.info("User created successfully", {
+            userId: user._id,
+            username: user.username,
+        });
+
+
+        res.status(201).json(user);
+
+    } catch (err) {
+        logger.error("Failed to create user", {
+            error: err,
+        });
+
+        res.status(500).json({
+            message: "Server error",
+        });
+    }
+};
+
+
 module.exports = {
     getUsers,
     getUserById,
+    createUser,
 };

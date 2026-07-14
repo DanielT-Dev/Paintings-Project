@@ -80,3 +80,6 @@ CastError: Cast to [ObjectId] failed for value "[\n' +
     at maybeTracedQueryExec (C:\Users\danie\Desktop\My Portfolio\Paintings-Project\Paintings-Project\backend\node_modules\mongoose\lib\query.js:4801:83)
     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
     at async buildRelationships (C:\Users\danie\Desktop\My Portfolio\Paintings-Project\Paintings-Project\backend\scripts\buildRelationships.js:81:5)
+[2026-07-14 23:34:34] ERROR: Login failed {"error":{}}
+[2026-07-14 23:34:36] ERROR: Login failed {"error":{}}
+[2026-07-14 23:35:42] ERROR: Login failed {"error":{}}

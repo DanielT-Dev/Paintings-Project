@@ -5,6 +5,7 @@ import {
   VStack,
   Heading,
   Text,
+  Spinner,
   useToast,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
@@ -13,9 +14,11 @@ import { useState } from "react";
 import { createUser } from "../api/users";
 import PasswordStrength from "../components/PasswordStrength";
 import { evaluatePassword } from "../utils/passwordStrength";
-
+import { useNavigate } from "react-router-dom";
 
 export default function SignUp() {
+  const navigate = useNavigate();
+
   const toast = useToast();
 
   const [username, setUsername] = useState("");
@@ -31,7 +34,8 @@ export default function SignUp() {
   const [loading, setLoading] =
     useState(false);
 
-
+  const [creatingAccount, setCreatingAccount] =
+    useState(false);
 
   const passwordStrength =
     evaluatePassword(password);
@@ -123,14 +127,17 @@ export default function SignUp() {
         description:
           `Welcome ${user.username}!`,
         status: "success",
-        duration: 3000,
+        duration: 2000,
         isClosable: true,
       });
 
 
+      setCreatingAccount(true);
 
-      reset();
 
+      setTimeout(() => {
+        navigate("/login");
+      }, 1500);
 
     } catch (err: any) {
 
@@ -207,249 +214,286 @@ export default function SignUp() {
         boxShadow="0 20px 60px rgba(0,0,0,0.12)"
       >
 
-
         <VStack
           spacing={5}
           align="stretch"
         >
 
+          {
+            creatingAccount ? (
 
-          <Heading
-            textAlign="center"
-            fontSize="3xl"
-            color="gray.800"
-            fontWeight="700"
-          >
-            Create Account
-          </Heading>
-
-
-          <Text
-            textAlign="center"
-            color="gray.500"
-            fontSize="sm"
-          >
-            Join the digital museum experience
-          </Text>
-
-
-
-
-
-          {/* Username */}
-
-          <Box>
-
-            <Input
-              placeholder="Username"
-              value={username}
-              onChange={(e) =>
-                setUsername(e.target.value)
-              }
-              bg="white"
-              borderRadius="xl"
-              height="48px"
-            />
-
-
-            {errors.username && (
-
-              <Text
-                mt={1}
-                fontSize="sm"
-                color="red.500"
+              <VStack
+                spacing={5}
+                py={8}
               >
-                {errors.username}
-              </Text>
 
-            )}
-
-          </Box>
-
-
-
+                <Spinner
+                  size="xl"
+                  thickness="4px"
+                  speed="0.8s"
+                  color="purple.500"
+                />
 
 
-          {/* Email */}
-
-          <Box>
-
-            <Input
-              placeholder="Email"
-              type="email"
-              value={email}
-              onChange={(e) =>
-                setEmail(e.target.value)
-              }
-              bg="white"
-              borderRadius="xl"
-              height="48px"
-            />
+                <Heading
+                  textAlign="center"
+                  fontSize="2xl"
+                  color="gray.800"
+                >
+                  Account created!
+                </Heading>
 
 
-            {errors.email && (
+                <Text
+                  textAlign="center"
+                  color="gray.500"
+                >
+                  Redirecting you to login...
+                </Text>
 
-              <Text
-                mt={1}
-                fontSize="sm"
-                color="red.500"
-              >
-                {errors.email}
-              </Text>
+              </VStack>
 
-            )}
+            ) : (
 
-          </Box>
-
-
-
-
-
-          {/* Password */}
-
-          <Box>
-
-            <Input
-              placeholder="Password"
-              type="password"
-              value={password}
-              onChange={(e) =>
-                setPassword(e.target.value)
-              }
-              bg="white"
-              borderRadius="xl"
-              height="48px"
-            />
+              <>
+                <Heading
+                  textAlign="center"
+                  fontSize="3xl"
+                  color="gray.800"
+                  fontWeight="700"
+                >
+                  Create Account
+                </Heading>
 
 
-            <PasswordStrength
-              password={password}
-            />
-
-
-            {errors.password && (
-
-              <Text
-                mt={1}
-                fontSize="sm"
-                color="red.500"
-              >
-                {errors.password}
-              </Text>
-
-            )}
-
-          </Box>
+                <Text
+                  textAlign="center"
+                  color="gray.500"
+                  fontSize="sm"
+                >
+                  Join the digital museum experience
+                </Text>
 
 
 
 
 
-          {/* Confirm password */}
+                {/* Username */}
 
-          <Box>
+                <Box>
 
-            <Input
-              placeholder="Confirm Password"
-              type="password"
-              value={confirmPassword}
-              onChange={(e) =>
-                setConfirmPassword(
-                  e.target.value
-                )
-              }
-              bg="white"
-              borderRadius="xl"
-              height="48px"
-            />
+                  <Input
+                    placeholder="Username"
+                    value={username}
+                    onChange={(e) =>
+                      setUsername(e.target.value)
+                    }
+                    bg="white"
+                    borderRadius="xl"
+                    height="48px"
+                  />
 
 
-            {confirmPassword && (
+                  {errors.username && (
 
-              <Text
-                mt={2}
-                fontSize="sm"
-                color={
-                  passwordsMatch
-                    ? "green.500"
-                    : "red.500"
-                }
-              >
-                {
-                  passwordsMatch
-                    ? "✓ Passwords match"
-                    : "✕ Passwords do not match"
-                }
-              </Text>
+                    <Text
+                      mt={1}
+                      fontSize="sm"
+                      color="red.500"
+                    >
+                      {errors.username}
+                    </Text>
 
-            )}
+                  )}
 
-
-            {errors.confirmPassword && (
-
-              <Text
-                mt={1}
-                fontSize="sm"
-                color="red.500"
-              >
-                {errors.confirmPassword}
-              </Text>
-
-            )}
-
-          </Box>
+                </Box>
 
 
 
 
 
-          <Button
-            mt={2}
-            height="50px"
-            borderRadius="xl"
-            color="white"
-            bgGradient="linear(to-r, purple.500, blue.500)"
-            onClick={handleSignUp}
-            isLoading={loading}
-            transition="all .25s"
-            _hover={{
-              transform:
-                "translateY(-2px)",
-              boxShadow:
-                "0 15px 35px rgba(128,90,213,.35)",
-            }}
-          >
-            Create account
-          </Button>
+                {/* Email */}
+
+                <Box>
+
+                  <Input
+                    placeholder="Email"
+                    type="email"
+                    value={email}
+                    onChange={(e) =>
+                      setEmail(e.target.value)
+                    }
+                    bg="white"
+                    borderRadius="xl"
+                    height="48px"
+                  />
+
+
+                  {errors.email && (
+
+                    <Text
+                      mt={1}
+                      fontSize="sm"
+                      color="red.500"
+                    >
+                      {errors.email}
+                    </Text>
+
+                  )}
+
+                </Box>
 
 
 
 
-          <Text
-            textAlign="center"
-            fontSize="sm"
-            color="gray.500"
-          >
 
-            Already have an account?{" "}
+                {/* Password */}
 
-            <Link
-              to="/login"
-              style={{
-                color:"#805AD5",
-                fontWeight:"600",
-              }}
-            >
-              Login
-            </Link>
+                <Box>
 
-          </Text>
+                  <Input
+                    placeholder="Password"
+                    type="password"
+                    value={password}
+                    onChange={(e) =>
+                      setPassword(e.target.value)
+                    }
+                    bg="white"
+                    borderRadius="xl"
+                    height="48px"
+                  />
 
 
+                  <PasswordStrength
+                    password={password}
+                  />
+
+
+                  {errors.password && (
+
+                    <Text
+                      mt={1}
+                      fontSize="sm"
+                      color="red.500"
+                    >
+                      {errors.password}
+                    </Text>
+
+                  )}
+
+                </Box>
+
+
+
+
+
+                {/* Confirm password */}
+
+                <Box>
+
+                  <Input
+                    placeholder="Confirm Password"
+                    type="password"
+                    value={confirmPassword}
+                    onChange={(e) =>
+                      setConfirmPassword(
+                        e.target.value
+                      )
+                    }
+                    bg="white"
+                    borderRadius="xl"
+                    height="48px"
+                  />
+
+
+                  {confirmPassword && (
+
+                    <Text
+                      mt={2}
+                      fontSize="sm"
+                      color={
+                        passwordsMatch
+                          ? "green.500"
+                          : "red.500"
+                      }
+                    >
+                      {
+                        passwordsMatch
+                          ? "✓ Passwords match"
+                          : "✕ Passwords do not match"
+                      }
+                    </Text>
+
+                  )}
+
+
+                  {errors.confirmPassword && (
+
+                    <Text
+                      mt={1}
+                      fontSize="sm"
+                      color="red.500"
+                    >
+                      {errors.confirmPassword}
+                    </Text>
+
+                  )}
+
+                </Box>
+
+
+
+
+
+                <Button
+                  mt={2}
+                  height="50px"
+                  borderRadius="xl"
+                  color="white"
+                  bgGradient="linear(to-r, purple.500, blue.500)"
+                  onClick={handleSignUp}
+                  isLoading={loading}
+                  transition="all .25s"
+                  _hover={{
+                    transform:
+                      "translateY(-2px)",
+                    boxShadow:
+                      "0 15px 35px rgba(128,90,213,.35)",
+                  }}
+                >
+                  Create account
+                </Button>
+
+
+
+
+                <Text
+                  textAlign="center"
+                  fontSize="sm"
+                  color="gray.500"
+                >
+
+                  Already have an account?{" "}
+
+                  <Link
+                    to="/login"
+                    style={{
+                      color: "#805AD5",
+                      fontWeight: "600",
+                    }}
+                  >
+                    Login
+                  </Link>
+
+                </Text>
+
+              </>
+
+            )
+
+          }
 
         </VStack>
-
-
       </Box>
 
 

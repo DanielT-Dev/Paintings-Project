@@ -1454,3 +1454,37 @@ CastError: Cast to [ObjectId] failed for value "[\n' +
 [2026-07-14 23:07:10] INFO: Server running on http://localhost:5000
 [2026-07-14 23:08:26] INFO: Connected to MongoDB
 [2026-07-14 23:08:26] INFO: Server running on http://localhost:5000
+[2026-07-14 23:19:48] INFO: Connected to MongoDB
+[2026-07-14 23:19:48] INFO: Server running on http://localhost:5000
+[2026-07-14 23:19:51] INFO: Fetching all categories
+[2026-07-14 23:19:51] INFO: Fetching paintings {}
+[2026-07-14 23:19:51] INFO: Categories fetched successfully {"count":7}
+[2026-07-14 23:19:51] INFO: GET /api/categories [36m304[39m 56ms {"meta":{}}
+[2026-07-14 23:19:51] INFO: Fetching all categories
+[2026-07-14 23:19:52] INFO: Categories fetched successfully {"count":7}
+[2026-07-14 23:19:52] INFO: GET /api/categories [36m304[39m 33ms {"meta":{}}
+[2026-07-14 23:19:52] INFO: Paintings fetched successfully {"count":24}
+[2026-07-14 23:19:52] INFO: GET /api/paintings? [36m304[39m 118ms {"meta":{}}
+[2026-07-14 23:19:52] INFO: Fetching paintings {}
+[2026-07-14 23:19:52] INFO: Paintings fetched successfully {"count":24}
+[2026-07-14 23:19:52] INFO: GET /api/paintings? [36m304[39m 64ms {"meta":{}}
+[2026-07-14 23:23:30] INFO: Creating user {"username":"Daniel","email":"daniel1@email.com"}
+[2026-07-14 23:23:30] INFO: User created successfully {"userId":"6a569ac233aaf864f8665944"}
+[2026-07-14 23:23:30] INFO: POST /api/users [32m201[39m 150ms {"meta":{}}
+[2026-07-14 23:23:51] INFO: Creating user {"username":"Daniel","email":"daniel2@email.com"}
+[2026-07-14 23:23:51] INFO: POST /api/users [33m409[39m 30ms {"meta":{}}
+[2026-07-14 23:24:09] INFO: Creating user {"username":"Marian","email":"marian1@email.com"}
+[2026-07-14 23:24:09] INFO: User created successfully {"userId":"6a569ae933aaf864f8665945"}
+[2026-07-14 23:24:09] INFO: POST /api/users [32m201[39m 152ms {"meta":{}}
+[2026-07-14 23:32:42] INFO: Creating user {"username":"Alex","email":"alex@email.com"}
+[2026-07-14 23:32:42] INFO: User created successfully {"userId":"6a569cea33aaf864f8665946"}
+[2026-07-14 23:32:42] INFO: POST /api/users [32m201[39m 154ms {"meta":{}}
+[2026-07-14 23:34:34] INFO: User login attempt {"email":"alex@email.com"}
+[2026-07-14 23:34:34] ERROR: Login failed {"error":{}}
+[2026-07-14 23:34:34] INFO: POST /api/users/login [31m500[39m 112ms {"meta":{}}
+[2026-07-14 23:34:36] INFO: User login attempt {"email":"alex@email.com"}
+[2026-07-14 23:34:36] ERROR: Login failed {"error":{}}
+[2026-07-14 23:34:36] INFO: POST /api/users/login [31m500[39m 116ms {"meta":{}}
+[2026-07-14 23:35:42] INFO: User login attempt {"email":"alex@email.com"}
+[2026-07-14 23:35:42] ERROR: Login failed {"error":{}}
+[2026-07-14 23:35:42] INFO: POST /api/users/login [31m500[39m 99ms {"meta":{}}

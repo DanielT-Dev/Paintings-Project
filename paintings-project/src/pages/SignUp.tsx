@@ -9,61 +9,106 @@ import {
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+
 import { createUser } from "../api/users";
+import PasswordStrength from "../components/PasswordStrength";
+import { evaluatePassword } from "../utils/passwordStrength";
+
 
 export default function SignUp() {
   const toast = useToast();
 
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
 
-  const [errors, setErrors] = useState<Record<string, string>>({});
-  const [loading, setLoading] = useState(false);
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] =
+    useState("");
+
+  const [errors, setErrors] =
+    useState<Record<string, string>>({});
+
+  const [loading, setLoading] =
+    useState(false);
+
+
+
+  const passwordStrength =
+    evaluatePassword(password);
+
+
+
+  const passwordsMatch =
+    password.length > 0 &&
+    confirmPassword.length > 0 &&
+    password === confirmPassword;
+
 
 
   const validateForm = () => {
     const newErrors: Record<string, string> = {};
 
+
     if (!username.trim()) {
-      newErrors.username = "Username is required";
+      newErrors.username =
+        "Username is required";
     }
+
 
     if (!email.trim()) {
-      newErrors.email = "Email is required";
+      newErrors.email =
+        "Email is required";
     }
 
-    if (!password.trim()) {
-      newErrors.password = "Password is required";
-    } else if (password.length < 6) {
+
+    if (!passwordStrength.isStrong) {
       newErrors.password =
-        "Password must contain at least 6 characters";
+        "Please choose a stronger password";
     }
+
+
+    if (!passwordsMatch) {
+      newErrors.confirmPassword =
+        "Passwords do not match";
+    }
+
 
     return newErrors;
   };
+
 
 
   const reset = () => {
     setUsername("");
     setEmail("");
     setPassword("");
+    setConfirmPassword("");
     setErrors({});
   };
 
 
+
   const handleSignUp = async () => {
-    const validationErrors = validateForm();
+
+    const validationErrors =
+      validateForm();
+
 
     setErrors(validationErrors);
 
-    if (Object.keys(validationErrors).length > 0) {
+
+    if (
+      Object.keys(validationErrors).length > 0
+    ) {
       return;
     }
 
 
+
     try {
+
       setLoading(true);
+
 
       const user = await createUser(
         username,
@@ -72,16 +117,20 @@ export default function SignUp() {
       );
 
 
+
       toast({
         title: "Account created",
-        description: `Welcome ${user.username}!`,
+        description:
+          `Welcome ${user.username}!`,
         status: "success",
         duration: 3000,
         isClosable: true,
       });
 
 
+
       reset();
+
 
     } catch (err: any) {
 
@@ -93,13 +142,18 @@ export default function SignUp() {
         isClosable: true,
       });
 
+
     } finally {
+
       setLoading(false);
+
     }
   };
 
 
+
   return (
+
     <Box
       minH="100vh"
       display="flex"
@@ -110,7 +164,9 @@ export default function SignUp() {
       bgGradient="linear(to-br, gray.50, purple.50, blue.50)"
     >
 
-      {/* Decorative background glow */}
+
+      {/* Background glow */}
+
       <Box
         position="absolute"
         width="450px"
@@ -121,6 +177,7 @@ export default function SignUp() {
         top="-150px"
         left="-100px"
       />
+
 
       <Box
         position="absolute"
@@ -135,7 +192,7 @@ export default function SignUp() {
 
 
 
-      {/* Main card */}
+
       <Box
         width={{
           base: "90%",
@@ -148,13 +205,14 @@ export default function SignUp() {
         border="1px solid"
         borderColor="gray.200"
         boxShadow="0 20px 60px rgba(0,0,0,0.12)"
-        position="relative"
       >
+
 
         <VStack
           spacing={5}
           align="stretch"
         >
+
 
           <Heading
             textAlign="center"
@@ -176,26 +234,26 @@ export default function SignUp() {
 
 
 
+
+
           {/* Username */}
+
           <Box>
+
             <Input
               placeholder="Username"
               value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              onChange={(e) =>
+                setUsername(e.target.value)
+              }
               bg="white"
-              borderColor="gray.200"
               borderRadius="xl"
               height="48px"
-              _hover={{
-                borderColor: "purple.300",
-              }}
-              _focus={{
-                borderColor: "purple.400",
-                boxShadow: "0 0 0 2px rgba(159,122,234,0.3)",
-              }}
             />
 
+
             {errors.username && (
+
               <Text
                 mt={1}
                 fontSize="sm"
@@ -203,32 +261,34 @@ export default function SignUp() {
               >
                 {errors.username}
               </Text>
+
             )}
+
           </Box>
 
 
 
+
+
           {/* Email */}
+
           <Box>
+
             <Input
               placeholder="Email"
               type="email"
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={(e) =>
+                setEmail(e.target.value)
+              }
               bg="white"
-              borderColor="gray.200"
               borderRadius="xl"
               height="48px"
-              _hover={{
-                borderColor: "purple.300",
-              }}
-              _focus={{
-                borderColor: "purple.400",
-                boxShadow: "0 0 0 2px rgba(159,122,234,0.3)",
-              }}
             />
 
+
             {errors.email && (
+
               <Text
                 mt={1}
                 fontSize="sm"
@@ -236,32 +296,39 @@ export default function SignUp() {
               >
                 {errors.email}
               </Text>
+
             )}
+
           </Box>
 
 
 
+
+
           {/* Password */}
+
           <Box>
+
             <Input
               placeholder="Password"
               type="password"
               value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={(e) =>
+                setPassword(e.target.value)
+              }
               bg="white"
-              borderColor="gray.200"
               borderRadius="xl"
               height="48px"
-              _hover={{
-                borderColor: "purple.300",
-              }}
-              _focus={{
-                borderColor: "purple.400",
-                boxShadow: "0 0 0 2px rgba(159,122,234,0.3)",
-              }}
             />
 
+
+            <PasswordStrength
+              password={password}
+            />
+
+
             {errors.password && (
+
               <Text
                 mt={1}
                 fontSize="sm"
@@ -269,30 +336,92 @@ export default function SignUp() {
               >
                 {errors.password}
               </Text>
+
             )}
+
           </Box>
 
 
 
+
+
+          {/* Confirm password */}
+
+          <Box>
+
+            <Input
+              placeholder="Confirm Password"
+              type="password"
+              value={confirmPassword}
+              onChange={(e) =>
+                setConfirmPassword(
+                  e.target.value
+                )
+              }
+              bg="white"
+              borderRadius="xl"
+              height="48px"
+            />
+
+
+            {confirmPassword && (
+
+              <Text
+                mt={2}
+                fontSize="sm"
+                color={
+                  passwordsMatch
+                    ? "green.500"
+                    : "red.500"
+                }
+              >
+                {
+                  passwordsMatch
+                    ? "✓ Passwords match"
+                    : "✕ Passwords do not match"
+                }
+              </Text>
+
+            )}
+
+
+            {errors.confirmPassword && (
+
+              <Text
+                mt={1}
+                fontSize="sm"
+                color="red.500"
+              >
+                {errors.confirmPassword}
+              </Text>
+
+            )}
+
+          </Box>
+
+
+
+
+
           <Button
-            mt={3}
+            mt={2}
             height="50px"
             borderRadius="xl"
             color="white"
             bgGradient="linear(to-r, purple.500, blue.500)"
             onClick={handleSignUp}
             isLoading={loading}
-            fontSize="md"
-            boxShadow="0 10px 25px rgba(128,90,213,0.25)"
-            transition="all 0.25s"
+            transition="all .25s"
             _hover={{
-              transform: "translateY(-2px)",
+              transform:
+                "translateY(-2px)",
               boxShadow:
-                "0 15px 35px rgba(128,90,213,0.35)",
+                "0 15px 35px rgba(128,90,213,.35)",
             }}
           >
             Create account
           </Button>
+
 
 
 
@@ -301,13 +430,14 @@ export default function SignUp() {
             fontSize="sm"
             color="gray.500"
           >
+
             Already have an account?{" "}
 
             <Link
               to="/login"
               style={{
-                color: "#805AD5",
-                fontWeight: "600",
+                color:"#805AD5",
+                fontWeight:"600",
               }}
             >
               Login
@@ -316,10 +446,14 @@ export default function SignUp() {
           </Text>
 
 
+
         </VStack>
+
 
       </Box>
 
+
     </Box>
+
   );
 }

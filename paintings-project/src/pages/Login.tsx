@@ -9,7 +9,8 @@ import {
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { useAuthForm } from "../hooks/useAuthForm";
-import { validateAuth } from "../utils/authValidation";
+import { validateLogin } from "../utils/loginValidation";
+import { loginUser } from "../api/users";
 
 export default function Login() {
   const toast = useToast();
@@ -26,39 +27,53 @@ export default function Login() {
     reset,
   } = useAuthForm();
 
+
   const handleLogin = async () => {
-    const result = validateAuth(email, password);
+    const result = validateLogin(email, password);
+    
     setErrors(result);
 
-    if (Object.keys(result).length > 0) return;
+    if (Object.keys(result).length > 0) {
+      return;
+    }
+
 
     try {
       setLoading(true);
 
-      const res = await fetch("http://localhost:5000/api/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email, password }),
-      });
 
-      const data = await res.json();
+      const data = await loginUser(
+        email,
+        password
+      );
 
-      if (!res.ok) {
-        throw new Error(data.message || "Login failed");
-      }
+
+      localStorage.setItem(
+        "token",
+        data.token
+      );
+
+
+      localStorage.setItem(
+        "user",
+        JSON.stringify(data.user)
+      );
+
 
       toast({
         title: "Login successful",
-        description: data.message,
+        description: `Welcome back ${data.user.username}!`,
         status: "success",
         duration: 3000,
         isClosable: true,
       });
 
+
       reset();
+
+
     } catch (err: any) {
+
       toast({
         title: "Login failed",
         description: err.message,
@@ -66,57 +81,204 @@ export default function Login() {
         duration: 3000,
         isClosable: true,
       });
+
+
     } finally {
       setLoading(false);
     }
   };
 
-  return (
-    <Box minH="100vh" display="flex" alignItems="center" justifyContent="center" bg="gray.50">
-      <Box w="sm" p={8} bg="white" borderRadius="lg" boxShadow="md">
-        <VStack spacing={3} align="stretch">
-          <Heading textAlign="center">Login</Heading>
 
+  return (
+    <Box
+      minH="100vh"
+      display="flex"
+      alignItems="center"
+      justifyContent="center"
+      position="relative"
+      overflow="hidden"
+      bgGradient="linear(to-br, gray.50, purple.50, blue.50)"
+    >
+
+      {/* Background glow effects */}
+      <Box
+        position="absolute"
+        width="450px"
+        height="450px"
+        bg="purple.200"
+        opacity={0.35}
+        filter="blur(120px)"
+        top="-150px"
+        left="-100px"
+      />
+
+      <Box
+        position="absolute"
+        width="400px"
+        height="400px"
+        bg="blue.200"
+        opacity={0.35}
+        filter="blur(120px)"
+        bottom="-150px"
+        right="-100px"
+      />
+
+
+
+      {/* Login card */}
+      <Box
+        width={{
+          base: "90%",
+          sm: "420px",
+        }}
+        p={10}
+        bg="rgba(255,255,255,0.75)"
+        backdropFilter="blur(20px)"
+        borderRadius="3xl"
+        border="1px solid"
+        borderColor="gray.200"
+        boxShadow="0 20px 60px rgba(0,0,0,0.12)"
+      >
+
+        <VStack
+          spacing={5}
+          align="stretch"
+        >
+
+          <Heading
+            textAlign="center"
+            fontSize="3xl"
+            color="gray.800"
+            fontWeight="700"
+          >
+            Welcome Back
+          </Heading>
+
+
+          <Text
+            textAlign="center"
+            color="gray.500"
+            fontSize="sm"
+          >
+            Continue your digital museum journey
+          </Text>
+
+
+
+          {/* Email */}
           <Box>
             <Input
               placeholder="Email"
+              type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              bg="white"
+              borderColor="gray.200"
+              borderRadius="xl"
+              height="48px"
+              _hover={{
+                borderColor: "purple.300",
+              }}
+              _focus={{
+                borderColor: "purple.400",
+                boxShadow:
+                  "0 0 0 2px rgba(159,122,234,0.3)",
+              }}
             />
+
             {errors.email && (
-              <Text fontSize="sm" color="red.500">
+              <Text
+                mt={1}
+                fontSize="sm"
+                color="red.500"
+              >
                 {errors.email}
               </Text>
             )}
           </Box>
 
+
+
+          {/* Password */}
           <Box>
             <Input
               placeholder="Password"
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              bg="white"
+              borderColor="gray.200"
+              borderRadius="xl"
+              height="48px"
+              _hover={{
+                borderColor: "purple.300",
+              }}
+              _focus={{
+                borderColor: "purple.400",
+                boxShadow:
+                  "0 0 0 2px rgba(159,122,234,0.3)",
+              }}
             />
+
             {errors.password && (
-              <Text fontSize="sm" color="red.500">
+              <Text
+                mt={1}
+                fontSize="sm"
+                color="red.500"
+              >
                 {errors.password}
               </Text>
             )}
           </Box>
 
+
+
           <Button
-            colorScheme="blue"
+            mt={3}
+            height="50px"
+            borderRadius="xl"
+            color="white"
+            bgGradient="linear(to-r, purple.500, blue.500)"
             onClick={handleLogin}
             isLoading={loading}
+            fontSize="md"
+            boxShadow="0 10px 25px rgba(128,90,213,0.25)"
+            transition="all 0.25s"
+            _hover={{
+              transform: "translateY(-2px)",
+              boxShadow:
+                "0 15px 35px rgba(128,90,213,0.35)",
+            }}
           >
             Login
           </Button>
 
-          <Text fontSize="sm" textAlign="center">
-            No account? <Link to="/signup">Sign up</Link>
+
+
+          <Text
+            textAlign="center"
+            fontSize="sm"
+            color="gray.500"
+          >
+            No account?{" "}
+
+            <Link
+              to="/signup"
+              style={{
+                color: "#805AD5",
+                fontWeight: "600",
+              }}
+            >
+              Sign up
+            </Link>
+
           </Text>
+
+
         </VStack>
+
       </Box>
+
     </Box>
   );
 }

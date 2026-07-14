@@ -4,21 +4,28 @@ const {
     getUsers,
     getUserById,
     createUser,
+    loginUser,
 } = require("../controllers/userController");
+
 
 const router = express.Router();
 
 
-// CREATE user
+// CREATE ACCOUNT
 router.post("/", createUser);
 
 
-// GET all users
+// LOGIN
+router.post("/login", loginUser);
+
+
+// GET USERS
 router.get("/", getUsers);
 
 
-// GET single user
+// GET USER
 router.get("/:id", getUserById);
+
 
 
 module.exports = router;

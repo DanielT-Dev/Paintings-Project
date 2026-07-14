@@ -1,5 +1,8 @@
 const User = require("../models/User");
+const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 const logger = require("../utils/logger");
+
 
 // GET all users
 const getUsers = async (req, res) => {
@@ -7,13 +10,17 @@ const getUsers = async (req, res) => {
         logger.info("Fetching users");
 
         const users = await User.find()
-            .populate("favoritePaintings");
+            .populate("favoritePaintings")
+            .select("-password");
+
 
         logger.info("Users fetched successfully", {
             count: users.length,
         });
 
+
         res.json(users);
+
     } catch (err) {
         logger.error("Failed to fetch users", {
             error: err,
@@ -26,6 +33,7 @@ const getUsers = async (req, res) => {
 };
 
 
+
 // GET single user
 const getUserById = async (req, res) => {
     try {
@@ -33,8 +41,11 @@ const getUserById = async (req, res) => {
             userId: req.params.id,
         });
 
+
         const user = await User.findById(req.params.id)
-            .populate("favoritePaintings");
+            .populate("favoritePaintings")
+            .select("-password");
+
 
         if (!user) {
             logger.warn("User not found", {
@@ -46,12 +57,15 @@ const getUserById = async (req, res) => {
             });
         }
 
+
         logger.info("User fetched successfully", {
             userId: user._id,
             username: user.username,
         });
 
+
         res.json(user);
+
 
     } catch (err) {
         logger.error("Failed to fetch user", {
@@ -64,6 +78,7 @@ const getUserById = async (req, res) => {
         });
     }
 };
+
 
 
 // CREATE user
@@ -83,12 +98,11 @@ const createUser = async (req, res) => {
 
 
         if (!username || !email || !password) {
-            logger.warn("Missing required user fields");
-
             return res.status(400).json({
                 message: "Username, email and password are required",
             });
         }
+
 
 
         const existingUser = await User.findOne({
@@ -99,37 +113,50 @@ const createUser = async (req, res) => {
         });
 
 
-        if (existingUser) {
-            logger.warn("User already exists", {
-                username,
-                email,
-            });
 
+        if (existingUser) {
             return res.status(409).json({
                 message: "Username or email already exists",
             });
         }
 
 
+
+        const hashedPassword = await bcrypt.hash(
+            password,
+            10
+        );
+
+
+
         const user = await User.create({
             username,
             email,
-            password,
+            password: hashedPassword,
         });
+
 
 
         logger.info("User created successfully", {
             userId: user._id,
-            username: user.username,
         });
 
 
-        res.status(201).json(user);
+
+        res.status(201).json({
+            id: user._id,
+            username: user.username,
+            email: user.email,
+        });
+
+
 
     } catch (err) {
+
         logger.error("Failed to create user", {
             error: err,
         });
+
 
         res.status(500).json({
             message: "Server error",
@@ -138,8 +165,114 @@ const createUser = async (req, res) => {
 };
 
 
+
+// LOGIN user
+const loginUser = async (req, res) => {
+    try {
+
+        const {
+            email,
+            password,
+        } = req.body;
+
+
+
+        logger.info("User login attempt", {
+            email,
+        });
+
+
+
+        const user = await User.findOne({
+            email,
+        });
+
+
+
+        if (!user) {
+            logger.warn("Login failed - user not found", {
+                email,
+            });
+
+
+            return res.status(401).json({
+                message: "Invalid email or password",
+            });
+        }
+
+
+
+        const passwordMatch = await bcrypt.compare(
+            password,
+            user.password
+        );
+
+
+
+        if (!passwordMatch) {
+
+            logger.warn("Login failed - incorrect password", {
+                email,
+            });
+
+
+            return res.status(401).json({
+                message: "Invalid email or password",
+            });
+        }
+
+
+
+        const token = jwt.sign(
+            {
+                id: user._id,
+                username: user.username,
+                email: user.email,
+            },
+            process.env.JWT_SECRET,
+            {
+                expiresIn: "7d",
+            }
+        );
+
+
+
+        logger.info("Login successful", {
+            userId: user._id,
+        });
+
+
+
+        res.json({
+            message: "Login successful",
+            token,
+            user: {
+                id: user._id,
+                username: user.username,
+                email: user.email,
+            },
+        });
+
+
+
+    } catch (err) {
+
+        logger.error("Login failed", {
+            error: err,
+        });
+
+
+        res.status(500).json({
+            message: "Server error",
+        });
+    }
+};
+
+
+
 module.exports = {
     getUsers,
     getUserById,
     createUser,
+    loginUser,
 };
